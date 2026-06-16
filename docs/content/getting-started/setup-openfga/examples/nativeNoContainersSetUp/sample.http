@@ -1,0 +1,12 @@
+### create a store
+# curl -X POST 'localhost:8080/stores'
+#  --header 'Content-Type: application/json'
+#  --data-raw '{"name": "openfga-demo"}'
+POST localhost:8080/stores
+Content-Type: application/json
+
+{
+  "name": "openfga-demo"
+}
+
+###
