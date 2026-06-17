@@ -15,10 +15,9 @@ description: 'OpenFGA tutorial and quickstart: install the server, configure an 
     * [configure the SDK client -- for -- your store](setup-sdk-client.md)
     * [configure an authorization model](configure-model.md)
     * [update relationship tuples](update-tuples.md)
-    * run permission checks
+    * [run permission checks](perform-check.md)
 
-TODO:       
-      { '@type': 'HowToStep', position: 4, name: 'Setup SDK Client for Store', text: '.', url: 'https://openfga.dev/docs/getting-started/setup-sdk-client' },
+TODO:
       
       
       { '@type': 'HowToStep', position: 7, name: 'Perform a Check', text: 'Programmatically perform an authorization check against an OpenFGA store.', url: 'https://openfga.dev/docs/getting-started/perform-check' },

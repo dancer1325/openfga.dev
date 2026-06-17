@@ -5,8 +5,7 @@ sidebar_position: 1
 slug: /authorization-concepts
 ---
 
-import Head from '@docusaurus/Head';
-import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs';
+TODO: 
 
 export const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -59,21 +58,9 @@ export const faqJsonLd = {
         '@type': 'Answer',
         text: 'Relationship-Based Access Control (ReBAC) makes access rules conditional on relationships between users and objects, and between objects themselves — "a user can view a document if they have access to its parent folder". ReBAC is a superset of RBAC and natively covers ABAC scenarios when attributes are expressed as relationships.',
       },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is Zanzibar?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Zanzibar is Google's global authorization system, used by Drive, YouTube, Calendar, and Cloud. It stores object-relation-user tuples and answers checks and reverse queries against the resulting graph. OpenFGA is an authorization service, similar to Zanzibar, and is open source and can be used with your data and services.",
-      },
-    },
+    }
   ],
 };
-
-<Head>
-  <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-</Head>
 
 # Authorization Concepts 
 
@@ -113,25 +100,4 @@ See [What is ReBAC?](./learn/rebac.mdx) for the full picture.
 
 ## What is Zanzibar?
 
-[Zanzibar](https://research.google/pubs/pub48190/) is Google's global authorization system, used by Drive, YouTube, Calendar, and Cloud. It stores object-relation-user tuples and answers checks and reverse queries against the resulting graph. <ProductName format={ProductNameFormat.ShortForm}/> implements the Zanzibar model on your existing databases.
-
-See [What is Zanzibar?](./learn/zanzibar.mdx) for what the paper introduced and how <ProductName format={ProductNameFormat.ShortForm}/> maps to it.
-
-<RelatedSection
-  description="Learn about {ProductName}."
-  relatedLinks={[
-    {
-      title: '{ProductName} Concepts',
-      description: 'Learn about the {ProductName} Concepts',
-      link: './concepts',
-      id: './concepts',
-    },    
-    {
-      title: 'Modeling: Getting Started',
-      description: 'Learn about how to get started with modeling your permission system in {ProductName}.',
-      link: './getting-started',
-      id: './getting-started',
-    }
-  ]}
-  />
-  
+* [here](learn/zanzibar.md)

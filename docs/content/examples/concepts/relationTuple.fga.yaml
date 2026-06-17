@@ -1,0 +1,17 @@
+# relationship tuple
+tuples:
+  - user: user:anne
+    relation: editor
+    object: document:new-roadmap
+
+# conditional relationship tuple
+tuples:
+  - user: user:anne
+    relation: editor
+    object: document:new-roadmap
+    condition: {
+      "name": "less_than_hundred",
+      "context": {
+        "x": 20
+      }
+    }
