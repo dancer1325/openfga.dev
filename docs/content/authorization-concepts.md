@@ -72,9 +72,13 @@ For example, when you log in to Google, Authentication is the process of verifyi
 
 ## What is Fine-Grained Authorization?
 
-Fine-Grained Authorization (FGA) means deciding access at the level of the individual resource and action — *"Alice can edit document-42"*, not just *"Alice is an editor"*. Well-designed FGA systems handle millions of objects and users with permissions that change rapidly, like Google Drive's per-document and per-folder sharing.
-
-See [Fine-Grained Authorization](./learn/fine-grained-authorization.mdx) for the full explanation.
+* Fine-Grained Authorization (FGA)
+  * allows
+    * deciding access | INDIVIDUAL resource & action
+      * _Example:_ "Alice can edit document-42"
+        * != "Alice is an editor"
+  * uses
+    * handle MILLIONS of objects & users / permissions change FAST
 
 ## What is Role-Based Access Control?
 
