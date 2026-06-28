@@ -377,11 +377,10 @@ For more information, see the [ListUsers API Reference](/api/service#Relationshi
       * ListObjects request
       * ListUsers request
       * Expand request
-    * ONLY exist |the context of that particular request and are not persisted in the datastore.
-
-</summary>
-
-Similar to [relationship tuples](#what-is-a-relationship-tuple), contextual tuples are composed of a user, relation and object. Unlike relationship tuples, they are not written to the store. However, if contextual tuples are sent alongside a check request in the context of a particular check request, they are treated if they had been written in the store.
+    * ONLY exist | particular request's context
+    * NOT persisted | datastore
+  * vs contextual tuples 
+    * == user, relation and object. Unlike relationship tuples, they are not written to the store. However, if contextual tuples are sent alongside a check request in the context of a particular check request, they are treated if they had been written in the store.
 
 <!-- markdown-link-check-disable -->
 
