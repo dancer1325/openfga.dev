@@ -367,7 +367,14 @@ For more information, see the [ListUsers API Reference](/api/service#Relationshi
 
 ## What Are Contextual Tuples?
 
-Contextual tuples are tuples that can be added to a Check request, a ListObjects request, a ListUsers request, or an Expand request. They only exist within the context of that particular request and are not persisted in the datastore.
+* contextual tuples
+  * == tuples /
+    * can be added | 
+      * Check request
+      * ListObjects request
+      * ListUsers request
+      * Expand request
+    * ONLY exist |the context of that particular request and are not persisted in the datastore.
 
 </summary>
 
