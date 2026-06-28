@@ -290,7 +290,10 @@ allows it with [direct relationship type restrictions](./configuration-language.
 
 ## What Is A Check Request?
 
-A **check request** is a call to the <ProductName format={ProductNameFormat.LongForm}/> check endpoint, returning whether the user has a certain relationship with an object.
+* **check request** 
+  * == call -- to the -- <ProductName format={ProductNameFormat.LongForm}/> check endpoint
+    * return whether the user has a certain relationship with an object
+    * | SDK,
 
 </summary>
 
