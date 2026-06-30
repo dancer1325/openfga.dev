@@ -20,8 +20,6 @@ hide_table_of_contents: false
 
 ## GoDaddy & OpenFGA
 
-GoDaddy has been working with OpenFGA for a few months. They just published a document explaining why they picked OpenFGA, and how they used to address the authorization challenges they were facing.
-
 Some interesting tidbits:
 
 - They implemented their own DynamoDB Storage Adapter, as they were heavy Dynamo DB users and liked the eventual consistency model it provided.
