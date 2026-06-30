@@ -11,21 +11,10 @@ hide_table_of_contents: false
 ---
 # Fine-Grained News
 
-Hi Everyone!
+## Behavior Driven Development -- with -- OpenFGA
 
-We've been publishing a monthly internal newsletter we called **Fine-Grained News** since the beginning on 2023, and we just thought it would be a good idea to share it with the community. Yeah, we are slow thinkers!
-
-You can expect to find here a summary of what we've been up to, what we are planning to do, and some other random stuff we think you might find interesting.
-
-## Team News
-
-We always start our Monthly Community Meetings presenting the team. If you attended the last one, you've seen that the size of the team has grown quite a bit! We are pretty excited about the impact it will have in OpenFGA and the authorization space in general. 
-
-## Behavior Driven Development with OpenFGA
-
-In our last Community Meeting, the [Agicap](https://agicap.com/en) team (Pauline and Yann) demoed how they are using OpenFGA to implement Behavior Driven Development (BDD) in their authorization system.
-
-The screenshot below might be enough to understand what they are doing, but if you want to know more, you can watch the full presentation [here](https://youtu.be/xXhwPPcGRqE?t=765).
+* [Agicap](https://agicap.com/en) 
+  * [here](https://youtu.be/xXhwPPcGRqE?t=765)
 
 ![bdd demo](../static/img/blog/fgn-2023-12-bdd.png)
 
