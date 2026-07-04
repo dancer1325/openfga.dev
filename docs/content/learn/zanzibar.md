@@ -87,8 +87,9 @@ slug: /learn/zanzibar
         * NOT replicated by OpenFGA
         * you can use OpenFGA -- with -- Postgres OR MySQL OR SQLite
 
-TODO: 
-* For most applications, that's the point — Zanzibar's *model* is what's valuable, not its operational scale.
+* Zanzibar's *model* 
+  * the most valuable
+    * NOT its operational scale
 
 ## Related reading
 
