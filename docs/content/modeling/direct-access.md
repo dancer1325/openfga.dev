@@ -8,7 +8,8 @@ description: Granting a user access to an object
 
 <DocumentationNotice />
 
-This article describes how to grant a <ProductConcept section="what-is-a-user" linkName="user" /> access to an <ProductConcept section="what-is-an-object" linkName="object" /> in <ProductName format={ProductNameFormat.ProductLink}/>.
+* goal 
+  * how to grant a <ProductConcept section="what-is-a-user" linkName="user" /> access to an <ProductConcept section="what-is-an-object" linkName="object" /> in <ProductName format={ProductNameFormat.ProductLink}/>.
 
 <CardBox title="When to use" appearance="filled">
 
