@@ -9,20 +9,27 @@ description: Granting a user access to an object
 <DocumentationNotice />
 
 * goal 
-  * how to grant a <ProductConcept section="what-is-a-user" linkName="user" /> access to an <ProductConcept section="what-is-an-object" linkName="object" /> in <ProductName format={ProductNameFormat.ProductLink}/>.
+  * how to grant a user access -- to an -- object | openFGA?
 
 <CardBox title="When to use" appearance="filled">
 
-Granting access with <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" /> is a core part of <ProductName format={ProductNameFormat.ShortForm}/>. Without relationship tuples, any <ProductConcept section="what-is-a-check-request" linkName="checks" />_ will fail. You should use:
+* relationship tuples
+  * 
+Granting access with <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" /> is a core part of <ProductName format={ProductNameFormat.ShortForm}/>
+  * enable,
+    * checks can work
+      * <ProductConcept section="what-is-a-check-request" linkName="checks" />_ will fail. You should use:
 
 - **authorization model** to represent what relations are possible between the users and objects in the system
 - **relationship tuples** to represent the facts about the relationships between users and objects in your system.
 
 </CardBox>
 
-## Before you start
+## requirements
 
-Familiarize yourself with <ProductConcept/> to understand how to develop a relationship tuple and authorization model.
+* how to develop a 
+  * relationship tuple 
+  * authorization model
 
 <details>
 <summary>
