@@ -4,19 +4,14 @@ description: Creating a store
 slug: /getting-started/create-store
 ---
 
-import {
-    SupportedLanguage,
-    languageLabelMap,
-    DocumentationNotice,
-} from '@components/Docs';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Create a Store
 
 <DocumentationNotice />
 
-A [store](../concepts.mdx#what-is-a-store) is a OpenFGA entity that contains your authorization data. You will need to create a store in OpenFGA before adding an [authorization model](../concepts.mdx#what-is-an-authorization-model) and [relationship tuples](../concepts.mdx#what-is-a-relationship-tuple) to it.
+* [store](../concepts.md#what-is-a-store)
+
+You will need to create a store in OpenFGA before adding an [authorization model](../concepts.mdx#what-is-an-authorization-model) and [relationship tuples](../concepts.mdx#what-is-a-relationship-tuple) to it.
 
 This article explains how to set up an OpenFGA store.
 
