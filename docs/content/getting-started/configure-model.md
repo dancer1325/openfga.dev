@@ -151,20 +151,3 @@ The OpenFGA API only accepts an authorization model in the API&#39;s JSON syntax
 To convert between the API Syntax and the friendly DSL, you can use the [FGA CLI](https://github.com/openfga/cli/).
 :::
 
-## Related Sections
-
-<RelatedSection
-  description="Take a look at the following sections for more information on how to configure authorization model in your store."
-  relatedLinks={[
-    {
-      title: 'Getting Started with Modeling',
-      description: 'Read how to get started with modeling.',
-      link: '../modeling/getting-started',
-    },
-    {
-      title: 'Modeling: Direct Relationships',
-      description: 'Read the basics of modeling authorization and granting access to users.',
-      link: '../modeling/direct-access',
-    },
-  ]}
-/>
