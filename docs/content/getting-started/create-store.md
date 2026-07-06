@@ -4,6 +4,8 @@ description: Creating a store
 slug: /getting-started/create-store
 ---
 
+* goal 
+  * how to set up an OpenFGA store
 
 # Create a Store
 
@@ -11,9 +13,13 @@ slug: /getting-started/create-store
 
 * [store](../concepts.md#what-is-a-store)
 
-You will need to create a store in OpenFGA before adding an [authorization model](../concepts.mdx#what-is-an-authorization-model) and [relationship tuples](../concepts.mdx#what-is-a-relationship-tuple) to it.
+* steps
+  * create a store | OpenFGA 
+  * | store,
+    * add an 
+      * [authorization model](../concepts.mdx#what-is-an-authorization-model)
+      * [relationship tuples](../concepts.mdx#what-is-a-relationship-tuple)
 
-This article explains how to set up an OpenFGA store.
 
 ## Step by step
 
