@@ -73,7 +73,8 @@ TODO:
 
 ## Step by step
 
-Assume that you want to add user `user:anne` to have relationship `reader` with object `document:Z`
+* goal
+  * add user `user:anne` / have relationship `reader` -- with -- object `document:Z`
 
 ```json
 {
