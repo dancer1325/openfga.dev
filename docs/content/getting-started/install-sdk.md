@@ -163,35 +163,3 @@ Download the pre-compiled binaries from the [releases page](https://github.com/o
 </TabItem>
 </Tabs>
 
-## Related Sections
-
-<RelatedSection
-  description="Get {ProductName}'s SDKs to add authorization to your API."
-  relatedLinks={[
-    {
-      title: '{ProductName} Node.js SDK',
-      description: 'Install our Node.js & JavaScript SDK to get started.',
-      link: 'https://www.npmjs.com/package/@openfga/sdk',
-    },
-    {
-      title: '{ProductName} Go SDK',
-      description: 'Use our Go SDK to easily connect your Go application to the {ProductName} API',
-      link: 'https://github.com/openfga/go-sdk',
-    },
-    {
-      title: '{ProductName} .NET SDK',
-      description: 'Connect your .NET service with {ProductName} using our .NET SDK',
-      link: 'https://github.com/openfga/dotnet-sdk',
-    },
-    {
-      title: '{ProductName} Python SDK',
-      description: 'Connect your Python service with {ProductName} using our Python SDK',
-      link: 'https://github.com/openfga/python-sdk',
-    },
-    {
-      title: '{ProductName} Java SDK',
-      description: 'Connect your Java service with {ProductName} using our Java SDK',
-      link: 'https://github.com/openfga/java-sdk',
-    }
-  ]}
-/>
