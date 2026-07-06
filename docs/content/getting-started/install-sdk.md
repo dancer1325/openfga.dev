@@ -5,43 +5,31 @@ slug: /getting-started/install-sdk
 description: Installing SDK client
 ---
 
+* goal 
+  * install the OpenFGA SDK packages
+
 # Install SDK Client
 
 <DocumentationNotice />
 
-To get started, install the <ProductName format={ProductNameFormat.ShortForm}/> SDK packages.
-
-<Tabs groupId="languages">
-<TabItem value={SupportedLanguage.JS_SDK} label={languageLabelMap.get(SupportedLanguage.JS_SDK)}>
-
-You can find the Node.js package on npm at: [@openfga/sdk](https://www.npmjs.com/package/@openfga/sdk).
-
-Using [npm](https://www.npmjs.com/):
-
-<!-- markdown-link-check-disable -->
+* | JS,
+  *  [@openfga/sdk](https://www.npmjs.com/package/@openfga/sdk)
 
 ```shell
 npm install @openfga/sdk
 ```
 
-Using [yarn](https://yarnpkg.com):
 
 ```shell
 yarn add @openfga/sdk
 ```
+* | Go
+  *  [@openfga/go-sdk](https://github.com/openfga/go-sdk)
 
-</TabItem>
-<TabItem value={SupportedLanguage.GO_SDK} label={languageLabelMap.get(SupportedLanguage.GO_SDK)}>
-
-You can find the Go package on GitHub at: [@openfga/go-sdk](https://github.com/openfga/go-sdk).
-
-To install:
 
 ```
 go get -u github.com/openfga/go-sdk
 ```
-
-In your code, import the module and use it:
 
 ```go
 import (
@@ -59,7 +47,7 @@ func main() {
 }
 ```
 
-You can then run
+run
 
 ```shell
 go mod tidy
