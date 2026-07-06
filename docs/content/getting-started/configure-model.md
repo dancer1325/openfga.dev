@@ -66,7 +66,8 @@ slug: /getting-started/configure-model
 
 ## Step by step
 
-Assume that you want to configure your store with the following model.
+* goal
+  * configure your store -- with -- the following model
 
 <AuthzModelSnippetViewer
   configuration={{
