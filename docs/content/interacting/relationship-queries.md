@@ -9,18 +9,19 @@ description: An overview of how to use the Check, Read, Expand, and ListObject A
 
 <DocumentationNotice />
 
-In this guide you will learn the uses of and limitations for the Check, Read, Expand, and ListObjects API endpoints.
+* goal 
+  * uses of & limitations of the API endpoints
+    * Check
+    * Read
+    * Expand
+    * ListObjects 
 
-## Before you start
+## requirements 
 
-In order to understand this guide correctly you must be familiar with some <ProductConcept /> and know how to develop the things that we will list below.
+* authorization model
+* document
 
-<details>
-<summary>
-
-Assume that you have the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />.<br />
-You have a <ProductConcept section="what-is-a-type" linkName="type" /> called `document` that can have a `reader`
-and `writer`. All writers are readers. `bob` has a `writer` relationship with `document:planning`.
+ `bob` has a `writer` relationship with `document:planning`.
 
 </summary>
 
@@ -75,13 +76,9 @@ and `writer`. All writers are readers. `bob` has a `writer` relationship with `d
   ]}
 />
 
-<hr />
-
-In addition, you will need to know the following:
-
 ### Direct access
 
-You need to know how to create an authorization model and create a relationship tuple to grant a user access to an object. [Learn more →](../modeling/direct-access.mdx)
+* [how to create an authorization model & create a relationship tuple](../modeling/direct-access.md)
 
 ### <ProductName format={ProductNameFormat.ShortForm}/> concepts
 
