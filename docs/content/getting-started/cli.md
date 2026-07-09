@@ -5,7 +5,6 @@ sidebar_position: 10
 slug: /getting-started/cli
 ---
 
-import { DocumentationNotice, RelatedSection, ProductName, ProductNameFormat } from '@components/Docs';
 
 # Use the FGA CLI
 
