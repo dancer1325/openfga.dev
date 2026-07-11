@@ -35,7 +35,8 @@ slug: /getting-started/cli
 | ------- | --------- | ----------- | ----------- | ----------------------- |
 | API Url | --api-url | FGA_API_URL | api-url     | `http://localhost:8080` |
 
-If you use [pre-shared key authentication](./setup-openfga/configure-openfga.mdx#pre-shared-key-authentication), provide the following parameters which appends the pre-shared key in the HTTP request header:
+* if you use [pre-shared key authentication](./setup-openfga/configure-openfga.mdx#pre-shared-key-authentication) -> provide the following parameters / appends the pre-shared key | HTTP request header
+
 | Name           | Flag               | Environment          | ~/.fga.yaml      |
 | -------------- | ------------------ | -------------------- | ---------------- |
 | API Token      | --api-token        | FGA_API_TOKEN        | api-token        |
