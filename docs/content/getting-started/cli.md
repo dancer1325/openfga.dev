@@ -8,19 +8,19 @@ slug: /getting-started/cli
 
 # Use the FGA CLI
 
-The <ProductName format={ProductNameFormat.ShortForm}/> Command Line Interface (CLI) enables you to interact with an FGA store, where you can manage tasks, create stores, and update FGA models, among other actions. For more information on FGA stores, see [What Is A Store](../concepts.mdx#what-is-a-store).
-
-For instructions on installing it, visit the [OpenFGA CLI Github repository](https://github.com/openfga/cli).
+* allows you to
+  * interact with an FGA store
+    * _Examples:_ manage tasks, create stores, update FGA models 
+* [how to install](https://github.com/openfga/cli)
 
 ## Configuration
 
-The CLI is configured to use a specific FGA server in one of three ways:
+* ways to specify the FGA server
+  * -- via -- CLI flags
+  * -- via -- environment variables
+  * -- vía -- ".fga.yaml" / highest to lowest priority
 
-- Using CLI flags.
-- Using environment variables.
-- Using a `.fga.yaml` configuration file, searched in the following order (highest to lowest priority):
-
-    1. **Current working directory**
+    1. **CURRENT working directory**
     2. **User-specific config directory**
        * Unix: `$XDG_CONFIG_HOME` (if set), otherwise `$HOME/.config`
        * Windows: `%AppData%`
