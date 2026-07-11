@@ -24,12 +24,12 @@ slug: /getting-started/cli
     2. **User-specific config directory**
        * Unix: `$XDG_CONFIG_HOME` (if set), otherwise `$HOME/.config`
        * Windows: `%AppData%`
-    3. **`fga` subdirectory under the user config directory**
+    3. user config directory's "fga/"
     4. **User's home directory**
        * Unix: `$HOME`
        * Windows: `%USERPROFILE%`
 
-The API Url setting needs to point to the OpenFGA server:
+* API Url setting / point -- to the -- OpenFGA server
 
 | Name    | Flag      | Environment | ~/.fga.yaml | Default Value           |
 | ------- | --------- | ----------- | ----------- | ----------------------- |
