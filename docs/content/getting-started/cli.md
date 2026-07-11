@@ -42,7 +42,7 @@ slug: /getting-started/cli
 | API Token      | --api-token        | FGA_API_TOKEN        | api-token        |
 
 
-If you use [OIDC authentication](./setup-openfga/configure-openfga.mdx#oidc), configure the following parameters based on the OIDC server that’s used to issue tokens:
+* if you use [OIDC authentication](./setup-openfga/configure-openfga.mdx#oidc) -> configure the following parameters based on the OIDC server that’s used to issue tokens:
 
 | Name           | Flag               | Environment          | ~/.fga.yaml      |
 | -------------- | ------------------ | -------------------- | ---------------- |
