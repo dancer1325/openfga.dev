@@ -311,7 +311,8 @@ For more information, see the [Relationship Queries page](./interacting/relation
 
 ## What Is A List Objects Request?
 
-A **list objects request** is a call to the <ProductName format={ProductNameFormat.LongForm}/> list objects endpoint that returns all objects of a given type that a user has a specified relationship with.
+* **list objects request** 
+  * == call -- to the -- OpenFGA's list objects endpoint / returns ALL objects / given type that a user has a specified relationship with.
 
 </summary>
 
@@ -395,8 +396,9 @@ For more information, see [Contextual and Time-Based Authorization](./modeling/c
 ## What Is Type Bound Public Access?
 
 * `<type>:*`
-  * ==
-* == special syntax meaning "every object of [type]" when invoked as a user within a relationship tuple. For example, `user:*` represents every object of type `user` , including those not currently present in the system.
+  * == every object of [type] | being invoked -- as a -- user | relationship tuple
+* == special syntax 
+For example, `user:*` represents every object of type `user` , including those not currently present in the system.
 
 </summary>
 
