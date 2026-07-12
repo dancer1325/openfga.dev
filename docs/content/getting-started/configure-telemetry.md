@@ -4,26 +4,13 @@ description: How to configure your SDK Client to collect telemetry using OpenTel
 slug: /getting-started/configure-telemetry
 ---
 
-import {
-  AuthzModelSnippetViewer,
-  DocumentationNotice,
-  languageLabelMap,
-  ProductConcept,
-  ProductName,
-  ProductNameFormat,
-  RelatedSection,
-  SdkSetupPrerequisite,
-  SupportedLanguage,
-  WriteAuthzModelViewer,
-} from '@components/Docs';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Configure SDK Client Telemetry
 
 <DocumentationNotice />
 
-The <ProductName format={ProductNameFormat.ShortForm}/> SDK Client supports telemetry data collection using [OpenTelemetry](https://opentelemetry.io).
+* <ProductName format={ProductNameFormat.ShortForm}/> SDK Client 
+  * supports telemetry data collection -- via -- [OpenTelemetry](https://opentelemetry.io)
 
 ## Enabling Telemetry
 
