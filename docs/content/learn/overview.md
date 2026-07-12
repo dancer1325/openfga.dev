@@ -7,7 +7,6 @@ slug: /learn
 
 # Learn Authorization
 
-A short reference for the concepts behind <ProductName format={ProductNameFormat.ShortForm}/>. Each page is a focused explainer with an <ProductName format={ProductNameFormat.ShortForm}/> example so you can map the theory to the model language.
 
 - **[Google Zanzibar](/docs/learn/zanzibar)** — the paper that started the ReBAC wave.
 - **[ReBAC: Relationship-Based Access Control](/docs/learn/rebac)** — what it is, when to use it.
