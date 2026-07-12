@@ -312,11 +312,8 @@ For more information, see the [Relationship Queries page](./interacting/relation
 ## What Is A List Objects Request?
 
 * **list objects request** 
-  * == call -- to the -- OpenFGA's list objects endpoint / returns ALL objects / given type that a user has a specified relationship with.
-
-</summary>
-
-List objects requests are completed using the `listobjects` methods in the <ProductName format={ProductNameFormat.ShortForm}/> SDKs ([JavaScript SDK](https://www.npmjs.com/package/@openfga/sdk)/[Go SDK](https://github.com/openfga/go-sdk)/[.NET SDK](https://www.nuget.org/packages/OpenFga.Sdk)) by manually calling the [list objects endpoint](/api/service#Relationship%20Queries/ListObjects) using curl or in your code.
+  * == call -- to the -- OpenFGA's list objects endpoint / returns ALL objects / given type / user has a specified relationship with
+    * completed using the `listobjects` methods in the <ProductName format={ProductNameFormat.ShortForm}/> SDKs ([JavaScript SDK](https://www.npmjs.com/package/@openfga/sdk)/[Go SDK](https://github.com/openfga/go-sdk)/[.NET SDK](https://www.nuget.org/packages/OpenFga.Sdk)) by manually calling the [list objects endpoint](/api/service#Relationship%20Queries/ListObjects) using curl or in your code.
 
 The list objects endpoint responds with a list of objects for a given type that the user has the specified relationship with.
 
