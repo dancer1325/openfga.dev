@@ -394,7 +394,9 @@ For more information, see [Contextual and Time-Based Authorization](./modeling/c
 
 ## What Is Type Bound Public Access?
 
-In <ProductName format={ProductNameFormat.LongForm}/>, type bound public access (represented by `<type>:*`) is a special <ProductName format={ProductNameFormat.ShortForm}/> syntax meaning "every object of [type]" when invoked as a user within a relationship tuple. For example, `user:*` represents every object of type `user` , including those not currently present in the system.
+* `<type>:*`
+  * ==
+* == special syntax meaning "every object of [type]" when invoked as a user within a relationship tuple. For example, `user:*` represents every object of type `user` , including those not currently present in the system.
 
 </summary>
 
