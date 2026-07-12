@@ -173,15 +173,14 @@ in their relation definition.
 
 ## What Are Direct And Implied Relationships?
 
-A **direct relationship** (R) between user X and object Y means the relationship tuple (user=X, relation=R, object=Y) exists, 
-and the <ProductName format={ProductNameFormat.ShortForm}/> authorization model for that relation allows the direct relationship
-because of [direct relationship type restrictions](./configuration-language.mdx#direct-relationship-type-restrictions).
+* **direct relationship** (R) BETWEEN user X -- & -- object Y 
+  * == relationship tuple (user=X, relation=R, object=Y) EXIST & 's authorization model allows the direct relationship
+-- because of -- [direct relationship type restrictions](./configuration-language.mdx#direct-relationship-type-restrictions)
 
-An **implied (or computed) relationship** (R) exists between user X and object Y if user X is related to an object Z 
-that is in a direct or implied relationship with object Y, and the <ProductName format={ProductNameFormat.ShortForm}/> authorization model
-allows it.
-
-</summary>
+* **implied (or computed) relationship** (R) exists BETWEEN user X -- & -- object Y 
+  * == user X is related -- to an -- object Z 
+/ is in a direct or implied relationship -- with -- object Y & and 's authorization model
+allows it
 
 - `user:anne` has a direct relationship with `document:new-roadmap` as `viewer` if the [type definition](#what-is-a-type-definition) 
 allows it with [direct relationship type restrictions](./configuration-language.mdx#direct-relationship-type-restrictions), and one of the following [relationship tuples](#what-is-a-relationship-tuple) exist:
