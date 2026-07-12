@@ -52,18 +52,14 @@ slug: /getting-started/cli
 | Token Issuer   | --api-token-issuer | FGA_API_TOKEN_ISSUER | api-token-issuer |
 | Token Audience | --api-audience     | FGA_API_AUDIENCE     | api-audience     |
 
-A default store Id and authorization model Id can also be configured:
+* way to configure default store Id & authorization model Id
 
 | Name                   | Flag       | Environment  | ~/.fga.yaml |
 | ---------------------- | ---------- | ------------ | ----------- |
 | Store ID               | --store-id | FGA_STORE_ID | store-id    |
 | Authorization Model ID | --model-id | FGA_MODEL_ID | model-id    |
 
-All of the examples in this document assume the CLI is properly configured and that the Store ID is set either in an environment variable or the `~/.fga.yaml` file.
-
 ## Basic operations
-
-The CLI commands below show you how to create a store and run your application’s most common operations, including how to write a model and write/delete/read tuples, and run queries.
 
 ```bash
 
