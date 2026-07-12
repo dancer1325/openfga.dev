@@ -5,8 +5,6 @@ sidebar_position: 1
 slug: /learn
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
-
 # Learn Authorization
 
 A short reference for the concepts behind <ProductName format={ProductNameFormat.ShortForm}/>. Each page is a focused explainer with an <ProductName format={ProductNameFormat.ShortForm}/> example so you can map the theory to the model language.
