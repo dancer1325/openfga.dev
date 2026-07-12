@@ -327,7 +327,8 @@ For example, the following returns all the objects with document type for which 
   expectedResults={['document:otherdoc', 'document:planning']}
 />
 
-For more information, see the [Relationship Queries page](./interacting/relationship-queries.mdx) and the [List Objects API Reference](/api/service#Relationship%20Queries/ListObjects).
+[Relationship Queries page](./interacting/relationship-queries.mdx)
+ [List Objects API Reference](/api/service#Relationship%20Queries/ListObjects).
 
 </details>
 <details>
@@ -335,13 +336,13 @@ For more information, see the [Relationship Queries page](./interacting/relation
 
 ## What Is A List Users Request?
 
-A **list users request** is a call to the <ProductName format={ProductNameFormat.LongForm}/> list users endpoint that returns all users of a given type that have a specified relationship with an object.
-
-</summary>
-
-List users requests are completed using the relevant `ListUsers` method in SDKs, the `fga query list-users` command in the CLI, or by manually calling the [ListUsers endpoint](/api/service#Relationship%20Queries/ListUsers) using curl or in your code.
-
-The list users endpoint responds with a list of users for a given type that have the specificed relationship with an object.
+* **list users request**
+  * == call -- to the -- OpenFGA list users endpoint /
+    * returns ALL users of a given type / have a specified relationship -- with an -- object
+  * completed | use
+    * SDK's `ListUsers`
+    * `fga query list-users`
+    * calling the [ListUsers endpoint](/api/service#Relationship%20Queries/ListUsers)
 
 For example, the following returns all the users of type `user` that have the `viewer` relationship for `document:planning`:
 
@@ -359,7 +360,7 @@ For example, the following returns all the users of type `user` that have the `v
   }}
 />
 
-For more information, see the [ListUsers API Reference](/api/service#Relationship%20Queries/ListUsers).
+* [ListUsers API Reference](/api/service#Relationship%20Queries/ListUsers)
 
 </details>
 <details>
@@ -381,7 +382,8 @@ For more information, see the [ListUsers API Reference](/api/service#Relationshi
 
 <!-- markdown-link-check-disable -->
 
-For more information, see [Contextual and Time-Based Authorization](./modeling/contextual-time-based-authorization.mdx), [Authorization Through Organization Context](./modeling/organization-context-authorization.mdx) and [Check API Request Documentation](/api/service#Relationship%20Queries/Check).
+* [Contextual and Time-Based Authorization](./modeling/contextual-time-based-authorization.mdx), [Authorization Through Organization Context](./modeling/organization-context-authorization.mdx)
+* [Check API Request Documentation](/api/service#Relationship%20Queries/Check)
 
 <!-- markdown-link-check-enable -->
 
