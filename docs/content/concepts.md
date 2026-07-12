@@ -414,29 +414,3 @@ Note: `<type>:*` cannot be used in the `relation` or `object` properties. In add
 For more information, see [Modeling Public Access](./modeling/public-access.mdx) and [Advanced Modeling: Modeling Google Drive](./modeling/advanced/gdrive.mdx).
 
 </details>
-
-## Related Sections
-
-<RelatedSection
-  description="Check the following sections for more on how object-to-object relationships can be used."
-  relatedLinks={[
-    {
-      title: 'Authorization Concepts',
-      description: 'Learn about Authorization.',
-      link: './authorization-concepts',
-      id: './authorization-concepts',
-    },
-    {
-      title: 'Configuration Language',
-      description: 'Learning about the FGA configuration language',
-      link: './configuration-language',
-      id: './configuration-language',
-    },
-    {
-      title: 'Direct access',
-      description: 'Get started with modeling your permission system in {ProductName}',
-      link: './modeling/direct-access',
-      id: './modeling/direct-access',
-    },
-  ]}
-/>
