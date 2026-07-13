@@ -17,10 +17,13 @@ slug: /use-cases/microservices-authorization
   * centralizes ALL | 1! authorization service /
     * every microservice consults
 
-## The pattern
+## OpenFGA pattern
 
-- **One <ProductName format={ProductNameFormat.ShortForm}/> store** holds the model and tuples for the whole system.
-- **Each microservice** calls `check`, `list-objects`, or `list-users` over the <ProductName format={ProductNameFormat.ShortForm}/> API rather than implementing its own permission logic.
+* 1 OpenFGA store / hold | WHOLE system,
+  * model
+  * tuples
+* 1 OpenFGA API
+  * != dedicated implementation / EACH microservice
 - **Writes go through the service that owns the relationship** (e.g. the membership service writes `member` tuples; the document service writes `can_share` tuples).
 
 ## Why this beats per-service authorization
