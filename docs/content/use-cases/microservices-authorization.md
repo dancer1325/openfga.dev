@@ -24,7 +24,10 @@ slug: /use-cases/microservices-authorization
   * tuples
 * 1 OpenFGA API
   * != dedicated implementation / EACH microservice
-- **Writes go through the service that owns the relationship** (e.g. the membership service writes `member` tuples; the document service writes `can_share` tuples).
+* writes go through the service / OWN the relationship
+  * _Example:_
+    * the membership service writes `member` tuples
+    * the document service writes `can_share` tuples
 
 ## Why this beats per-service authorization
 
