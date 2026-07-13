@@ -31,7 +31,9 @@ slug: /use-cases/microservices-authorization
 
 ## Why this beats per-service authorization
 
-- **One model to reason about.** Cross-service questions (*"can this user read this document via their team's project access?"*) become a single graph traversal instead of a coordination dance.
+* 1 model -- to -- reason about
+  * Cross-service questions become 1!graph traversal
+    * != coordination dance (*"can this user read this document via their team's project access?"*) 
 - **No more drifted roles tables.** A relation defined once in the <ProductName format={ProductNameFormat.ShortForm}/> model is the same relation in every service.
 - **Reverse queries work across services.** `list-objects` returns every resource the user can access, regardless of which service owns it.
 
