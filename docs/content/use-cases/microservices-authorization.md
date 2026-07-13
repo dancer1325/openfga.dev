@@ -5,11 +5,17 @@ sidebar_position: 6
 slug: /use-cases/microservices-authorization
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
-
 # Microservices Authorization
 
-Microservices repeat the same pattern: each service ends up with its own roles table, its own permission checks, and its own subtle drift. <ProductName format={ProductNameFormat.ShortForm}/> centralizes that into a single authorization service that every microservice consults.
+* Microservices pattern
+  * / EACH service,
+    * OWN roles table
+    * OWN permission checks 
+    * OWN subtle drift
+
+* OpenFGA 
+  * centralizes ALL | 1! authorization service /
+    * every microservice consults
 
 ## The pattern
 
