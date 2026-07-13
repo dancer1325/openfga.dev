@@ -24,7 +24,7 @@ slug: /use-cases/microservices-authorization
   * tuples
 * 1 OpenFGA API
   * != dedicated implementation / EACH microservice
-* writes go through the service / OWN the relationship
+* writes -- through the -- service / OWN the relationship
   * _Example:_
     * the membership service writes `member` tuples
     * the document service writes `can_share` tuples
