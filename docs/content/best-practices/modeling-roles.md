@@ -4,21 +4,21 @@ slug: /best-practices/modeling-roles
 description: Various ways of modeling static and dynamic roles in FGA - both coarse and fine-grained.
 sidebar_position: 1
 ---
-import {
-  ProductName,
-  ProductNameFormat,
-  RelatedSection,
-} from '@components/Docs';
 
 # Modeling Roles
 
-Roles are a common way to group users and assign permissions to those groups. They can be used to simplify permission management, especially in larger systems where many users have similar access needs.
+* Roles 
+  * == COMMON way to 
+    * group user
+    * assign permissions -- to -- those groups
+  * allows
+    * simplifying permission management 
 
-In this guide, we'll explore common approaches to modeling roles with <ProductName format={ProductNameFormat.ShortForm}/>.
+* goal
+  * COMMON approaches -- , via OpenFGA, to -- modeling roles 
 
-## When to Use Each Approach
+## use cases / approach
 
-Before diving into implementation details, here's a quick guide to help you choose the right approach:
 
 | Approach                      | Best For                           | Complexity | Flexibility | Example                                                        
 |-------------------------------|------------------------------------|------------|-------------|--------------------------------------------------------------------------------------------------------------------|
