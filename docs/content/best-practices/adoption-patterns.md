@@ -36,13 +36,17 @@ model
       define can_add_resource: admin or member
 ```
 
-You can define any number of roles for the organization type and then define the permissions based on those roles. You can then check if users have a specific permission at the organization level by calling the Check API on the organization object: 
+* define 
+  * ANY number of roles -- for the -- organization type
+  * the permissions -- based on --  those roles
+* check if users have a specific permission | organization level
+  * -- by -- calling the Check API | organization object
 
 ```
 Check(user: "user:anne", relation: "can_add_member", object: "organization:acme") 
 ```
 
-A better implementation is to define the application's resource types in the model (e.g. documents, projects, insurance policies, bank accounts, etc):
+* define the application's resource types | the model 
 
 
 ```dsl.openfga
