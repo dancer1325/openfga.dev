@@ -7,11 +7,16 @@ sidebar_position: 1
 
 # <ProductName format={ProductNameFormat.ShortForm}/> Adoption Patterns
 
-This document outlines key implementation patterns for adopting  <ProductName format={ProductNameFormat.ShortForm}/> in your organization.
+* goal 
+  * key implementation patterns -- for -- adopting OpenFGA| your organization
 
-## Starting with coarse-grained access control
+## coarse-grained access control
 
-When evaluating this solution, many companies start by replicating their existing permissions structure before moving to more granular controls. For example, if you're using Role-Based Access Control (RBAC) in a B2B scenario, you might start with a simple model:
+* wrong approach
+  * replicate their EXISTING permissions structure
+    * RATHER than MORE granular controls
+
+_Example:_ | B2B, use RBAC /might start with a simple model:
 
 ```dsl.openfga
 model 
