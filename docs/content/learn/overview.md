@@ -8,9 +8,11 @@ slug: /learn
 # Learn Authorization
 
 
-- **[Google Zanzibar](/docs/learn/zanzibar)** — the paper that started the ReBAC wave.
-- **[ReBAC: Relationship-Based Access Control](/docs/learn/rebac)** — what it is, when to use it.
-- **[RBAC vs. ReBAC](/docs/learn/rbac-vs-rebac)** — when roles run out.
-- **[ABAC vs. ReBAC](/docs/learn/abac-vs-rebac)** — attributes versus relationships.
-- **[Fine-Grained Authorization](/docs/learn/fine-grained-authorization)** — what "fine-grained" actually buys you.
+* **[Google Zanzibar](/docs/learn/zanzibar)**
+  * allowed
+    * boost ReBAC
+* **[ReBAC: Relationship-Based Access Control](/docs/learn/rebac)**
+* **[RBAC vs. ReBAC](/docs/learn/rbac-vs-rebac)**
+* **[ABAC vs. ReBAC](/docs/learn/abac-vs-rebac)**
+* **[Fine-Grained Authorization](/docs/learn/fine-grained-authorization)**
 - **[Policy Engines vs. Relationship Engines](/docs/learn/policy-engine)** — Rego, Cedar, OPL, and where <ProductName format={ProductNameFormat.ShortForm}/> fits.
