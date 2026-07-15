@@ -23,7 +23,9 @@ import TabItem from '@theme/TabItem';
 
 <DocumentationNotice />
 
-This section will illustrate how to integrate <ProductName format={ProductNameFormat.LongForm}/> within a framework, such as [Fastify](https://www.fastify.io/) or [Fiber](https://docs.gofiber.io/).
+* goal
+  * how to integrate OpenFGA | framework
+    * _Example of frameworks:_ [Fastify](https://www.fastify.io/) [Fiber](https://docs.gofiber.io/)
 
 ## Before you start
 
