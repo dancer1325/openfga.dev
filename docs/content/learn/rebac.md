@@ -9,7 +9,11 @@ import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs
 
 # What is ReBAC?
 
-**Relationship-Based Access Control (ReBAC)** models permissions as relationships between users and resources, rather than as roles assigned to users or attributes attached to objects. *"Alice is an editor of doc-42"* and *"doc-42 is in folder-7"* and *"folder-7 is in workspace-A"* are all relationships; whether Alice can read doc-42 falls out of traversing those relationships.
+* ReBAC models permissions
+  * == relationships BETWEEN users -- & -- resources
+    * != roles assigned -- to -- users OR attributes / attached -- to -- objects
+
+*"Alice is an editor of doc-42"* and *"doc-42 is in folder-7"* and *"folder-7 is in workspace-A"* are all relationships; whether Alice can read doc-42 falls out of traversing those relationships.
 
 ## Why ReBAC
 
