@@ -16,10 +16,15 @@ import {
 
 <DocumentationNotice />
 
-<ProductName format={ProductNameFormat.ShortForm}/> implements the [AuthZEN](https://openid.net/specs/authorization-api-1_0.html) 
-specification, a standard API for authorization interoperability defined by the OpenID AuthZEN working group. This allows you to use <ProductName format={ProductNameFormat.ShortForm}/> as an AuthZEN-compliant Policy Decision Point (PDP).
+* [AuthZEN specification](https://openid.net/specs/authorization-api-1_0.html) 
+  * == standard API -- for -- authorization interoperability 
+    * defined -- by the -- OpenID AuthZEN working group
+    * implemented -- by -- OpenFGA /
+      * OpenFGA can be used -- as an -- AuthZEN-compliant Policy Decision Point (PDP)
+      * recommendations
+        * | integrate -> use the native API when your application -- with -- OpenFGA and you use AuthZEN when you are integrating an AuthZEN-compatible product like an API/MCP Gateway, or an Identity Provider
 
-We recommend that you use the native API when integrating your application with <ProductName format={ProductNameFormat.ShortForm}/>, and you use AuthZEN when you are integrating an AuthZEN-compatible product like an API/MCP Gateway, or an Identity Provider. It's not possible to implement <ProductName format={ProductNameFormat.ShortForm}/> only with AuthZEN endpoints, as it does not specify endpoints to [Write](./../getting-started/update-tuples.mdx) and [Read](./relationship-queries.mdx).
+ It's not possible to implement <ProductName format={ProductNameFormat.ShortForm}/> only with AuthZEN endpoints, as it does not specify endpoints to [Write](./../getting-started/update-tuples.mdx) and [Read](./relationship-queries.mdx).
 
 You can validate the implementation using the [AuthZEN interop scenarios for OpenFGA](https://github.com/openfga/authzen-interop), which cover the standard [AuthZEN interop scenarios](https://authzen-interop.net/docs/category/scenarios).
 
