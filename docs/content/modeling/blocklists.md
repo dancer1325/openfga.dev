@@ -22,11 +22,15 @@ import {
 
 <DocumentationNotice />
 
-In this guide you'll see how to model preventing users from accessing objects using <ProductName format={ProductNameFormat.ProductLink}/>. For example, `blocking` users from accessing a `document`, even if it has been already shared with them.
+* goal
+  * how to model / prevent users can access objects 
 
 <CardBox title="When to use" appearance="filled">
 
-Exclusion is useful while building applications. You may need to support access patterns like granting access to some users, but excluding specific people or groups, similar to how users can block others from following them on social media, or prevent them from sharing documents on Google Drive.
+* Exclusion 
+  * == access pattern
+  * use cases
+    * | build applications
 
 This is useful when:
 
