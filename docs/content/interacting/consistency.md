@@ -5,13 +5,6 @@ slug: /interacting/consistency
 description: Query Consistency Modes
 ---
 
-import {
-  DocumentationNotice,
-  IntroductionSection,
-  RelatedSection,
-  ProductName,
-  ProductNameFormat,
-} from '@components/Docs';
 
 # Query Consistency Modes
 
@@ -73,20 +66,11 @@ Currently, the cache is used by Check and partially in ListObjects. It will be i
 
 ## Future work
 
-The <IntroductionSection linkName="Zanzibar paper" section="what-is-zanzibar"/> has a feature called `Zookies`, which is a consistency token that is returned from Write operation. You can store that token in you resource table, and specify it in subsequent calls to query APIs. 
+* `Zookies`
+  * == Zanzibar's feature 
+  * == consistency token /
+    * returned -- from -- Write operation
+    * uses
+      * store it | your resource table
+      * specify it | subsequent calls -- to -- query APIs
 
-<ProductName format={ProductNameFormat.ShortForm}/> is considering a similar feature in future releases.
-
-## Related Sections
-
-<RelatedSection
-  description="Check the following sections for more on how to check, read and expand."
-  relatedLinks={[
-    {
-      title: 'Relationship Queries',
-      description: 'Comparison Between Check, Read And Expand API Calls.',
-      link: './relationship-queries',
-      id: './relationship-queries',
-    }
-  ]}
-/>
