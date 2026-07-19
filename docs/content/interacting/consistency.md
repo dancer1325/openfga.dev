@@ -19,7 +19,8 @@ import {
 
 ## Background
 
-When querying <ProductName format={ProductNameFormat.ShortForm}/> using Read or any of the query APIs like [Check, Expand, ListObjects and ListUsers](./relationship-queries.mdx), you can specify a query consistency parameter that can have one of the following values:
+* | [query OpenFGA](relationship-queries.md), 
+  * ALLOWED query consistency parameters
 
 | Name                        | Description                                                                                                   |  
 |-----------------------------|---------------------------------------------------------------------------------------------------------------|
