@@ -24,11 +24,17 @@ import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs
 * engine
   * == database
 
-## When a policy engine fits
+## How to choose the policy engine
 
-- Decisions are mostly **attribute-driven** — claims, resource metadata, request context.
-- All the **data needed for the decision is in hand at request time** — claims in the token, fields on the resource, request context — so the engine doesn't need to fetch anything to answer.
-- You **already run one** for infrastructure or admission policy — extending it to cover application rules avoids a second decision surface.
+* -- based on the -- attribute
+  * are
+    * claims
+    * resource metadata
+    * request context
+  * AVAILABLE | request time  
+    * -> engine does NOT need to fetch anything 
+
+TODO: You **already run one** for infrastructure or admission policy — extending it to cover application rules avoids a second decision surface.
 
 OPA's [graduated CNCF status](https://www.cncf.io/projects/open-policy-agent-opa/) and broad ecosystem make it the default choice in this category.
 
