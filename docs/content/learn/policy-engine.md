@@ -1,4 +1,4 @@
----
+p---
 title: Policy Engines vs Relationship Engines
 description: Policy engines like OPA and Cedar evaluate rules over data. Relationship engines like OpenFGA store and query the graph. Here's when to use which.
 sidebar_position: 7
