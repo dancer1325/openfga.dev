@@ -9,10 +9,15 @@ import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs
 
 # Policy Engines vs. Relationship Engines
 
-The authorization toolbox has two broad shapes:
-
-- **Policy engines** — OPA (Rego) and Cedar, evaluate policies expressed in a DSL against input data passed on each request. The engine is **stateless**; you supply the data.
-- **Relationship engines** — <ProductName format={ProductNameFormat.ShortForm}/>, SpiceDB, Ory Keto, all in the [Zanzibar](/docs/learn/zanzibar) tradition — store relationship tuples in a database and answer queries against the stored graph. The engine **is the database**.
+* authorization toolbox
+  * **Policy engines**
+    * == OPA (Rego) + Cedar
+    * evaluate: policies / DSL format vs input data / passed | EACH request
+    * **stateless**
+      * == you supply the data
+  * **Relationship engines**
+    * [Zanzibar](/docs/learn/zanzibar) tradition
+    * <ProductName format={ProductNameFormat.ShortForm}/>, SpiceDB, Ory Keto, all in the  — store relationship tuples in a database and answer queries against the stored graph. The engine **is the database**.
 
 ## When a policy engine fits
 
