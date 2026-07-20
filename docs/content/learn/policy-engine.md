@@ -17,7 +17,8 @@ import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs
       * == you supply the data
   * **Relationship engines**
     * [Zanzibar](/docs/learn/zanzibar) tradition
-    * <ProductName format={ProductNameFormat.ShortForm}/>, SpiceDB, Ory Keto, all in the  — store relationship tuples in a database and answer queries against the stored graph. The engine **is the database**.
+    * _Examples:_ SpiceDB, Ory Keto
+    * all in the  — store relationship tuples in a database and answer queries against the stored graph. The engine **is the database**.
 
 ## When a policy engine fits
 
