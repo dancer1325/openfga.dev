@@ -36,7 +36,9 @@ import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs
 
 TODO: You **already run one** for infrastructure or admission policy — extending it to cover application rules avoids a second decision surface.
 
-OPA's [graduated CNCF status](https://www.cncf.io/projects/open-policy-agent-opa/) and broad ecosystem make it the default choice in this category.
+* OPA
+  * default choice
+    * Reason: OPA's [graduated CNCF status](https://www.cncf.io/projects/open-policy-agent-opa/) 
 
 ## When a relationship engine fits
 
