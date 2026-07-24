@@ -6,16 +6,14 @@ sidebar_position: 0
 description: Programmatically writing authorization related data and interact with the API
 ---
 
-import { DocumentationNotice, IntroCard, CardGrid, ProductName, ProductNameFormat } from '@components/Docs';
+* goal
+  * how to programmatically write authorization -- related data to -- OpenFGA 
 
-<DocumentationNotice />
-
-This section helps you integrate <ProductName format={ProductNameFormat.ShortForm}/> with your system. To do this, you will learn how to programmatically write authorization related data to <ProductName format={ProductNameFormat.ShortForm}/>.
-
-<IntroCard
-  title="When to use"
-  description="This section is useful if you have defined an authorization model and want to understand how to write authorization data to {ProductName} to represent the state of your system."
-/>
+* helps you
+  * integrate OpenFGA -- with -- your system
+ 
+* requirements 
+  * authorization model 
 
 # Content
 
