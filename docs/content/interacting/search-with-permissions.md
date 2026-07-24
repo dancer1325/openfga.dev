@@ -9,9 +9,9 @@ import { DocumentationNotice, ProductName, ProductNameFormat, UpdateProductNameI
 
 # Search With Permissions
 
-<DocumentationNotice />
-
-Once you implement fine-grained authorization to protect your resources, search becomes a more complex problem, because the user's access to each resource now has to be validated before the resource can be shown.
+* | implement fine-grained authorization to protect your resources, 
+  * search -> MORE complex problem
+    * Reason: 🧠 user's access -- to -- EACH resource has to be validated BEFORE showing the resource 🧠
 
 The search problem can then be summarized as:
 
