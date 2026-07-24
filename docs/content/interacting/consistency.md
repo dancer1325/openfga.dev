@@ -20,11 +20,11 @@ description: Query Consistency Modes
 | MINIMIZE_LATENCY (default)  | <ProductName format={ProductNameFormat.ShortForm}/> will serve queries from the cache when possible           | 
 | HIGHER_CONSISTENCY          | <ProductName format={ProductNameFormat.ShortForm}/> will skip the cache and query the database directly   |
 
-If you write a tuple and you immediately make a Check on a relation affected by that tuple using `MINIMIZE_LATENCY`, the tuple change might not be taken in consideration if <ProductName format={ProductNameFormat.ShortForm}/> serves the result from the cache.
 
-## When to use higher consistency
+## `HIGHER_CONSISTENCY`
 
-When specifying `HIGHER_CONSISTENCY` you are trading off consistency for latency and system performance. Always specifying `HIGHER_CONSISTENCY` will have a significant impact in performance.
+* trade off consistency for latency and system performance
+* significant impact in performance.
 
 If you have a use case where higher consistency is needed, it's recommended that whenever possible, you decide in runtime the consistency level you need. If you are storing a timestamp indicating when a resource was last modified in your database, you can use that to decide the kind of request you do.
 
