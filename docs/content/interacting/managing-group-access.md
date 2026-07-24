@@ -4,28 +4,20 @@ slug: /interacting/managing-group-access
 description: Granting a group of users access to a particular object 
 ---
 
-import {
-  AuthzModelSnippetViewer,
-  CardBox,
-  CheckRequestViewer,
-  DocumentationNotice,
-  ProductConcept,
-  RelatedSection,
-  RelationshipTuplesViewer,
-  ProductName,
-  ProductNameFormat,
-  WriteRequestViewer,
-} from '@components/Docs';
 
 # Managing Group Access
 
 <DocumentationNotice />
 
-<ProductName format={ProductNameFormat.ShortForm}/> allows you to grant a group of users access to a particular object.
+* == group of users have access -- to a -- PARTICULAR object
 
 <CardBox title="When to use" appearance="filled">
 
-Relationship tuples are helpful when you want to specify that a group of users all have the same relation to an object. For example, <ProductName format={ProductNameFormat.ShortForm}/> allows you to:
+* Relationship tuples
+  * use cases
+    * | specify a group of users / ALL have the SAME relation -- to an -- object
+
+For example, <ProductName format={ProductNameFormat.ShortForm}/> allows you to:
 
 - Grant a group of `engineers` `viewer` access to `roadmap.doc`
 - Create a `block_list` of `members` who can't access a `document`
@@ -38,7 +30,6 @@ Relationship tuples are helpful when you want to specify that a group of users a
 
 ## Before you start
 
-Familiarize yourself with basic <ProductConcept /> before you continue.
 
 <details>
 <summary>
@@ -93,7 +84,11 @@ In addition, the following concepts are important to group access management:
 
 ### Modeling user groups
 
-<ProductName format={ProductNameFormat.ShortForm}/> allows you to add users to groups and grant groups access to an object. [For more information, see User Groups.](../modeling/user-groups.mdx)
+* enable 
+  * add users | groups
+  * grant groups / hace access -- to an -- object
+
+ [here](../modeling/user-groups.mdx)
 
 ### <ProductName format={ProductNameFormat.ShortForm}/> concepts
 
