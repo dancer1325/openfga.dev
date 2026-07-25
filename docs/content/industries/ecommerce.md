@@ -5,11 +5,17 @@ sidebar_position: 4
 slug: /industries/ecommerce
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # E-commerce Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
 
-E-commerce platforms — Shopify-style multi-store SaaS, BigCommerce, Etsy-like marketplaces — share an authorization shape that role-only systems struggle with: a merchant has *one organization* but *many stores*, and staff often have different permissions in different stores. A category manager might be a `manager` in the apparel store and just a `staff` member in the home-goods store.
+E-commerce platforms — Shopify-style multi-store SaaS, BigCommerce, Etsy-like marketplaces 
+
+* authorization shape /
+  * cons
+    * with role-only systems
+      * merchant has 
+        * 1 organization - MANY stores
+ and staff often have different permissions in different stores. A category manager might be a `manager` in the apparel store and just a `staff` member in the home-goods store.
 
 <ProductName format={ProductNameFormat.ShortForm}/> models the org/store split natively. The full sample lives in [openfga/sample-stores/stores/ecommerce](https://github.com/openfga/sample-stores/tree/main/stores/ecommerce).
 
