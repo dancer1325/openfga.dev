@@ -5,11 +5,13 @@ sidebar_position: 3
 slug: /industries/banking
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # Banking Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
 
-Banking and fintech authorization isn't just "who can read this record?" — it's "who can move *how much* money out of *which* account, and who approved that delegation?". A relationship-based model captures the answer without scattering the rules across application code.
+* Banking & fintech authorization 
+  * requirements 
+    * who can read this record
+    * — it's "who can move *how much* money out of *which* account, and who approved that delegation?". A relationship-based model captures the answer without scattering the rules across application code.
 
 The full working model is in [openfga/sample-stores/stores/banking](https://github.com/openfga/sample-stores/tree/main/stores/banking).
 
