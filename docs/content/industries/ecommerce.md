@@ -15,7 +15,8 @@ E-commerce platforms — Shopify-style multi-store SaaS, BigCommerce, Etsy-like 
     * with role-only systems
       * merchant has 
         * 1 organization - MANY stores
- and staff often have different permissions in different stores. A category manager might be a `manager` in the apparel store and just a `staff` member in the home-goods store.
+      * staff
+        * often have DIFFERENT permissions | DIFFERENT stores A category manager might be a `manager` in the apparel store and just a `staff` member in the home-goods store.
 
 <ProductName format={ProductNameFormat.ShortForm}/> models the org/store split natively. The full sample lives in [openfga/sample-stores/stores/ecommerce](https://github.com/openfga/sample-stores/tree/main/stores/ecommerce).
 
