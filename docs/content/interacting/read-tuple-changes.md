@@ -12,7 +12,12 @@ description: Getting tuple changes
 
 * -- vía -- Read Changes API 
 
-TODO to get the list of relationship tuple changes that happened in your store, in the exact order that they happened. The API response includes tuples that have been added or removed in your store. It does not include other changes, like updates to your authorization model and adding new assertions.
+* goal 
+  * get the ordered list of relationship tuple changes / happened | your store
+
+* API response 
+  * == tuples / have been added or removed | your store
+ It does not include other changes, like updates to your authorization model and adding new assertions.
 
 ## Before you start
 
