@@ -5,25 +5,14 @@ slug: /interacting/read-tuple-changes
 description: Getting tuple changes
 ---
 
-import {
-  AuthzModelSnippetViewer,
-  SupportedLanguage,
-  languageLabelMap,
-  DocumentationNotice,
-  SdkSetupHeader,
-  ProductName,
-  ProductNameFormat,
-  ReadChangesRequestViewer,
-  SdkSetupPrerequisite,
-} from '@components/Docs';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # How to get tuple changes
 
 <DocumentationNotice />
 
-This section illustrates how to call the Read Changes API to get the list of relationship tuple changes that happened in your store, in the exact order that they happened. The API response includes tuples that have been added or removed in your store. It does not include other changes, like updates to your authorization model and adding new assertions.
+* -- vía -- Read Changes API 
+
+TODO to get the list of relationship tuple changes that happened in your store, in the exact order that they happened. The API response includes tuples that have been added or removed in your store. It does not include other changes, like updates to your authorization model and adding new assertions.
 
 ## Before you start
 
