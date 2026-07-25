@@ -14,14 +14,24 @@ slug: /industries/banking
     * who can move *how much* money -- out of -- *which* account
     * who can approve that move delegation
 
-. A relationship-based model captures the answer without scattering the rules across application code.
+* relationship-based model
+  * captures the answer 
+    * WITHOUT scattering the rules -- ACROSS -- application code
 
-The full working model is in [openfga/sample-stores/stores/banking](https://github.com/openfga/sample-stores/tree/main/stores/banking).
+ [working model](https://github.com/openfga/sample-stores/tree/main/stores/banking)
 
 ## Core resources and relations
 
-- **organization** — the bank tenant.
-- **account** — has an `owner`, optional `co_owners`, and an `account_manager` assigned by the bank.
+* **organization** 
+  * == bank tenant
+* **account**
+  * 's properties
+    * `owner`
+    * `co_owners`
+      * OPTIONAL
+    * `account_manager`
+      * OPTIONAL 
+      * assigned -- by the -- bank
 - **transaction** — initiated against an `account`, subject to a per-actor amount limit.
 
 The interesting relations:
