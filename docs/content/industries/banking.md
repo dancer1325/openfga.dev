@@ -11,7 +11,10 @@ slug: /industries/banking
 * Banking & fintech authorization 
   * requirements 
     * who can read this record
-    * — it's "who can move *how much* money out of *which* account, and who approved that delegation?". A relationship-based model captures the answer without scattering the rules across application code.
+    * who can move *how much* money -- out of -- *which* account
+    * who can approve that move delegation
+
+. A relationship-based model captures the answer without scattering the rules across application code.
 
 The full working model is in [openfga/sample-stores/stores/banking](https://github.com/openfga/sample-stores/tree/main/stores/banking).
 
