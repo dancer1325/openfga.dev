@@ -181,10 +181,13 @@ $ fga query check user:anne viewer document:readme
 
 ## Work with authorization model versions
 
-<ProductName format={ProductNameFormat.ShortForm} /> models are [immutable](../getting-started/immutable-models.mdx);
-each time a model is written to a store, a new version of the model is created.
+* models
+  * are [immutable](../getting-started/immutable-models.md)
+    * == create a NEW versión of the model / EACH time a model is written | store
 
-All <ProductName format={ProductNameFormat.ShortForm}/> API endpoints receive an optional authorization model ID that points to a specific version of the model and defaults to the latest model version. Always use a specific model ID and update it each time a new model version is used in production.
+* authorization model ID
+  * ALL OpenFGA API endpoints
+  * receive an optional  that points to a specific version of the model and defaults to the latest model version. Always use a specific model ID and update it each time a new model version is used in production.
 
 The following CLI commands lists the model Ids and find the latest one:
 
