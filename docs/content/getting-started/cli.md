@@ -189,7 +189,6 @@ $ fga query check user:anne viewer document:readme
   * ALL OpenFGA API endpoints
   * receive an optional  that points to a specific version of the model and defaults to the latest model version. Always use a specific model ID and update it each time a new model version is used in production.
 
-The following CLI commands lists the model Ids and find the latest one:
 
 ```shell
 # List all the authorization models
@@ -226,7 +225,7 @@ When using the CLI, the model ID can be specified as a `--model-id` parameter or
 
 ## Import tuples
 
-To import tuples, use the`fga tuple write` command. It has the following parameters:
+* `fga tuple write`
 
 | Parameter                                            | Description                                                                                                          |
 | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
