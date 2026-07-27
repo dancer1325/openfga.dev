@@ -5,15 +5,19 @@ sidebar_position: 6
 slug: /learn/fine-grained-authorization
 ---
 
-import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs';
 
-# What is Fine-Grained Authorization?
 
-**Fine-grained authorization (FGA)** means deciding access at the level of the individual resource and action, rather than at the role or coarse-scope level. *"Alice can edit document-42"* is fine-grained; *"Alice is an editor"* is not.
 
-## What "fine-grained" actually buys you
+# What is Fine-Grained Authorization (FGA)?
 
-- **Per-resource sharing.** A user can be granted access to one document without inheriting access to everything in the workspace.
+* FGA
+  * == decide access | individual resource & action level
+    * != role OR coarse-scope level
+      * _Example:_ "Alice is an editor"
+    * _Example:_ "Alice can edit document-42" 
+  * allows
+    * **Per-resource sharing**
+      * == user can be granted access -- to one document without inheriting access to everything in the workspace.
 - **Hierarchical inheritance.** Access to a folder grants access to its documents — but only that folder, not every folder.
 - **Reverse queries.** *"List every document this user can read"* — the query a UI needs to render correctly.
 - **Cross-tenant collaboration.** Granting a single resource to an external user without making them a tenant member.
