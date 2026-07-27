@@ -52,13 +52,17 @@ slug: /learn/fine-grained-authorization
 * **Document management and collaboration** (Google Drive, Notion, Figma patterns).
 * **Multi-tenant SaaS** + EXTERNAL sharing
 * **AI agents and RAG**
-  * EACH user MUST ONLY see their slice of the corpus — covered in [AI agent authorization](/docs/use-cases/ai-agent-authorization)
+  * EACH user MUST ONLY see their slice of the corpus
+    * TODO [AI agent authorization](/docs/use-cases/ai-agent-authorization)
 ## Choosing the right model
 
-A short decision path:
-
-- **Flat access, a handful of roles, single tenant** — [RBAC](/docs/learn/rbac-vs-rebac) is enough.
-- **Decisions driven mostly by request attributes** (region, department, time-of-day) — start with [ABAC](/docs/learn/abac-vs-rebac) or a [policy engine](/docs/learn/policy-engine).
+* short decision path
+  * [RBAC](/docs/learn/rbac-vs-rebac)
+    * TODO use cases
+      * Flat access + handful of roles + 1 tenant
+  * [ABAC](/docs/learn/abac-vs-rebac) OR [policy engine](/docs/learn/policy-engine)
+    * TODO use cases
+      * **Decisions driven -- by -- request attributes** (region, department, time-of-day) — start with 
 - **Hierarchy, sharing, multi-tenancy, or reverse queries** — you want a relationship engine. <ProductName format={ProductNameFormat.ShortForm}/> handles attribute checks too via [conditions](/docs/modeling/conditions), so you usually don't need a second engine.
 - **Mixed infrastructure + application policy** — a policy engine at the admission layer plus <ProductName format={ProductNameFormat.ShortForm}/> for the application is the common pairing.
 
