@@ -15,21 +15,37 @@ slug: /learn/fine-grained-authorization
     * != role OR coarse-scope level
       * _Example:_ "Alice is an editor"
     * _Example:_ "Alice can edit document-42" 
+    * storing DIRECTLY the graph
   * allows
     * **Per-resource sharing**
-      * == user can be granted access -- to one document without inheriting access to everything in the workspace.
-- **Hierarchical inheritance.** Access to a folder grants access to its documents — but only that folder, not every folder.
-- **Reverse queries.** *"List every document this user can read"* — the query a UI needs to render correctly.
-- **Cross-tenant collaboration.** Granting a single resource to an external user without making them a tenant member.
+      * == user can be granted access -- to -- 1 document
+        * WITHOUT inheriting access to everything | workspace
+    * **Hierarchical inheritance**
+      * == access to a folder -> grants access -- to -- its documents
+        * ❌NOT every folder's documents ❌
+    * **Reverse queries**
+      * == "list EVERY document / this user can read"
+      * TODO the query a UI needs to render correctly.
+    * **Cross-tenant collaboration.**
+      * == Granting 1 resource -- to -- an EXTERNAL user 
+        * WITHOUT making them a tenant member
 
-Coarse-grained models can simulate these with enough effort, but the authorization layer ends up duplicating a graph database in roles tables. Fine-grained engines store the graph directly.
+* Coarse-grained models 
+  * can simulate -- , with effourt, -- FGA's abilities
+    * -- by -- duplicating a graph database | roles tables
+ 
+## How OpenFGA implements FGA?
 
-## How <ProductName format={ProductNameFormat.ShortForm}/> implements FGA
-
-- A typed [model](/docs/configuration-language) defines resource types and the relations between them.
-- [Tuples](/docs/concepts) record specific relationships between specific principals and specific resources.
-- The [check API](/docs/interacting/relationship-queries) answers per-action questions in milliseconds.
-- [Conditions](/docs/modeling/conditions) cover attribute-driven cases inside the same model.
+* [typed model](/docs/configuration-language)
+  * defines
+    * resource types
+    * relations BETWEEN resource types
+* [Tuples](/docs/concepts)
+  * TODO:record specific relationships between specific principals and specific resources.
+* [check API](/docs/interacting/relationship-queries)
+  * TODO answers per-action questions in milliseconds.
+* [Conditions](/docs/modeling/conditions)
+  * cover attribute-driven cases | same model
 
 ## Where FGA matters most
 
