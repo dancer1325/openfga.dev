@@ -45,14 +45,14 @@ slug: /learn/fine-grained-authorization
 * [check API](/docs/interacting/relationship-queries)
   * TODO answers per-action questions in milliseconds.
 * [Conditions](/docs/modeling/conditions)
-  * cover attribute-driven cases | same model
+  * TODO cover attribute-driven cases | same model
 
-## Where FGA matters most
+## FGA use cases 
 
-- **Document management and collaboration** (Google Drive, Notion, Figma patterns).
-- **Multi-tenant SaaS** with external sharing.
-- **AI agents and RAG**, where each user must only see their slice of the corpus — covered in [AI agent authorization](/docs/use-cases/ai-agent-authorization).
-
+* **Document management and collaboration** (Google Drive, Notion, Figma patterns).
+* **Multi-tenant SaaS** + EXTERNAL sharing
+* **AI agents and RAG**
+  * EACH user MUST ONLY see their slice of the corpus — covered in [AI agent authorization](/docs/use-cases/ai-agent-authorization)
 ## Choosing the right model
 
 A short decision path:
