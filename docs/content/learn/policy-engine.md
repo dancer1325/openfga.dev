@@ -5,8 +5,6 @@ sidebar_position: 7
 slug: /learn/policy-engine
 ---
 
-import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs';
-
 # Policy Engines vs. Relationship Engines
 
 * authorization toolbox
@@ -42,7 +40,9 @@ TODO: You **already run one** for infrastructure or admission policy — extendi
 
 ## When a relationship engine fits
 
-- Decisions depend on **relationships that change at write time** — group membership, document sharing, folder hierarchy, multi-tenant ownership.
+* Decisions 
+  * -- depend on -- relationships / change | write time
+    * — group membership, document sharing, folder hierarchy, multi-tenant ownership
 - The data behind the decision is **too large or too dynamic to ship on every request** — millions of memberships, deeply nested hierarchies — so the engine needs to own the store.
 - You need **reverse queries** — *"list every resource this user can read"* — which inherently require a stored graph.
 - Permissions are **per-resource and per-user**, not just per-attribute.
