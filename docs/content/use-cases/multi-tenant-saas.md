@@ -9,12 +9,18 @@ import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # Multi-Tenant SaaS Authorization
 
-Multi-tenant SaaS is one of <ProductName format={ProductNameFormat.ShortForm}/>'s most common production shapes. The same binary serves every tenant; tenant boundaries are enforced inside the authorization model rather than at the database or service layer.
+* Multi-tenant SaaS
+  * == one of OpenFGA's MOST common production shapes
+  * SAME binary serves EVERY tenant
+    * tenant boundaries are enforced 
+      * | the authorization model
+      * ❌NOT | database OR service layer❌
 
 ## The pattern
 
-Model an `organization` (or `tenant`) type and make every other resource belong to it:
-
+* `organization` OR `tenant`
+  * ALL OTHER resources belong to it
+    *
 - `organization` has members, admins, and owners.
 - `workspace`, `project`, and `document` types each declare a `parent` relation pointing at an `organization`.
 - Relations like `can_view` and `can_edit` traverse the parent edge so organization membership grants the right access automatically.
