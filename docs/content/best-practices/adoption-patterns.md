@@ -104,7 +104,10 @@ The main advantage of this approach is that your APIs will be checking permissio
 
 ## Provide request-level data
 
-One of the advantages of the Zanzibar/OpenFGA approach is that all the data you need to make authorization decisions is stored in a centralized database. That greatly simplifies how application implement access control. Applications do not need to retrieve all the required data before invoking an authorization service.
+* Zanzibar/OpenFGA's data / authorize decisions
+  * is stored | centralized database
+  * 
+ That greatly simplifies how application implement access control. Applications do not need to retrieve all the required data before invoking an authorization service.
 
 However, writing the data to the centralized store adds implementation complexity. You need to implement a data pipeline that makes sure the data is always up to date.
 
