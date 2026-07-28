@@ -5,9 +5,8 @@ sidebar_position: 8
 slug: /industries/applicant-tracking-system
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# ATS Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# ATS Authorization with OpenFGA
 
 Applicant tracking systems — Greenhouse, Lever, Workday Recruiting, Ashby — handle data that is sensitive both ways: candidates expect their applications to stay private, and hiring teams need scoped access to only the roles they are working on. Recruiters coordinate across many jobs; hiring managers see only their own openings; interviewers see only the candidates they are interviewing; offer approval is reserved for admins.
 
@@ -34,9 +33,9 @@ The full sample lives in [openfga/sample-stores/stores/applicant-tracking-system
 
 **Offer approval separated from offer authorship.** Recruiters and hiring managers draft offers; only admins approve. Modeling `can_edit` and `can_approve` as distinct relations on `offer` keeps the four-eyes control without a separate workflow service.
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| ATS requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| ATS requirement | OpenFGA feature |
 | --- | --- |
 | Per-job hiring team | direct `recruiter` / `hiring_manager` relations on `job` |
 | Hiring manager → candidate via application | userset traversal through `application` parent |

@@ -6,7 +6,6 @@ description: Integrating FGA within a framework, such as Fastify or Fiber
 
 ---
 
-import {
   SupportedLanguage,
   languageLabelMap,
   DocumentationNotice,
@@ -146,7 +145,7 @@ func read(c *fiber.Ctx) error {
 
 ### 02. Authenticate and get user ID
 
-Before we can call <ProductName format={ProductNameFormat.LongForm}/> to protect the `/read/{document}` route, we need to validate the user's JWT.
+Before we can call OpenFGA to protect the `/read/{document}` route, we need to validate the user's JWT.
 
 <Tabs groupId="languages">
 <TabItem value={SupportedLanguage.JS_SDK} label={languageLabelMap.get(SupportedLanguage.JS_SDK)}>
@@ -278,7 +277,7 @@ func read(c *fiber.Ctx) error {
 </TabItem>
 </Tabs>
 
-### 03. Integrate the <ProductName format={ProductNameFormat.ShortForm}/> check API into the service
+### 03. Integrate the OpenFGA check API into the service
 
 <Tabs groupId="languages">
 <TabItem value={SupportedLanguage.JS_SDK} label={languageLabelMap.get(SupportedLanguage.JS_SDK)}>

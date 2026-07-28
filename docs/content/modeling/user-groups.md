@@ -4,7 +4,6 @@ slug: /modeling/user-groups
 description: Adding users to groups and granting group members access to an object
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -21,7 +20,7 @@ import {
 
 <DocumentationNotice />
 
-To add users to groups and grant groups access to an <ProductConcept section="what-is-an-object" linkName="object" /> using <ProductName format={ProductNameFormat.ProductLink}/>.
+To add users to groups and grant groups access to an <ProductConcept section="what-is-an-object" linkName="object" /> using [OpenFGA](https://openfga.dev).
 
 <CardBox title="When to use" appearance="filled">
 
@@ -79,13 +78,13 @@ In addition, you will need to know the following:
 
 You need to know how to create an authorization model and a relationship tuple to grant a user access to an object. To learn more, see [direct access](./direct-access.mdx).
 
-### <ProductName format={ProductNameFormat.ShortForm}/> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics.
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object.
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system.
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be defined with relationship tuples and the authorization model.
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>.
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA.
 
 </details>
 
@@ -95,7 +94,7 @@ You need to know how to create an authorization model and a relationship tuple t
 
 There are possible use cases where a group of users have a certain role on or permission to an object. For example, `members` of a certain `team` could have an `editor` relation to a certain `document`.
 
-To represent this in <ProductName format={ProductNameFormat.ShortForm}/>:
+To represent this in OpenFGA:
 
 <!-- We disable the check for these links because markdown-link-check doesn't support reading the docusaurus syntax to define the link -->
 <!-- markdown-link-check-disable --> 
@@ -196,7 +195,7 @@ The chain of resolution is:
 
 :::caution
 
-**Note:** When creating relationship tuples for <ProductName format={ProductNameFormat.ShortForm}/>,  use unique ids for each object and user in your application domain. This example uses first names and simple ids as a suggested example.
+**Note:** When creating relationship tuples for OpenFGA,  use unique ids for each object and user in your application domain. This example uses first names and simple ids as a suggested example.
 
 :::
 

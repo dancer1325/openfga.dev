@@ -4,26 +4,25 @@ slug: /best-practices/modeling-abac
 description: Learn how to model Attribute-Based Access Control (ABAC) patterns using stored and dynamic attributes in OpenFGA.
 sidebar_position: 2
 ---
-import {
   ProductName,
   ProductNameFormat,
   RelatedSection,
 } from '@components/Docs';
 
-# Modeling ABAC with <ProductName format={ProductNameFormat.ShortForm}/>
+# Modeling ABAC with OpenFGA
 
 Attribute-Based Access Control (ABAC) extends traditional relationship-based access control by incorporating attributes into authorization decisions. While Role-Based Access Control (RBAC) answers "does this user have this role?", ABAC answers questions like "does this user have this role AND is their email verified?" or "can this user access this resource given their current session context?".
 
-With <ProductName format={ProductNameFormat.ShortForm}/>, you can model ABAC patterns using attributes that are stored in the system or attributes that are provided dynamically with each authorization request.
+With OpenFGA, you can model ABAC patterns using attributes that are stored in the system or attributes that are provided dynamically with each authorization request.
 
 This guide covers two main approaches:
 
-1. **Stored attributes**: Attributes persisted in <ProductName format={ProductNameFormat.ShortForm}/> as part of your relationship data
+1. **Stored attributes**: Attributes persisted in OpenFGA as part of your relationship data
 2. **Request-time attributes**: Dynamic attributes sent with each authorization check request
 
 ## Stored Attribute Data
 
-When attributes are relatively static and can be stored alongside your relationship data, you can model them directly in <ProductName format={ProductNameFormat.ShortForm}/>. This approach works well for attributes like "email verified", "SSO enabled", or "account tier".
+When attributes are relatively static and can be stored alongside your relationship data, you can model them directly in OpenFGA. This approach works well for attributes like "email verified", "SSO enabled", or "account tier".
 
 Consider a scenario where you want to allow users to perform an action only if their organization has SSO enabled. Below are three patterns for modeling this requirement.
 

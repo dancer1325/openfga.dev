@@ -4,7 +4,6 @@ slug: /getting-started/immutable-models
 description: Learn how to take advantage of the immutable properties of Authorization Models
 ---
 
-import {
   DocumentationNotice,
   ProductName,
   ProductNameFormat,
@@ -37,7 +36,7 @@ In practice, you would pin the authorization model ID alongside the store ID in 
 
 Targeting a specific model ID would ensure that you don't accidentally break your authorization checks in production because a mistake was made when updating the authorization model. It would also slightly improve the latency on your check requests.
 
-If that field is passed, evaluation and validation will happen for that particular authorization model ID. If this field is not passed, <ProductName format={ProductNameFormat.ShortForm}/> will use the last created Authorization Model for that store.
+If that field is passed, evaluation and validation will happen for that particular authorization model ID. If this field is not passed, OpenFGA will use the last created Authorization Model for that store.
 
 ## Potential use-cases
 

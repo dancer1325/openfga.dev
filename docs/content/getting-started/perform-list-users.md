@@ -5,7 +5,6 @@ slug: /getting-started/perform-list-users
 description: List all users that have a certain relation with a particular object
 ---
 
-import {
   SupportedLanguage,
   languageLabelMap,
   ListUsersRequestViewer,
@@ -111,7 +110,7 @@ type document
 
 Assume that you want to list all users of type `user` that have a `reader` relationship with `document:planning`:
 
-### 01. Configure the <ProductName format={ProductNameFormat.ShortForm}/> API client
+### 01. Configure the OpenFGA API client
 
 Before calling the List Users API, you will need to configure the API client.
 

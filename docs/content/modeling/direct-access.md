@@ -15,7 +15,7 @@ description: Granting a user access to an object
 
 * relationship tuples
   * 
-Granting access with <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" /> is a core part of <ProductName format={ProductNameFormat.ShortForm}/>
+Granting access with <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" /> is a core part of OpenFGA
   * enable,
     * checks can work
       * <ProductConcept section="what-is-a-check-request" linkName="checks" />_ will fail. You should use:
@@ -71,13 +71,13 @@ You have a <ProductConcept section="what-is-a-type" linkName="type" /> called `d
 
 In addition, you will need to know the following:
 
-### <ProductName format={ProductNameFormat.ShortForm}/> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 
 </details>
 
@@ -85,7 +85,7 @@ In addition, you will need to know the following:
 
 ## Step By Step
 
-For an application to understand that **user x** has access to **document y**, it must provide <ProductName format={ProductNameFormat.LongForm}/> that information with <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" />.
+For an application to understand that **user x** has access to **document y**, it must provide OpenFGA that information with <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" />.
 Each relationship tuple has three basic parameters: a **<ProductConcept section="what-is-a-user" linkName="user" />**, a **<ProductConcept section="what-is-a-relation" linkName="relation" />** and an **<ProductConcept section="what-is-an-object" linkName="object" />**.
 
 ### 01. Create A Relationship Tuple
@@ -104,16 +104,16 @@ Below, you'll add a **<ProductConcept section="what-is-a-relationship-tuple" lin
 
 ### 02. Check That The Relationship Exists
 
-Once you add that relationship tuple to <ProductName format={ProductNameFormat.ShortForm} />, you can <ProductConcept section="what-is-a-check-request" linkName="check" /> if the relationship is valid by asking if bob is an editor of document:meeting_notes.doc:
+Once you add that relationship tuple to OpenFGA, you can <ProductConcept section="what-is-a-check-request" linkName="check" /> if the relationship is valid by asking if bob is an editor of document:meeting_notes.doc:
 
 <CheckRequestViewer user={'user:bob'} relation={'editor'} object={'document:meeting_notes.doc'} allowed={true} />
 
-Checking whether `bob` is an `viewer` of `document:meeting_notes.doc` returns **false** because that relationship tuple does not exist in <ProductName format={ProductNameFormat.ShortForm}/> yet.
+Checking whether `bob` is an `viewer` of `document:meeting_notes.doc` returns **false** because that relationship tuple does not exist in OpenFGA yet.
 
 <CheckRequestViewer user={'user:bob'} relation={'viewer'} object={'document:meeting_notes.doc'} allowed={false} />
 
 :::caution
-When creating relationship tuples for <ProductName format={ProductNameFormat.LongForm}/>, use unique ids for each object and user within your application domain. We're using first names and simple ids to as an easy-to-follow example.
+When creating relationship tuples for OpenFGA, use unique ids for each object and user within your application domain. We're using first names and simple ids to as an easy-to-follow example.
 :::
 
 ## Related Sections

@@ -5,7 +5,6 @@ slug: /modeling/building-blocks
 sidebar_position: 0
 ---
 
-import { DocumentationNotice, IntroCard, CardGrid } from '@components/Docs';
 
 <DocumentationNotice />
 

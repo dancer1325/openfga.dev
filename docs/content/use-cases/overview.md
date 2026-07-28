@@ -5,11 +5,10 @@ sidebar_position: 1
 slug: /use-cases
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# <ProductName format={ProductNameFormat.ShortForm}/> Use Cases
+# OpenFGA Use Cases
 
-<ProductName format={ProductNameFormat.ShortForm}/> is a Zanzibar-style relationship engine. The patterns below are the ones that show up most often in production — each links to the modeling guide and, where available, an adopter reference that runs the pattern at scale.
+OpenFGA is a Zanzibar-style relationship engine. The patterns below are the ones that show up most often in production — each links to the modeling guide and, where available, an adopter reference that runs the pattern at scale.
 
 ## AI and agent authorization
 
@@ -19,6 +18,6 @@ import { ProductName, ProductNameFormat } from '@components/Docs';
 
 ## Application authorization
 
-- **[Multi-tenant SaaS](/docs/use-cases/multi-tenant-saas)** — one <ProductName format={ProductNameFormat.ShortForm}/> store, many tenants, with strict isolation.
+- **[Multi-tenant SaaS](/docs/use-cases/multi-tenant-saas)** — one OpenFGA store, many tenants, with strict isolation.
 - **[Microservices authorization](/docs/use-cases/microservices-authorization)** — a central authorization service that every microservice consults, instead of each service rolling its own roles table.
 

@@ -101,7 +101,7 @@ type document
 
 Assume that you want to list all objects of type document that  user `anne` has `reader` relationship with:
 
-### 01. Configure the <ProductName format={ProductNameFormat.ShortForm}/> API client
+### 01. Configure the OpenFGA API client
 
 Before calling the check API, you will need to configure the API client.
 

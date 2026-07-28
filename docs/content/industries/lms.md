@@ -5,9 +5,8 @@ sidebar_position: 7
 slug: /industries/lms
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# LMS Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# LMS Authorization with OpenFGA
 
 Learning management systems — Canvas, Moodle, Blackboard, plus internal corporate training platforms — combine curriculum hierarchy with per-user enrollment. A student enrolled in *one* class section sees *that* class's materials but not the rest of the course catalog; an instructor authoring a quiz can edit it even when their general role is "instructor, not owner".
 
@@ -32,9 +31,9 @@ The full sample lives in [openfga/sample-stores/stores/lms](https://github.com/o
 
 **Publish gated to owners.** A course can be edited by enrolled instructors but only published by the `owner` or an admin. This separates "draft work" from "goes live to students", which curriculum review processes depend on.
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| LMS requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| LMS requirement | OpenFGA feature |
 | --- | --- |
 | Per-class enrollment | direct relations on `class`, evaluated per-section |
 | Course → class hierarchy | [parent-child relationships](/docs/modeling/parent-child) |

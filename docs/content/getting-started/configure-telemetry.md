@@ -9,28 +9,27 @@ slug: /getting-started/configure-telemetry
 
 <DocumentationNotice />
 
-* <ProductName format={ProductNameFormat.ShortForm}/> SDK Client 
+* OpenFGA SDK Client 
   * supports telemetry data collection -- via -- [OpenTelemetry](https://opentelemetry.io)
 
 ## Enabling Telemetry
 
-1. [Install the <ProductName format={ProductNameFormat.ShortForm}/> SDK Client](./install-sdk.mdx)
+1. [Install the OpenFGA SDK Client](./install-sdk.mdx)
 2. [Setup OpenTelemetry](https://opentelemetry.io/docs/getting-started/)
 3. Install the OpenTelemetry SDK dependencies for your application
 4. Instantiate the OpenTelemetry SDK in your application
 
-Once you have completed these steps, the <ProductName format={ProductNameFormat.ShortForm}/> SDK Client will automatically collect telemetry data using your application's OpenTelemetry configuration.
+Once you have completed these steps, the OpenFGA SDK Client will automatically collect telemetry data using your application's OpenTelemetry configuration.
 
 ## Customizing Telemetry
 
-The <ProductName format={ProductNameFormat.ShortForm}/> SDK Client will automatically use [a default configuration](#supported-metrics) for telemetry collection. You can provide your own configuration to include additional metrics or to exclude metrics that are not relevant to your application.
+The OpenFGA SDK Client will automatically use [a default configuration](#supported-metrics) for telemetry collection. You can provide your own configuration to include additional metrics or to exclude metrics that are not relevant to your application.
 
 <Tabs groupId="languages">
 <TabItem value={SupportedLanguage.JS_SDK} label={languageLabelMap.get(SupportedLanguage.JS_SDK)}>
 
 ```typescript
 import 'dotenv/config';
-import { OpenFgaClient, TelemetryAttribute, TelemetryConfiguration, TelemetryMetric } from '@openfga/sdk';
 
 const telemetryConfig = {
   metrics: {
@@ -240,7 +239,7 @@ OpenFgaClient fgaClient = new OpenFgaClient(config);
 
 ## Examples
 
-We provide example applications for using telemetry with the <ProductName format={ProductNameFormat.ShortForm}/> SDK Client.
+We provide example applications for using telemetry with the OpenFGA SDK Client.
 
 - [Node.js](https://github.com/openfga/js-sdk/tree/main/example/opentelemetry)
 - [Go](https://github.com/openfga/go-sdk/tree/main/example/opentelemetry)
@@ -249,7 +248,7 @@ We provide example applications for using telemetry with the <ProductName format
 
 ## Supported Metrics
 
-The <ProductName format={ProductNameFormat.ShortForm}/> SDK Client can collect the following metrics:
+The OpenFGA SDK Client can collect the following metrics:
 
 | Metric Name                      | Type      | Enabled by Default | Description                                                                       |
 | -------------------------------- | --------- | ------------------ | --------------------------------------------------------------------------------- |
@@ -259,7 +258,7 @@ The <ProductName format={ProductNameFormat.ShortForm}/> SDK Client can collect t
 
 ## Supported Attributes
 
-The <ProductName format={ProductNameFormat.ShortForm}/> SDK Client can collect the following attributes:
+The OpenFGA SDK Client can collect the following attributes:
 
 | Attribute Name                 | Type   | Enabled by Default | Description                                                                       |
 | ------------------------------ | ------ | ------------------ | --------------------------------------------------------------------------------- |
@@ -297,9 +296,6 @@ Create an initialization file to configure tracing:
 
 ```javascript
 // tracing.ts
-import { NodeSDK } from '@opentelemetry/sdk-node';
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
-import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
 
 const sdk = new NodeSDK({
   traceExporter: new OTLPTraceExporter(),

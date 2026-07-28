@@ -5,7 +5,6 @@ sidebar_position: 1
 slug: /modeling/advanced/entitlements
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -17,16 +16,16 @@ import {
   WriteRequestViewer,
 } from '@components/Docs';
 
-# Modeling Entitlements for a System with <ProductName format={ProductNameFormat.ShortForm}/>
+# Modeling Entitlements for a System with OpenFGA
 
 <DocumentationNotice />
 
-This tutorial explains how to model entitlements for a platform like GitHub using <ProductName format={ProductNameFormat.ShortForm}/>.
+This tutorial explains how to model entitlements for a platform like GitHub using OpenFGA.
 
 <CardBox title="What you will learn">
 
-- How to model an entitlement use case in <ProductName format={ProductNameFormat.ProductLink}/>
-- How to start with a given set of requirements and scenarios and iterate on the <ProductName format={ProductNameFormat.ShortForm}/> model until those requirements are met
+- How to model an entitlement use case in [OpenFGA](https://openfga.dev)
+- How to start with a given set of requirements and scenarios and iterate on the OpenFGA model until those requirements are met
 
 </CardBox>
 
@@ -34,14 +33,14 @@ This tutorial explains how to model entitlements for a platform like GitHub usin
 
 ## Before you start
 
-In order to understand this guide correctly you must be familiar with some <ProductName format={ProductNameFormat.LongForm}/> concepts and know how to develop the things that we will list below.
+In order to understand this guide correctly you must be familiar with some OpenFGA concepts and know how to develop the things that we will list below.
 
 <details>
 <summary>
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
-It would be helpful to have an understanding of some concepts of <ProductName format={ProductNameFormat.ShortForm}/> before you start.
+It would be helpful to have an understanding of some concepts of OpenFGA before you start.
 
 </summary>
 
@@ -66,7 +65,7 @@ Used here to indicate that "access" to a feature cannot be directly granted to a
 
 ## What you will be modeling
 
-In many product offerings, the features are behind multiple tiers. In this tutorial, you will build an authorization model for a subset of [GitHub's entitlements](https://github.com/pricing) (detailed below) using <ProductName format={ProductNameFormat.LongForm}/>. You will use some scenarios to validate the model.
+In many product offerings, the features are behind multiple tiers. In this tutorial, you will build an authorization model for a subset of [GitHub's entitlements](https://github.com/pricing) (detailed below) using OpenFGA. You will use some scenarios to validate the model.
 
 ![GitHub Pricing Plan](./assets/entitlements-image-pricing-github.svg)
 
@@ -111,7 +110,7 @@ Use the following scenarios to be able to validate whether the model of the requ
 
 ![Image showing requirements](./assets/entitlements-requirements.svg)
 
-By the end of this tutorial, you should be able to query <ProductName format={ProductNameFormat.ShortForm}/> with queries like:
+By the end of this tutorial, you should be able to query OpenFGA with queries like:
 
 - **Anne** has access to **Issues** (expecting `yes`)
 - **Anne** has access to **Draft Pull Requests** (expecting` no`)
@@ -284,7 +283,7 @@ The relations between the organizations and the users are as follows:
   ]}
 />
 
-So far you have given <ProductName format={ProductNameFormat.ShortForm}/> a representation of the current state of your system's relationships. You will keep iterating and updating the authorization model until the results of the queries match what you expect.
+So far you have given OpenFGA a representation of the current state of your system's relationships. You will keep iterating and updating the authorization model until the results of the queries match what you expect.
 
 :::caution
 
@@ -301,11 +300,11 @@ For example, the relationship tuple indicating that _anne is a member of organiz
 
 Now that you have some data, you can start using it to ask is $\{USER\} related to $\{OBJECT\} as $\{RELATION\}?
 
-First, you will <ProductConcept section="what-is-a-check-request" linkName="check" /> if `anne` is a member of `organization:alpha`. This is one of the relationship tuples you previously added, you will make sure <ProductName format={ProductNameFormat.ShortForm}/> can detect a relation in this case.
+First, you will <ProductConcept section="what-is-a-check-request" linkName="check" /> if `anne` is a member of `organization:alpha`. This is one of the relationship tuples you previously added, you will make sure OpenFGA can detect a relation in this case.
 
 <CheckRequestViewer user={'user:anne'} relation={'member'} object={'organization:alpha'} allowed={true} />
 
-Querying for relationship tuples that you fed into <ProductName format={ProductNameFormat.LongForm}/> earlier should work, try a few before proceeding to make sure everything is working well.
+Querying for relationship tuples that you fed into OpenFGA earlier should work, try a few before proceeding to make sure everything is working well.
 
 <CheckRequestViewer user={'user:anne'} relation={'member'} object={'organization:bayer'} allowed={false} />
 <CheckRequestViewer user={'organization:bayer'} relation={'subscriber'} object={'plan:team'} allowed={true} />
@@ -313,13 +312,13 @@ Querying for relationship tuples that you fed into <ProductName format={ProductN
 
 ### 03. Updating the authorization model
 
-You are working towards <ProductName format={ProductNameFormat.ShortForm}/> returning the correct answer when you query whether `anne` has `access` to `feature:issues`. It won't work yet, but you will keep updating your configuration to reach that goal.
+You are working towards OpenFGA returning the correct answer when you query whether `anne` has `access` to `feature:issues`. It won't work yet, but you will keep updating your configuration to reach that goal.
 
 To start, try to run that query on `is anne related to feature:issues as access?`
 
 <CheckRequestViewer user={'user:anne'} relation={'access'} object={'feature:issues'} />
 
-The <ProductName format={ProductNameFormat.LongForm}/> service is returning that the query tuple is invalid. That is because you are asking for relation as `access`, but that relation is not in the configuration of the `feature` type!
+The OpenFGA service is returning that the query tuple is invalid. That is because you are asking for relation as `access`, but that relation is not in the configuration of the `feature` type!
 
 Add it now. Like so:
 
@@ -354,9 +353,9 @@ Add it now. Like so:
 
 In this tutorial, you will find the phrases <ProductConcept section="what-are-direct-and-implied-relationships" linkName="direct relationship and implied relationship" />.
 
-A _direct relationship_ R between user X and object Y means the relationship tuple (user=X, relation=R, object=Y) exists, and the <ProductName format={ProductNameFormat.ShortForm}/> authorization model for that relation allows this direct relationship (by use of [direct relationship type restrictions](../../configuration-language.mdx#direct-relationship-type-restrictions)).
+A _direct relationship_ R between user X and object Y means the relationship tuple (user=X, relation=R, object=Y) exists, and the OpenFGA authorization model for that relation allows this direct relationship (by use of [direct relationship type restrictions](../../configuration-language.mdx#direct-relationship-type-restrictions)).
 
-An _implied relationship_ R exists between user X and object Y if user X is related to an object Z that is in direct or implied relationship with object Y, and the <ProductName format={ProductNameFormat.ShortForm}/> authorization model allows it.
+An _implied relationship_ R exists between user X and object Y if user X is related to an object Z that is in direct or implied relationship with object Y, and the OpenFGA authorization model allows it.
 
 :::
 
@@ -422,7 +421,7 @@ Now we can ask the following query: `is anne related to feature:issues as access
 
 <CheckRequestViewer user={'user:anne'} relation={'access'} object={'feature:issues'} allowed={false} />
 
-So far so good. <ProductName format={ProductNameFormat.ShortForm}/> understood your query, but said that no <ProductConcept section="what-is-a-relation" linkName="relation" /> exists. That is because according to the configuration provided so far, there is no `access` relation between `anne` and `feature:issues`.
+So far so good. OpenFGA understood your query, but said that no <ProductConcept section="what-is-a-relation" linkName="relation" /> exists. That is because according to the configuration provided so far, there is no `access` relation between `anne` and `feature:issues`.
 
 We can also try to query `is organization:alpha related to feature:issues as access?` and we see that there is no relationship.
 
@@ -450,7 +449,7 @@ If you have already completed some of the other tutorials you might have encount
 />
 
 :::info
-With this, when asked to check a user's `viewer` relationship with the object, <ProductName format={ProductNameFormat.LongForm}/> will:
+With this, when asked to check a user's `viewer` relationship with the object, OpenFGA will:
 
 1. Read all relationship tuples of users related to this particular object as relation `parent`
 2. For each relationship tuple, return all _usersets_ that have `all_objects_viewer` relation to the objects in those relationship tuples
@@ -523,7 +522,7 @@ That brings you close. That will allow you to grant organizations access to the 
 One way forward would be to add a direct `access` relation between a user and a feature e.g. `{ "user": "anne", "relation": "access", "object": "feature:y" }` whenever the organization anne is subscribed to a plan, or the organization anne is in subscribes to a new plan.
 But there are several downsides to this:
 
-- Your application layer now needs to worry about computing this relationship. Instead of letting <ProductName format={ProductNameFormat.ShortForm}/> figure this all out, the app layer needs to do the checks whenever a user is being added or removed
+- Your application layer now needs to worry about computing this relationship. Instead of letting OpenFGA figure this all out, the app layer needs to do the checks whenever a user is being added or removed
 - If an organization changes its subscription, your application layer has to loop through all the users and update their `access` relationships to features accordingly
 
 Later in this tutorial, you will remove the possibility of having a direct `access` relation completely, but for now you will make sure the changes to the store you have made so far are working.
@@ -606,7 +605,7 @@ Now we can ask following query: `is organization:alpha related to feature:issues
 
 <CheckRequestViewer user={'organization:alpha'} relation={'access'} object={'feature:issues'} allowed={true} />
 
-You will notice that <ProductName format={ProductNameFormat.ShortForm}/> now did find a relation, as `organization:alpha` is a `subscriber` to `plan:free` which has an `associated_plan` relation to `feature:issues`. From that and the authorization model you updated above, <ProductName format={ProductNameFormat.ShortForm}/> deduced that `organization:alpha` has an implied `access` relation to `feature:issues`.
+You will notice that OpenFGA now did find a relation, as `organization:alpha` is a `subscriber` to `plan:free` which has an `associated_plan` relation to `feature:issues`. From that and the authorization model you updated above, OpenFGA deduced that `organization:alpha` has an implied `access` relation to `feature:issues`.
 
 That is good, but you want to be able to ask `is anne related to feature:issues as access?`, not `is organization:alpha related to feature:issues as access?`. As in, you want the subscriber members to have access to the feature, not the subscriber itself.
 
@@ -713,7 +712,7 @@ Now ask the following query: `is anne related to feature:issues as access?`
 
 #### Disallow direct relationship
 
-So far, with just a <ProductName format={ProductNameFormat.ShortForm}/> authorization model, and the initial relationship tuples indicating the relations you know, you configured <ProductName format={ProductNameFormat.LongForm}/> to give you the correct response.
+So far, with just a OpenFGA authorization model, and the initial relationship tuples indicating the relations you know, you configured OpenFGA to give you the correct response.
 
 Earlier on, the idea of not allowing a direct `access` relation between a user and a `feature` was discussed, e.g. adding a relationship tuple like `{ "user": "user:anne", "relation": "access", "object": "feature:y" }`. You will remove it now.
 
@@ -902,12 +901,12 @@ Try to verify for the other user, object and relation combinations as listed bel
 
 In this tutorial, you learned:
 
-- to model entitlements for a system in <ProductName format={ProductNameFormat.LongForm}/>
-- how to start with a set of requirements and scenarios and iterate on the <ProductName format={ProductNameFormat.ShortForm}/> authorization model until the checks match the expected scenarios
-- how to model [**parent-child relationships**](../parent-child.mdx) to indicate that a user having a relationship with a certain object implies having a relationship with another object in <ProductName format={ProductNameFormat.ShortForm}/>
+- to model entitlements for a system in OpenFGA
+- how to start with a set of requirements and scenarios and iterate on the OpenFGA authorization model until the checks match the expected scenarios
+- how to model [**parent-child relationships**](../parent-child.mdx) to indicate that a user having a relationship with a certain object implies having a relationship with another object in OpenFGA
 - how to use [**the union operator**](../../configuration-language.mdx#the-union-operator) condition to indicate multiple possible paths for a relationship between two objects to be computed
-- using [**direct relationship type restrictions**](../../configuration-language.mdx#direct-relationship-type-restrictions) in a <ProductName format={ProductNameFormat.ShortForm}/> authorization model, and how to block direct relationships by removing it
+- using [**direct relationship type restrictions**](../../configuration-language.mdx#direct-relationship-type-restrictions) in a OpenFGA authorization model, and how to block direct relationships by removing it
 
 <Playground title="Entitlements" preset="entitlements" example="Entitlements" store="entitlements" />
 
-Upcoming tutorials will dive deeper into <ProductName format={ProductNameFormat.ShortForm}/>, introducing concepts that will improve on the model you built today, and tackling different permission systems, with other relations and requirements that need to be met.
+Upcoming tutorials will dive deeper into OpenFGA, introducing concepts that will improve on the model you built today, and tackling different permission systems, with other relations and requirements that need to be met.

@@ -4,7 +4,6 @@ slug: /modeling/blocklists
 description: Preventing certain users from accessing objects
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -122,13 +121,13 @@ In addition, you will need to know the following:
 
 You need to know how to add users to groups and grant groups access to resources. [Learn more →](.//user-groups.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm} /> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm} />
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 - [Exclusion Operator](../configuration-language.mdx#the-exclusion-operator): the exclusion operator can be used to exclude certain usersets from being related to an object
 
 </details>
@@ -137,7 +136,7 @@ You need to know how to add users to groups and grant groups access to resources
 
 ## Step by step
 
-With the above authorization model and relationship tuples, <ProductName format={ProductNameFormat.LongForm} /> will correctly respond with `{"allowed":true}` when <ProductConcept section="what-is-a-check-request" linkName="check" /> is called to see if Carl and Becky can edit this `document`.
+With the above authorization model and relationship tuples, OpenFGA will correctly respond with `{"allowed":true}` when <ProductConcept section="what-is-a-check-request" linkName="check" /> is called to see if Carl and Becky can edit this `document`.
 
 We can verify that by issuing two check requests:
 
@@ -300,7 +299,7 @@ To check if Becky still has access to the document, we'll issue another check re
 The response is `true`, indicating our model change did not inadvertently deny access for users who have access but are not blocked.
 
 :::caution
-When creating tuples for <ProductName format={ProductNameFormat.LongForm} /> make sure to use unique ids for each object and user within your application domain. We are using first names and human-readable identifiers to make this task easier to read.
+When creating tuples for OpenFGA make sure to use unique ids for each object and user within your application domain. We are using first names and human-readable identifiers to make this task easier to read.
 :::
 
 ## Related Sections

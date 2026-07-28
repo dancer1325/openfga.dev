@@ -4,7 +4,6 @@ slug: /modeling/organization-context-authorization
 description: Modeling authorization through organization context
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -38,11 +37,11 @@ Contextual Tuples should be used when modeling cases where a user's access to an
 
 To follow this guide, you should be familiar with some <ProductConcept />.
 
-### <ProductName format={ProductNameFormat.ShortForm}/> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
-- A <ProductConcept section="what-is-a-check-request" linkName="Check Request" />: is a call to the <ProductName format={ProductNameFormat.ShortForm}/> check endpoint that returns whether the user has a certain relationship with an object.
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-check-request" linkName="Check Request" />: is a call to the OpenFGA check endpoint that returns whether the user has a certain relationship with an object.
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 - A <ProductConcept section="what-are-contextual-tuples" linkName="Contextual Tuple" />: a tuple that can be added to a check request, and only exist within the context of that particular request.
 
 You also need to be familiar with:
@@ -272,7 +271,7 @@ In order to solve for the requirements above, we will break the problem down int
 
 ### Understand Relationships Without Contextual Data
 
-With the authorization model and relationship tuples shown above, <ProductName format={ProductNameFormat.ShortForm}/> has all the information needed to ensure that Anne can view and delete "Project X".
+With the authorization model and relationship tuples shown above, OpenFGA has all the information needed to ensure that Anne can view and delete "Project X".
 
 We can verify that using the following checks:
 
@@ -299,7 +298,7 @@ Note that so far, we have not prevented Anne from viewing "Project X" even if An
 
 ##### Extend The Authorization Model
 
-In order to add a restriction based on the current organization context, we will make use of <ProductName format={ProductNameFormat.ShortForm}/> configuration language's support for [intersection](../configuration-language.mdx#the-intersection-operator) to specify that a user has to both have access _and_ be in the correct context in order to be authorized.
+In order to add a restriction based on the current organization context, we will make use of OpenFGA configuration language's support for [intersection](../configuration-language.mdx#the-intersection-operator) to specify that a user has to both have access _and_ be in the correct context in order to be authorized.
 
 We can do that by introducing some new relations and updating existing relation definitions:
 
@@ -307,7 +306,7 @@ We can do that by introducing some new relations and updating existing relation 
 
 - Add "user_in_context" relation to mark that a user's access is being evaluated within that particular context
 - Update the "project_manager" relation to require that the user be in the correct context (by adding `and user_in_context` to the relation definition)
-- Considering that <ProductName format={ProductNameFormat.ShortForm}/> does not yet support multiple logical operations within the same definition, we will split "project_editor" into two:
+- Considering that OpenFGA does not yet support multiple logical operations within the same definition, we will split "project_editor" into two:
   - "base_project_editor" editor which will contain the original relation definition (`[user] or project_manager`)
   - "project_editor" which will require that a user has both the "base_project_editor" and the "user_in_context" relations
 
@@ -414,9 +413,9 @@ We can verify this by running a check request
 
 ### Use Contextual Tuples For Context Related Checks
 
-Now that we know we can authorize based on present state, we have a different problem to solve. We are storing the tuples in the state in order for <ProductName format={ProductNameFormat.ShortForm}/> to evaluate them, which fails in certain use-cases where Anne can be connected to two different contexts in different browser windows at the same time, as each has a different context at the same time, so if they are written to the state, which will <ProductName format={ProductNameFormat.ShortForm}/> use to compute Anne's access to the project?
+Now that we know we can authorize based on present state, we have a different problem to solve. We are storing the tuples in the state in order for OpenFGA to evaluate them, which fails in certain use-cases where Anne can be connected to two different contexts in different browser windows at the same time, as each has a different context at the same time, so if they are written to the state, which will OpenFGA use to compute Anne's access to the project?
 
-For Check calls, <ProductName format={ProductNameFormat.ShortForm}/> has a concept called "<ProductConcept section="what-are-contextual-tuples" linkName="Contextual Tuples" />". Contextual Tuples are tuples that do **not** exist in the system state and are not written beforehand to <ProductName format={ProductNameFormat.ShortForm}/>. They are tuples that are sent alongside the Check request and will be treated as _if_ they already exist in the state for the context of that particular Check call. That means that Anne can be using two different sessions, each within a different organization context, and <ProductName format={ProductNameFormat.ShortForm}/> will correctly respond to each one with the correct authorization decision.
+For Check calls, OpenFGA has a concept called "<ProductConcept section="what-are-contextual-tuples" linkName="Contextual Tuples" />". Contextual Tuples are tuples that do **not** exist in the system state and are not written beforehand to OpenFGA. They are tuples that are sent alongside the Check request and will be treated as _if_ they already exist in the state for the context of that particular Check call. That means that Anne can be using two different sessions, each within a different organization context, and OpenFGA will correctly respond to each one with the correct authorization decision.
 
 First, we will undo the [temporary step](#add-the-required-tuples-to-mark-that-anne-is-in-an-approved-context) and remove the stored tuples for which Anne has a `user_in_context` relation with `organization:A`.
 
@@ -431,7 +430,7 @@ First, we will undo the [temporary step](#add-the-required-tuples-to-mark-that-a
   ]}
 />
 
-Next, when Anne is connecting from the context of organization A, <ProductName format={ProductNameFormat.ShortForm}/> will return `{"allowed":true}`:
+Next, when Anne is connecting from the context of organization A, OpenFGA will return `{"allowed":true}`:
 
 <CheckRequestViewer
   user={'user:anne'}
@@ -449,7 +448,7 @@ Next, when Anne is connecting from the context of organization A, <ProductName f
   ]}
 />
 
-When Anne is connecting from the context of organization C, <ProductName format={ProductNameFormat.ShortForm}/> will return `{"allowed":false}`:
+When Anne is connecting from the context of organization C, OpenFGA will return `{"allowed":false}`:
 
 <CheckRequestViewer
   user={'user:anne'}

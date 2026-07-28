@@ -5,7 +5,6 @@ sidebar_position: 3
 slug: /modeling/agents/mcp-authorization
 ---
 
-import {
   CheckRequestViewer,
   DocumentationNotice,
   ListObjectsRequestViewer,
@@ -18,9 +17,9 @@ import {
 
 <DocumentationNotice />
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers expose tools that AI agents can call. Without authorization, any authenticated user can invoke any tool. <ProductName format={ProductNameFormat.ShortForm}/> lets you control which tools each user can access, based on their role, group membership, or time-limited grants.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers expose tools that AI agents can call. Without authorization, any authenticated user can invoke any tool. OpenFGA lets you control which tools each user can access, based on their role, group membership, or time-limited grants.
 
-This guide shows how to model tool-level authorization for an MCP server using <ProductName format={ProductNameFormat.ShortForm}/>, covering public tools, role-based access, group membership, temporal access, and resource-level permissions within tools. It explains how to control an agent's interactions with an MCP server based on the user's permissions.
+This guide shows how to model tool-level authorization for an MCP server using OpenFGA, covering public tools, role-based access, group membership, temporal access, and resource-level permissions within tools. It explains how to control an agent's interactions with an MCP server based on the user's permissions.
 
 ## Authorization model
 
@@ -259,7 +258,7 @@ The authorization flow for an MCP server follows this pattern:
 
 ## Sample implementation
 
-For a complete working example of an MCP server with <ProductName format={ProductNameFormat.ShortForm}/> authorization, see the [FastMCP + OpenFGA sample](https://github.com/auth0-samples/auth0-ai-samples/tree/main/auth-for-mcp/fastmcp-mcp-fga-js). The sample includes:
+For a complete working example of an MCP server with OpenFGA authorization, see the [FastMCP + OpenFGA sample](https://github.com/auth0-samples/auth0-ai-samples/tree/main/auth-for-mcp/fastmcp-mcp-fga-js). The sample includes:
 
 - A fully configured authorization model and tuples
 - OAuth 2.0 authentication with token verification

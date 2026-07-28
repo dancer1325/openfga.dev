@@ -5,7 +5,7 @@ description: Overview of best practices when adopting OpenFGA
 sidebar_position: 1
 ---
 
-# <ProductName format={ProductNameFormat.ShortForm}/> Best Practices
+# OpenFGA Best Practices
 
 * goal 
   * | implement OpenFGA, best practices

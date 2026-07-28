@@ -5,7 +5,6 @@ sidebar_position: 8
 slug: /getting-started/tuples-api-best-practices
 ---
 
-import {
   DocumentationNotice,
   ProductName,
   ProductNameFormat,
@@ -16,7 +15,7 @@ import {
 
 <DocumentationNotice />
 
-The following list outlines some guidelines and best practices for using <ProductName format={ProductNameFormat.ShortForm}/>:
+The following list outlines some guidelines and best practices for using OpenFGA:
 
 - Do not store Personal Identifiable Information in tuples
 - Always specify authorization model ID whenever possible
@@ -34,7 +33,7 @@ The documentation and samples uses first names and simple ids to illustrate easy
 It is strongly recommended that authorization model ID be specified in your Relationship Queries (such as [Check](./perform-check.mdx) and [ListObjects](../interacting/relationship-queries.mdx#listobjects)) and Relationship Commands (such as [Write](./update-tuples.mdx)).
 
 Specifying authorization model ID in API calls have the following advantages:
-1. Better performance as <ProductName format={ProductNameFormat.ShortForm}/> will not need to perform a database query to get the latest authorization model ID.
+1. Better performance as OpenFGA will not need to perform a database query to get the latest authorization model ID.
 2. Allows consistent behavior in your production system until you are ready to switch to the new model.
 
 ## Related Sections

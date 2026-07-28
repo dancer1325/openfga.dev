@@ -5,7 +5,6 @@ sidebar_position: 3
 slug: /use-cases/rag-authorization
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # RAG Authorization
 
@@ -15,7 +14,7 @@ Retrieval-augmented generation pipelines retrieve documents from a data set and 
 
 1. The user asks the agent a question.
 2. The retriever pulls candidate documents (vector search, keyword, hybrid).
-3. **<ProductName format={ProductNameFormat.ShortForm}/> filters** the candidates: for each candidate `doc:X`, check whether `user:Y` has `can_view`. Or call [list-objects](/docs/interacting/relationship-queries) once to get the full set of documents this user can read, then intersect.
+3. **OpenFGA filters** the candidates: for each candidate `doc:X`, check whether `user:Y` has `can_view`. Or call [list-objects](/docs/interacting/relationship-queries) once to get the full set of documents this user can read, then intersect.
 4. Only the surviving documents are passed to the model as context.
 
 The same model and prompt now produce different — and correct — answers per user, because the context they see is scoped to what they're allowed to see.
@@ -42,7 +41,7 @@ Folders nest arbitrarily deep — a viewer on a top-level folder inherits `can_v
 
 ## Why list-objects matters here
 
-For small set of documents, per-document checks are fine. For larger ones, `list-objects` is dramatically cheaper: one call returns the full set of documents the user can read, and you intersect that with the retriever's candidates. This is exactly the case <ProductName format={ProductNameFormat.ShortForm}/>'s reverse queries are designed for.
+For small set of documents, per-document checks are fine. For larger ones, `list-objects` is dramatically cheaper: one call returns the full set of documents the user can read, and you intersect that with the retriever's candidates. This is exactly the case OpenFGA's reverse queries are designed for.
 
 ## Conditions and contextual data
 

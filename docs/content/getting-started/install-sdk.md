@@ -60,7 +60,7 @@ to update `go.mod` and `go.sum` if you are using them.
 
 <!-- markdown-link-check-enable -->
 
-The <ProductName format={ProductNameFormat.ShortForm}/> .NET SDK is available on [NuGet](https://www.nuget.org/packages/OpenFga.Sdk).
+The OpenFGA .NET SDK is available on [NuGet](https://www.nuget.org/packages/OpenFga.Sdk).
 
 You can install it using:
 
@@ -81,7 +81,7 @@ Install-Package OpenFGA.Sdk
 </TabItem>
 <TabItem value={SupportedLanguage.PYTHON_SDK} label={languageLabelMap.get(SupportedLanguage.PYTHON_SDK)}>
 
-The <ProductName format={ProductNameFormat.ShortForm}/> Python SDK is available on [PyPI](https://pypi.org/project/openfga-sdk).
+The OpenFGA Python SDK is available on [PyPI](https://pypi.org/project/openfga-sdk).
 
 To install:
 
@@ -119,7 +119,7 @@ implementation 'dev.openfga:openfga-sdk:0.3.1'
 </TabItem>
 <TabItem value={SupportedLanguage.CLI} label={languageLabelMap.get(SupportedLanguage.CLI)}>
 
-The <ProductName format={ProductNameFormat.ShortForm}/> CLI is available on [GitHub](https://github.com/openfga/cli).
+The OpenFGA CLI is available on [GitHub](https://github.com/openfga/cli).
 
 To install:
 

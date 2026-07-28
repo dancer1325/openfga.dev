@@ -4,7 +4,6 @@ slug: /modeling/conditions
 description: Modeling relationships with Conditions
 ---
 
-import {
   AuthzModelSnippetViewer,
   WriteRequestViewer,
   CheckRequestViewer,

@@ -5,7 +5,6 @@ sidebar_position: 2
 slug: /getting-started/setup-openfga/kubernetes
 ---
 
-import {
   DocumentationNotice,
   RelatedSection,
 } from "@components/Docs";

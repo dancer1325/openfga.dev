@@ -5,7 +5,6 @@ sidebar_position: 4
 slug: /interacting/contextual-tuples
 ---
 
-import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs';
 
 # Contextual Tuples
 
@@ -19,7 +18,7 @@ When making requests to [Check](/api/service#/Relationship%20Queries/Check), [Ba
 
 There are three main use cases for contextual tuples:
 
-1. When you want to avoid synchronizing data to <ProductName format={ProductNameFormat.ShortForm}/>. This is a powerful use case, as it allows using <ProductName format={ProductNameFormat.ShortForm}/> in a hybrid mode, with some data written to the database and other data obtained before making an authorization query. A good example is using user group memberships [from an identity token issued by an identity provider](../modeling/token-claims-contextual-tuples.mdx). Note that while it's possible to provide all data using contextual tuples without storing any data, this approach wouldn't leverage the main benefit of the Zanzibar approach: avoiding the need to look up all data required for authorization decisions.
+1. When you want to avoid synchronizing data to OpenFGA. This is a powerful use case, as it allows using OpenFGA in a hybrid mode, with some data written to the database and other data obtained before making an authorization query. A good example is using user group memberships [from an identity token issued by an identity provider](../modeling/token-claims-contextual-tuples.mdx). Note that while it's possible to provide all data using contextual tuples without storing any data, this approach wouldn't leverage the main benefit of the Zanzibar approach: avoiding the need to look up all data required for authorization decisions.
 
 2. When a user has multiple relationships with the same object, and you want to specify which relationship to consider. For example, if a user belongs to multiple organizations but is logged into only one of them, you can [use contextual tuples to specify which organization to consider](../modeling/organization-context-authorization.mdx).
 

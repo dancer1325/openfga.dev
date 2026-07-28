@@ -84,7 +84,7 @@ TODO:
 }
 ```
 
-### 01. Configure the <ProductName format={ProductNameFormat.ShortForm}/> API client
+### 01. Configure the OpenFGA API client
 
 Before calling the write API, you will need to configure the API client.
 
@@ -234,7 +234,7 @@ Sometimes you might need to write a tuple that already exists, which would norma
 
 This is particularly useful for high-volume data imports, migrations, or ensuring certain permissions exist without complex error handling logic.
 
-For example, if you want to ensure `user:anne` has `reader` access to `document:Z` without worrying about whether the relationship already exists in <ProductName format={ProductNameFormat.ShortForm}/>:
+For example, if you want to ensure `user:anne` has `reader` access to `document:Z` without worrying about whether the relationship already exists in OpenFGA:
 
 <WriteRequestViewer
   relationshipTuples={[

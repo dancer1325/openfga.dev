@@ -4,7 +4,6 @@ slug: /interacting/managing-user-access
 description: Granting a user access to a particular object
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -25,7 +24,7 @@ In this guide you will learn how to grant a <ProductConcept section="what-is-a-u
 
 <CardBox title="When to use" appearance="filled">
 
-Granting access with a _<ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuple" />_ is a core part of <ProductName format={ProductNameFormat.ShortForm}/>. Without any relationship tuples, any _<ProductConcept section="what-is-a-check-request" linkName="check" />_ will fail. You should use:
+Granting access with a _<ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuple" />_ is a core part of OpenFGA. Without any relationship tuples, any _<ProductConcept section="what-is-a-check-request" linkName="check" />_ will fail. You should use:
 
 - _authorization model_ to represent what **relation**s are possible between the users and objects in your system
 - _relationship tuples_ to represent the facts about the relationships between users and objects in your system.
@@ -76,13 +75,13 @@ In addition, you will need to know the following:
 
 You need to know how to create an authorization model and create a relationship tuple to grant a user access to an object. [Learn more →](../modeling/direct-access.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 
 </details>
 
@@ -103,7 +102,7 @@ For our application, we will give user Anne the `reader` relationship to a parti
   ]}
 />
 
-With the above, we have added a [**direct** relationship](../modeling/building-blocks/direct-relationships.mdx) between Anne and `tweet:1`. When we call the Check API to see if Anne has a `reader` relationship, <ProductName format={ProductNameFormat.ShortForm}/> will say yes.
+With the above, we have added a [**direct** relationship](../modeling/building-blocks/direct-relationships.mdx) between Anne and `tweet:1`. When we call the Check API to see if Anne has a `reader` relationship, OpenFGA will say yes.
 
 <CheckRequestViewer user={'user:anne'} relation={'reader'} object={'tweet:1'} allowed={true} />
 

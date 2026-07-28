@@ -76,7 +76,7 @@ description: Getting tuple changes
 
 To get a chronologically ordered list of tuples that have been written or deleted in your store, you can do so by calling the Read Changes API.
 
-### 01. Configure The <ProductName format={ProductNameFormat.ShortForm}/> API Client
+### 01. Configure The OpenFGA API Client
 
 First you will need to configure the API client.
 

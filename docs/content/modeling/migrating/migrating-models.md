@@ -4,13 +4,12 @@ slug: /modeling/migrating/migrating-models
 sidebar_position: 1
 ---
 
-import { DocumentationNotice, ProductName, ProductNameFormat, IntroCard, CardGrid, CardBox} from '@components/Docs';
 
 <DocumentationNotice />
 
-You can think of model migrations for <ProductName format={ProductNameFormat.ShortForm}/> in the same way as you think about relational database migrations. You can perform migrations with or without downtime for both, and for some changes, doing them without downtime is harder.
+You can think of model migrations for OpenFGA in the same way as you think about relational database migrations. You can perform migrations with or without downtime for both, and for some changes, doing them without downtime is harder.
 
-| <ProductName format={ProductNameFormat.ShortForm}/> | Relational Databases  |
+| OpenFGA | Relational Databases  |
 |-----------------------------------------------------|-----------------------|
 | Add a type                                          | Add a table           |
 | Remove a type                                       | Remove a table        |

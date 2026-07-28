@@ -80,13 +80,13 @@ description: An overview of how to use the Check, Read, Expand, and ListObject A
 
 * [how to create an authorization model & create a relationship tuple](../modeling/direct-access.md)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 
 </details>
 
@@ -94,7 +94,7 @@ description: An overview of how to use the Check, Read, Expand, and ListObject A
 
 ### What is it for?
 
-The [Check API](/api/service#Relationship%20Queries/Check) is an API endpoint that returns whether the user has a certain relationship with an object. <ProductName format={ProductNameFormat.ShortForm}/> will resolve all prerequisite relationships to establish whether a relationship exists.
+The [Check API](/api/service#Relationship%20Queries/Check) is an API endpoint that returns whether the user has a certain relationship with an object. OpenFGA will resolve all prerequisite relationships to establish whether a relationship exists.
 
 ### When to use?
 
@@ -104,7 +104,7 @@ For example, you can call check to determine whether `bob` has a `reader` relati
 
 <CheckRequestViewer user={'user:bob'} relation={'reader'} object={'document:planning'} allowed={true} />
 
-The <ProductName format={ProductNameFormat.ShortForm}/> API will return `true` because there is an implied relationship as
+The OpenFGA API will return `true` because there is an implied relationship as
 
 - every `writer` is also a `reader`
 - `bob` is a `writer` for `document:planning`
@@ -160,7 +160,7 @@ For example, you can call Batch Check to determine whether `bob` has `can_view_n
   skipSetup={true}
 />
 
-The <ProductName format={ProductNameFormat.ShortForm}/> API will return `true` depending on the level of access assigned to that user and the implied relationships inherited in the authorization model.
+The OpenFGA API will return `true` depending on the level of access assigned to that user and the implied relationships inherited in the authorization model.
 
 ### Caveats and when not to use it
 

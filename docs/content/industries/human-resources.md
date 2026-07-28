@@ -5,9 +5,8 @@ sidebar_position: 5
 slug: /industries/human-resources
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# HR & HRIS Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# HR & HRIS Authorization with OpenFGA
 
 HRIS platforms — Workday, BambooHR, Rippling, plus internal directory systems — have to answer authorization questions that role-only systems struggle with: *the employee* always sees their own record, *direct managers* see their reports but not all employees, *HR* sees everything, and *PII* (SSN, date of birth, home address) is gated separately from the rest of the profile.
 
@@ -31,9 +30,9 @@ The full sample model is in [openfga/sample-stores/stores/human-resources](https
 
 **Time-off approvals routed by relationship.** The approver is whoever the `manager` relation points at on the day of the request — no separate "approval routing" table.
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| HR requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| HR requirement | OpenFGA feature |
 | --- | --- |
 | Employee self-service on own record | direct `self` relation on `employee` |
 | Manager-of-direct-reports view | `manager` relation, evaluated per-employee |

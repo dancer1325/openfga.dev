@@ -5,7 +5,6 @@ sidebar_position: 1
 slug: /modeling/getting-started
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CardGrid,
@@ -33,20 +32,20 @@ import FGAIcon from '@site/static/img/getting-started-fga-logo.svg';
 
 Creating a <IntroductionSection linkName="Relationship Based Access Control (ReBAC)" section="what-is-relationship-based-access-control"/> authorization model might feel odd at first. Most of us tend to think about authorization models in terms of roles and permissions. After all, most software works like that. Your existing systems are likely built on a model using roles and permissions.
 
-This guide outlines a process for defining your <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" /> with <ProductName format={ProductNameFormat.ProductLink}/>.
+This guide outlines a process for defining your <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" /> with [OpenFGA](https://openfga.dev).
 
 You can also check out the [Modeling Guide](https://www.youtube.com/watch?v=5Lwy9aHXXHE&list=PLUR5l-oTFZqWaDdhEOVt_IfPOIbKo1Ypt) on YouTube or the [Samples Repository](https://github.com/openfga/sample-stores).
 
 ## Introduction To Modeling
 
-To define a ReBAC model in <ProductName format={ProductNameFormat.ShortForm}/> we recommend:
+To define a ReBAC model in OpenFGA we recommend:
 
 - If you have an existing system: forget about how your system works today and start thinking about how you want it to work in the future.
-- Thinking about authorization starting from the resources, or objects as <ProductName format={ProductNameFormat.ShortForm}/> calls them.
+- Thinking about authorization starting from the resources, or objects as OpenFGA calls them.
 
 If that sounds hard, don't worry! We'll guide you through it.
 
-<ProductName format={ProductNameFormat.ShortForm} /> is built to quickly and reliably make <ProductConcept
+OpenFGA is built to quickly and reliably make <ProductConcept
   section="what-is-a-check-request"
   linkName="authorization checks"
 />
@@ -126,7 +125,7 @@ Start with the most important feature. It doesn't have to be the most complex on
 Once you've picked a feature, describe its authorization related scope using simple language. Avoid using the word "roles", as this ties you to an RBAC way of thinking.
 
 :::info
-Roles don't "disappear" in ReBAC systems like <ProductName format={ProductNameFormat.ShortForm}/>. Your users might [have roles on a given object, rather than the entire system](./roles-and-permissions.mdx). But starting from the term "role" might lead you down the wrong path. Instead it is better to discover roles while you are modeling.
+Roles don't "disappear" in ReBAC systems like OpenFGA. Your users might [have roles on a given object, rather than the entire system](./roles-and-permissions.mdx). But starting from the term "role" might lead you down the wrong path. Instead it is better to discover roles while you are modeling.
 :::
 
 Your feature description should include the <ProductConcept section="what-is-an-object" linkName="objects" />, <ProductConcept section="what-is-a-user" linkName="users" /> and <ProductConcept section="what-is-a-user" linkName="groups of users" /> participating in the system. Sentences should look like this:
@@ -356,7 +355,7 @@ Now that we have a list of object types we can start defining them using the <Up
 />
 
 :::info Caution
-You're now in the process of building a version you can use. The model above is not yet a valid authorization model accepted by <ProductName format={ProductNameFormat.ShortForm}/>.
+You're now in the process of building a version you can use. The model above is not yet a valid authorization model accepted by OpenFGA.
 :::
 
 :::info Important
@@ -369,7 +368,7 @@ In those cases [**User** should also be an object type](./building-blocks/object
 
 ![List relations for those types](./assets/getting-started-diagram-04.svg)
 
-Each of the previously defined types has a set of relations. <ProductConcept section="what-is-a-relation" linkName="Relations" /> are an important component in your model. After all, <ProductName format={ProductNameFormat.ShortForm}/> is a <IntroductionSection linkName="Relationship Based Access Control (ReBAC)" section="what-is-relationship-based-access-control-rebac"/> system.
+Each of the previously defined types has a set of relations. <ProductConcept section="what-is-a-relation" linkName="Relations" /> are an important component in your model. After all, OpenFGA is a <IntroductionSection linkName="Relationship Based Access Control (ReBAC)" section="what-is-relationship-based-access-control-rebac"/> system.
 
 To identify relations for a type in the write-up we can perform an exercise similar to the one we did in [list the type of objects in your system](#02-list-the-object-types).
 
@@ -477,7 +476,7 @@ The resulting list is:
 </ColumnLayout>
 
 :::info
-In <ProductName format={ProductNameFormat.ShortForm}/>, relations can only have alphanumeric characters, underscores and hyphens. We recommend using underscore (\_) to separate words and removing prepositions. E.g.: "can create a document" can become "can_create_document" or "create_document" if you are into brevity.
+In OpenFGA, relations can only have alphanumeric characters, underscores and hyphens. We recommend using underscore (\_) to separate words and removing prepositions. E.g.: "can create a document" can become "can_create_document" or "create_document" if you are into brevity.
 :::
 
 Using the <UpdateProductNameInLinks link="../configuration-language" name="{ProductName} Configuration Language" /> we can enumerate the relations for each type:
@@ -515,7 +514,7 @@ type drive
 ```
 
 :::info Caution
-You're now in the process of building a version you can use. The model above is not yet a valid authorization model accepted by <ProductName format={ProductNameFormat.ShortForm}/>.
+You're now in the process of building a version you can use. The model above is not yet a valid authorization model accepted by OpenFGA.
 :::
 
 ### 04. Define Relations
@@ -546,10 +545,10 @@ We recommend starting from objects that represent groups/containers of users. Fo
 
 ##### Relation: Member
 
-The member relation is used to tell <ProductName format={ProductNameFormat.ShortForm}/> about the members of an organization.
+The member relation is used to tell OpenFGA about the members of an organization.
 
 :::info Important
-Relation names in <ProductName format={ProductNameFormat.ShortForm}/> are arbitrary strings. There are no reserved relation names. You can use "member" or "part_of" or anything else to refer to a user that is part of a team/organization.
+Relation names in OpenFGA are arbitrary strings. There are no reserved relation names. You can use "member" or "part_of" or anything else to refer to a user that is part of a team/organization.
 :::
 
 Remember _"How a user is added as a member to an organization is beyond the scope of this feature."_ For the purposes of this model the relation definition should be:
@@ -647,13 +646,13 @@ Defining relations for the main type lets you focus on your core use case, and w
 
 ##### Relation: Owner
 
-The owner relation is used to tell <ProductName format={ProductNameFormat.ShortForm}/> which users are owners of the document.
+The owner relation is used to tell OpenFGA which users are owners of the document.
 
 :::info Important
 In the current version, there is no way to state that there is only one owner in the authorization model. The application must limit this <ProductConcept section="what-is-a-user" linkName="set of users" /> to just one owner if that is a requirement.
 :::
 
-When a document is created, a relationship tuple will be stored in <ProductName format={ProductNameFormat.ShortForm}/> representing this relationship between owner and document. This is an example of a [user to object relationship](./direct-access.mdx).
+When a document is created, a relationship tuple will be stored in OpenFGA representing this relationship between owner and document. This is an example of a [user to object relationship](./direct-access.mdx).
 
 The relation definition then should be:
 
@@ -685,9 +684,9 @@ Why? This <ProductConcept section="what-is-a-relation" linkName="relation defini
 
 ##### Relation: Editor
 
-The editor relation is used to tell <ProductName format={ProductNameFormat.ShortForm}/> which users are editors of the document.
+The editor relation is used to tell OpenFGA which users are editors of the document.
 
-When a user shares a document with another user or set of users as editor, a relationship tuple will be stored in <ProductName format={ProductNameFormat.ShortForm}/> representing this relationship between editor and document. This is an example of a [users to object relationship](./direct-access.mdx).
+When a user shares a document with another user or set of users as editor, a relationship tuple will be stored in OpenFGA representing this relationship between editor and document. This is an example of a [users to object relationship](./direct-access.mdx).
 
 The relation definition then should be:
 
@@ -757,15 +756,15 @@ The viewer relation is similar to the document's [editor relation](#relation-edi
 
 ##### Relation: Parent
 
-The parent relation is used to tell <ProductName format={ProductNameFormat.ShortForm}/> which folder or drive is the parent of the document.
+The parent relation is used to tell OpenFGA which folder or drive is the parent of the document.
 
 :::caution Important
-Relation names in <ProductName format={ProductNameFormat.ShortForm}/> are arbitrary strings. There are no reserved relation names. You can use "parent", "container" or "ancestor" to refer to a "parent folder".
+Relation names in OpenFGA are arbitrary strings. There are no reserved relation names. You can use "parent", "container" or "ancestor" to refer to a "parent folder".
 :::
 
 This relation is different from the others we have seen so far, as it is a relation between two objects (a **folder** and or **drive** that is the parent of the **document**). This is known as an [object to object relationship](./building-blocks/object-to-object-relationships.mdx), of which [parent-child is a particular case](./parent-child.mdx).
 
-When a document is created a relationship tuple will be stored in <ProductName format={ProductNameFormat.ShortForm}/> to represent this relationship between parent and document. The relation definition then should be:
+When a document is created a relationship tuple will be stored in OpenFGA to represent this relationship between parent and document. The relation definition then should be:
 
 <AuthzModelSnippetViewer
   configuration={
@@ -794,7 +793,7 @@ Why? This relation definition states that:
 We can use [direct type restriction](../configuration-language.mdx#direct-relationship-type-restrictions) to ensure a document's parent can only be an object of type either drive or folder.
 
 :::note Side note
-You might have noticed that the "user" in the tuple is an object. This is a special syntax <ProductName format={ProductNameFormat.ShortForm}/> accepts in the "user" parameter to write [object to object relationships](./building-blocks/object-to-object-relationships.mdx). You can read more about writing data to manage object to object relationships in [Managing Relationships Between Objects](../interacting/managing-relationships-between-objects.mdx).
+You might have noticed that the "user" in the tuple is an object. This is a special syntax OpenFGA accepts in the "user" parameter to write [object to object relationships](./building-blocks/object-to-object-relationships.mdx). You can read more about writing data to manage object to object relationships in [Managing Relationships Between Objects](../interacting/managing-relationships-between-objects.mdx).
 :::
 
 ##### Relation: can_share
@@ -1335,7 +1334,7 @@ Combining the type definitions for document and organization, we have
 
 :::note
 
-The <ProductName /> authorization model API and SDK only accepts JSON in its input. To convert from DSL to JSON, you may use the [FGA CLI](https://github.com/openfga/cli) to run `fga model transform`.
+The OpenFGA authorization model API and SDK only accepts JSON in its input. To convert from DSL to JSON, you may use the [FGA CLI](https://github.com/openfga/cli) to run `fga model transform`.
 
 :::
 
@@ -1345,13 +1344,13 @@ The <ProductName /> authorization model API and SDK only accepts JSON in its inp
 
 Once you have defined your group like types and the most important type for your feature you want to ensure everything is working as expected. This means testing the model.
 
-How? Remember from the introduction that **<ProductName format={ProductNameFormat.LongForm}/>'s** main job is to answer the question:
+How? Remember from the introduction that **OpenFGA's** main job is to answer the question:
 
 <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
   <CardBox icon={{ icon: <FGAIcon />, alignment: 'left' }} title="Can user U, perform an action A on an object O?" />
 </div>
 
-The <ProductName format={ProductNameFormat.ShortForm}/> service does that by checking if a user has a particular relationship to an object, based on your authorization model and relationship tuples.
+The OpenFGA service does that by checking if a user has a particular relationship to an object, based on your authorization model and relationship tuples.
 
 <ColumnLayout cols={2} style={{ marginTop: '2rem', marginBottom: '2rem' }}>
   <CardBox title="General Authorization Check" appearance="filled">
@@ -1364,7 +1363,7 @@ The <ProductName format={ProductNameFormat.ShortForm}/> service does that by che
 
 What we want is to ensure that given our current authorization model and some sample relationship tuples, we get the expected results for those questions.
 
-So we'll write some relationship tuples and assertions. An <ProductName format={ProductNameFormat.ShortForm}/> assertion takes one of these forms:
+So we'll write some relationship tuples and assertions. An OpenFGA assertion takes one of these forms:
 
 1. user U **has** relation R with object O
 2. user U **does not have** relation R with object O

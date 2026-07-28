@@ -4,7 +4,6 @@ slug: /modeling/token-claims-contextual-tuples
 description: Using identity token claims to define contextual relations
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -23,23 +22,23 @@ import {
 
 <DocumentationNotice />
 
-Contextual Tuples allow authorization checks that depend on dynamic or contextual relationships that have not been written to the <ProductName format={ProductNameFormat.ShortForm}/> store, enabling some Attribute Based Access Control (ABAC) use cases. 
+Contextual Tuples allow authorization checks that depend on dynamic or contextual relationships that have not been written to the OpenFGA store, enabling some Attribute Based Access Control (ABAC) use cases. 
 
-To enable more ABAC use-cases that rely on specific attributes and conditions, you can also use <ProductName format={ProductNameFormat.ShortForm}/>`s [conditions](./conditions.mdx).
+To enable more ABAC use-cases that rely on specific attributes and conditions, you can also use OpenFGA`s [conditions](./conditions.mdx).
 
 ## Before You Start
 
 To follow this guide, familiarize yourself with the following <ProductConcept />:
 
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system.
-- A <ProductConcept section="what-is-a-check-request" linkName="Check Request" />: is a call to the <ProductName format={ProductNameFormat.ShortForm}/> check endpoint that returns whether the user has a certain relationship with an object.
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-check-request" linkName="Check Request" />: is a call to the OpenFGA check endpoint that returns whether the user has a certain relationship with an object.
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 
 ## User Directories, Identity Tokens, And Relationships
 
-User directories store user information that's accessed when making authorization decisions, like the group the user belongs to, their roles, or their department. The natural way to use those relationships in a Relationship-Based Access Control system like <ProductName format={ProductNameFormat.ShortForm}/> is to create tuples for each relation. However, implementing a synchronization mechanism to keep the user directory data up to date with tuples in the store can be challenging.  
+User directories store user information that's accessed when making authorization decisions, like the group the user belongs to, their roles, or their department. The natural way to use those relationships in a Relationship-Based Access Control system like OpenFGA is to create tuples for each relation. However, implementing a synchronization mechanism to keep the user directory data up to date with tuples in the store can be challenging.  
 
-When applications implement authentication using an OIDC authorization service, they receive an ID Token or an Access token, with certain claims that can be customized based on the application's needs. Instead of writing tuples to the <ProductName format={ProductNameFormat.ShortForm}/>, you can use the content of the token in Contextual Tuples to make authorization checks, understanding that, if those relationships change while the token has not expired, users will still get access to the resources the content of the token entitled them to.
+When applications implement authentication using an OIDC authorization service, they receive an ID Token or an Access token, with certain claims that can be customized based on the application's needs. Instead of writing tuples to the OpenFGA, you can use the content of the token in Contextual Tuples to make authorization checks, understanding that, if those relationships change while the token has not expired, users will still get access to the resources the content of the token entitled them to.
 
 ## Example
 

@@ -290,13 +290,13 @@ allows it with [direct relationship type restrictions](./configuration-language.
 ## What Is A Check Request?
 
 * **check request** 
-  * == call -- to the -- <ProductName format={ProductNameFormat.LongForm}/> check endpoint
+  * == call -- to the -- OpenFGA check endpoint
     * return whether the user has a certain relationship with an object
     * | SDK,
 
 </summary>
 
-Check requests use the `check` methods in the <ProductName format={ProductNameFormat.ShortForm}/> SDKs ([JavaScript SDK](https://www.npmjs.com/package/@openfga/sdk)/[Go SDK](https://github.com/openfga/go-sdk)/[.NET SDK](https://www.nuget.org/packages/OpenFga.Sdk)) by manually calling the [check endpoint](/api/service#Relationship%20Queries/Check) using curl or in your code. The check endpoint responds with `{ "allowed": true }` if a relationship exists, and with `{ "allowed": false }` if the relationship does not.
+Check requests use the `check` methods in the OpenFGA SDKs ([JavaScript SDK](https://www.npmjs.com/package/@openfga/sdk)/[Go SDK](https://github.com/openfga/go-sdk)/[.NET SDK](https://www.nuget.org/packages/OpenFga.Sdk)) by manually calling the [check endpoint](/api/service#Relationship%20Queries/Check) using curl or in your code. The check endpoint responds with `{ "allowed": true }` if a relationship exists, and with `{ "allowed": false }` if the relationship does not.
 
 For example, the following will check whether `anne` of type user has a `viewer` relation to `document:new-roadmap`:
 
@@ -313,7 +313,7 @@ For more information, see the [Relationship Queries page](./interacting/relation
 
 * **list objects request** 
   * == call -- to the -- OpenFGA's list objects endpoint / returns ALL objects / given type / user has a specified relationship with
-    * completed using the `listobjects` methods in the <ProductName format={ProductNameFormat.ShortForm}/> SDKs ([JavaScript SDK](https://www.npmjs.com/package/@openfga/sdk)/[Go SDK](https://github.com/openfga/go-sdk)/[.NET SDK](https://www.nuget.org/packages/OpenFga.Sdk)) by manually calling the [list objects endpoint](/api/service#Relationship%20Queries/ListObjects) using curl or in your code.
+    * completed using the `listobjects` methods in the OpenFGA SDKs ([JavaScript SDK](https://www.npmjs.com/package/@openfga/sdk)/[Go SDK](https://github.com/openfga/go-sdk)/[.NET SDK](https://www.nuget.org/packages/OpenFga.Sdk)) by manually calling the [list objects endpoint](/api/service#Relationship%20Queries/ListObjects) using curl or in your code.
 
 The list objects endpoint responds with a list of objects for a given type that the user has the specified relationship with.
 

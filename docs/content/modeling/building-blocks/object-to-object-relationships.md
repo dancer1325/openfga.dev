@@ -4,7 +4,6 @@ slug: /modeling/building-blocks/object-to-object-relationships
 description: Modeling relationships between objects (e.g. folder parent of a document)
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -25,7 +24,7 @@ In this guide you'll learn how to model your application with <ProductConcept se
 
 <CardBox title="When to use" appearance="filled">
 
-This design pattern is helpful in the case where there are relationships between different objects. With <ProductName format={ProductNameFormat.LongForm}/>, so long as both objects are in a type defined in the <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />, relationship tuples can be added to indicate a relationship between them.
+This design pattern is helpful in the case where there are relationships between different objects. With OpenFGA, so long as both objects are in a type defined in the <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />, relationship tuples can be added to indicate a relationship between them.
 
 For example:
 
@@ -96,13 +95,13 @@ In addition, you will need to know the following:
 
 You need to know how to add users to groups and grant groups access to resources. [Learn more →](../user-groups.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 
 </details>
 
@@ -158,7 +157,7 @@ To represent that a `folder` can be a `parent` of a `document`, we first need to
 
 ### 02. Add Parent Relationship Tuples
 
-Once the type definition is updated, we can now create the <ProductConcept section="what-is-a-relationship" linkName="relationship" /> between a `folder` as a `parent` of a `document`. To do this, we will create a new **<ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuple" />** that describes: **folder:budgets** is a `parent` of **document:may_budget.doc**. In <ProductName format={ProductNameFormat.LongForm}/>, <ProductConcept section="what-is-a-user" linkName="users" /> in the relationship tuples can not only be IDs, but also other objects in the form of `type:object_id`.
+Once the type definition is updated, we can now create the <ProductConcept section="what-is-a-relationship" linkName="relationship" /> between a `folder` as a `parent` of a `document`. To do this, we will create a new **<ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuple" />** that describes: **folder:budgets** is a `parent` of **document:may_budget.doc**. In OpenFGA, <ProductConcept section="what-is-a-user" linkName="users" /> in the relationship tuples can not only be IDs, but also other objects in the form of `type:object_id`.
 
 <WriteRequestViewer
   relationshipTuples={[
@@ -173,14 +172,14 @@ Once the type definition is updated, we can now create the <ProductConcept secti
 
 ### 03. Check that parent folders have permissions
 
-Once that relationship tuple is added to <ProductName format={ProductNameFormat.ShortForm}/>, we can <ProductConcept section="what-is-a-check-request" linkName="check" /> if the relationship is valid by asking the following: **"is folder:budgets a parent of document:may_budget.doc?"**
+Once that relationship tuple is added to OpenFGA, we can <ProductConcept section="what-is-a-check-request" linkName="check" /> if the relationship is valid by asking the following: **"is folder:budgets a parent of document:may_budget.doc?"**
 
 <CheckRequestViewer user={'folder:budgets'} relation={'parent'} object={'document:may_budget.doc'} allowed={true} />
 
 It is important to note that the current authorization model does not imply inheritance of permissions. Even though **folder:budgets** is a `parent` of **document:may_budget.doc**, **it does not inherit the `editor` relation from `parent` to `document`.** Meaning `editors` on **folder:budgets** are not `editors` on **document:may_budget.doc**. Further configuration changes are needed to indicate that and will be tackled in a later guide.
 
 :::caution
-When creating relationship tuples for <ProductName format={ProductNameFormat.ShortForm}/> make sure to use unique ids for each object and user within your application domain. We are using first names and simple ids to just illustrate an easy-to-follow example.
+When creating relationship tuples for OpenFGA make sure to use unique ids for each object and user within your application domain. We are using first names and simple ids to just illustrate an easy-to-follow example.
 :::
 
 ## Advanced object to object relationships

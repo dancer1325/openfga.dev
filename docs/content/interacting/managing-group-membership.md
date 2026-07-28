@@ -4,7 +4,6 @@ slug: /interacting/managing-group-membership
 description: Updating a user's membership to a group by adding and removing them from it
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -101,7 +100,7 @@ Let us also assume that we have an `org` called "contoso" and a `document` calle
   ]}
 />
 
-With the above authorization model and relationship tuples, <ProductName format={ProductNameFormat.ShortForm}/> will respond with `{"allowed":false}` when _<ProductConcept section="what-is-a-check-request" linkName="check" />_ is called to see if Anne can read `document:planning`.
+With the above authorization model and relationship tuples, OpenFGA will respond with `{"allowed":false}` when _<ProductConcept section="what-is-a-check-request" linkName="check" />_ is called to see if Anne can read `document:planning`.
 
 <CheckRequestViewer user={'anne'} relation={'reader'} object={'document:planning'} allowed={false} />
 
@@ -118,7 +117,7 @@ Now let's make Anne a `member` of `org:contoso` by adding another tuple:
   ]}
 />
 
-The <ProductName format={ProductNameFormat.ShortForm}/> service will now correctly respond with `{"allowed":true}` when check is called to see if Anne can read `document:planning`, but it will still respond with `{"allowed":false}` if we ask the same question for another user called Becky, who is not a member of the group `org:contoso`.
+The OpenFGA service will now correctly respond with `{"allowed":true}` when check is called to see if Anne can read `document:planning`, but it will still respond with `{"allowed":false}` if we ask the same question for another user called Becky, who is not a member of the group `org:contoso`.
 
 <CheckRequestViewer user={'user:anne'} relation={'reader'} object={'document:planning'} allowed={true} />
 
@@ -132,13 +131,13 @@ You need to know how to add users to groups and grant groups access to an object
 
 You need to know how to manage group access to an object. [Learn more →](./managing-group-access.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 
 </details>
 
@@ -146,7 +145,7 @@ You need to know how to manage group access to an object. [Learn more →](./man
 
 ### 01. Revoking group membership
 
-Imagine that every member of `org:contoso` has a `reader` relationship to 1000 documents. Now imagine that `anne` is no longer a member of `org:contoso`, so we want to revoke her access to all those documents, including `document:planning`. To accomplish this, we can simply **delete** the tuple in <ProductName format={ProductNameFormat.ShortForm}/> that specifies that Anne is a `member` of `org:contoso`.
+Imagine that every member of `org:contoso` has a `reader` relationship to 1000 documents. Now imagine that `anne` is no longer a member of `org:contoso`, so we want to revoke her access to all those documents, including `document:planning`. To accomplish this, we can simply **delete** the tuple in OpenFGA that specifies that Anne is a `member` of `org:contoso`.
 
 <WriteRequestViewer
   deleteRelationshipTuples={[
@@ -160,7 +159,7 @@ Imagine that every member of `org:contoso` has a `reader` relationship to 1000 d
 
 ### 02. Validating revoked member no longer has access
 
-Once the above relationship tuple is deleted, we can check if Anne can read `document:planning`. <ProductName format={ProductNameFormat.ShortForm}/> will return `{ "allowed": false }`.
+Once the above relationship tuple is deleted, we can check if Anne can read `document:planning`. OpenFGA will return `{ "allowed": false }`.
 
 <CheckRequestViewer user={'user:anne'} relation={'reader'} object={'document:planning'} allowed={false} />
 

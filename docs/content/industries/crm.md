@@ -5,9 +5,8 @@ sidebar_position: 6
 slug: /industries/crm
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# CRM Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# CRM Authorization with OpenFGA
 
 CRM platforms — Salesforce, HubSpot, Pipedrive, Zoho — share an authorization shape that pure RBAC handles badly: a sales rep owns *their* accounts and deals, a manager sees *the team's* pipeline, and admins see everything. Account ownership is per-record and changes constantly as deals are reassigned.
 
@@ -32,9 +31,9 @@ The full sample is in [openfga/sample-stores/stores/crm](https://github.com/open
 
 **Close-deal as its own permission.** "Can edit the opportunity" and "can close the deal" are different relations. Reps edit their own deals but only owners or sales managers can mark won/lost.
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| CRM requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| CRM requirement | OpenFGA feature |
 | --- | --- |
 | Per-rep account ownership | direct `owner` relation on `account` |
 | Manager sees the team's pipeline | org-level `sales_manager` role |

@@ -5,7 +5,6 @@ sidebar_position: 4
 slug: /use-cases/mcp-server-authorization
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # MCP Server Authorization
 
@@ -13,7 +12,7 @@ A Model Context Protocol server exposes tools to a client. That makes it an auth
 
 ## The pattern
 
-Model the MCP server's surface in <ProductName format={ProductNameFormat.ShortForm}/>:
+Model the MCP server's surface in OpenFGA:
 
 - A `tool` type with a `can_call` relation.
 - `user`, `group`, and `role` types so permissions can be granted directly, by group membership, or by role assignment.

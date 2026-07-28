@@ -4,7 +4,6 @@ slug: /modeling/testing
 description: Testing Models
 ---
 
-import {
   DocumentationNotice,
   ProductName,
   ProductNameFormat,
@@ -15,9 +14,9 @@ import {
 
 <DocumentationNotice />
 
-Every <ProductName format={ProductNameFormat.ShortForm}/> model should be tested before deployment to ensure your authorization model is correctly designed.
+Every OpenFGA model should be tested before deployment to ensure your authorization model is correctly designed.
 
-The `.fga.yaml` contains tests for <ProductName format={ProductNameFormat.ShortForm}/> authorization models. If you are using Visual Studio Code as your IDE, install the [OpenFGA extension](https://marketplace.visualstudio.com/items?itemName=openfga.openfga-vscode) to enable syntax coloring and validation.
+The `.fga.yaml` contains tests for OpenFGA authorization models. If you are using Visual Studio Code as your IDE, install the [OpenFGA extension](https://marketplace.visualstudio.com/items?itemName=openfga.openfga-vscode) to enable syntax coloring and validation.
 
 For complete details on the `.fga.yaml` store file format, see [Store File Format](./store-file-format.mdx).
 
@@ -29,9 +28,9 @@ For complete details on the `.fga.yaml` store file format, see [Store File Forma
 | Object  | Description |
 | -------- | -------- | 
 | `name` (optional)   | A descriptive name for the test file   | 
-| `model` or `model_file`   | An <ProductName format={ProductNameFormat.ShortForm}/> model or a reference to an external model file in `fga`, `json` or `mod` format  | 
+| `model` or `model_file`   | An OpenFGA model or a reference to an external model file in `fga`, `json` or `mod` format  | 
 |`tuples` or `tuple_file` or multiple `tuple_files` (optional) | A set of tuples or a reference to an external tuple file in `json`, `yaml` or `csv` format. These are considered for all tests. |
-|`tests` | A set of tests that verify the return values of <ProductName format={ProductNameFormat.ShortForm}/> API calls |
+|`tests` | A set of tests that verify the return values of OpenFGA API calls |
 
 The example below defines a model and tuples:
 
@@ -134,7 +133,7 @@ tests:
 
 A good test covers scenarios that specify every relation for every object type that your application will need to call the [list-objects API](../getting-started/perform-list-objects.mdx) for.
 
-The following verifies the expected results using the `list_objects` option in <ProductName format={ProductNameFormat.ShortForm}/> tests:
+The following verifies the expected results using the `list_objects` option in OpenFGA tests:
 
 ```yaml
     list_objects:
@@ -181,7 +180,7 @@ In order to simplify test writing, the following syntax is supported for the var
 * `<type>:<id>#<relation>` to represent a userset that is a relation on a type
 * `<type>:*` to represent a userset that is a type bound public access for a type
 
-The following is an example of using the `list_users` option in <ProductName format={ProductNameFormat.ShortForm}/> tests:
+The following is an example of using the `list_users` option in OpenFGA tests:
 
 ```yaml
     list_users:

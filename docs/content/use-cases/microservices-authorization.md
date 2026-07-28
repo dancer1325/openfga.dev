@@ -34,7 +34,7 @@ slug: /use-cases/microservices-authorization
 * 1 model -- to -- reason about
   * Cross-service questions become 1!graph traversal
     * != coordination dance (*"can this user read this document via their team's project access?"*) 
-- **No more drifted roles tables.** A relation defined once in the <ProductName format={ProductNameFormat.ShortForm}/> model is the same relation in every service.
+- **No more drifted roles tables.** A relation defined once in the OpenFGA model is the same relation in every service.
 - **Reverse queries work across services.** `list-objects` returns every resource the user can access, regardless of which service owns it.
 
 ## Simplified model
@@ -59,16 +59,16 @@ type document
     define can_edit: can_edit from project
 ```
 
-The membership service writes `team#member` tuples; the project service writes `project#team`; the document service writes `document#project`. Any service — including ones that only read documents — answers permission questions with a single `check` against the same <ProductName format={ProductNameFormat.ShortForm}/> store, instead of reimplementing team/project/document role logic locally.
+The membership service writes `team#member` tuples; the project service writes `project#team`; the document service writes `document#project`. Any service — including ones that only read documents — answers permission questions with a single `check` against the same OpenFGA store, instead of reimplementing team/project/document role logic locally.
 
 ## Operational shape
 
-- **Latency.** Run <ProductName format={ProductNameFormat.ShortForm}/> close to the calling services. Sizing depends on workload, but production deployments routinely hit thousands of RPS at single-digit-to-low-double-digit ms p99 on PostgreSQL.
-- **Caching.** <ProductName format={ProductNameFormat.ShortForm}/> supports check caching; pair with short cache TTLs in clients for hot paths.
+- **Latency.** Run OpenFGA close to the calling services. Sizing depends on workload, but production deployments routinely hit thousands of RPS at single-digit-to-low-double-digit ms p99 on PostgreSQL.
+- **Caching.** OpenFGA supports check caching; pair with short cache TTLs in clients for hot paths.
 - **Observability.** Treat authorization decisions as a first-class metric. Track check rate, latency, and authorization failures per service.
 
 ## Related reading
 
-- [Running <ProductName format={ProductNameFormat.ShortForm}/> in production](/docs/best-practices/running-in-production)
+- [Running OpenFGA in production](/docs/best-practices/running-in-production)
 - [Source of truth](/docs/best-practices/source-of-truth)
 - [Multi-tenant SaaS](/docs/use-cases/multi-tenant-saas)

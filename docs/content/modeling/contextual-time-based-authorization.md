@@ -4,7 +4,6 @@ slug: /modeling/contextual-time-based-authorization
 description: Checking relations that depends on certain dynamic or contextual data (such as time, location, ip address, weather) that have not been written
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -23,7 +22,7 @@ import {
 
 <DocumentationNotice />
 
-This section explores some methods available to you to tackle some use-cases where the expected authorization check may depend on certain dynamic or contextual data (such as time, location, ip address, weather) that have not been written to the <ProductName format={ProductNameFormat.ShortForm}/> store.
+This section explores some methods available to you to tackle some use-cases where the expected authorization check may depend on certain dynamic or contextual data (such as time, location, ip address, weather) that have not been written to the OpenFGA store.
 
 <CardBox title="When to use" appearance="filled">
 
@@ -39,11 +38,11 @@ Contextual Tuples should be used when modeling cases where a user's access to an
 
 To follow this guide, you should be familiar with some <ProductConcept />.
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: Defined in the type definition of an authorization model, a relation is a string that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system.
-- A <ProductConcept section="what-is-a-check-request" linkName="Check Request" />: is a call to the <ProductName format={ProductNameFormat.ShortForm}/> check endpoint that returns whether the user has a certain relationship with an object.
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
+- A <ProductConcept section="what-is-a-check-request" linkName="Check Request" />: is a call to the OpenFGA check endpoint that returns whether the user has a certain relationship with an object.
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 - A <ProductConcept section="what-are-contextual-tuples" linkName="Contextual Tuple" />: a tuple that can be added to a Check request, and only exists within the context of that particular request.
 
 You also need to be familiar with:
@@ -235,7 +234,7 @@ In order to solve for the requirements above, we will break the problem down to 
 
 ### Understand relationships without contextual data
 
-With the Authorization Model and relationship tuples shown above, <ProductName format={ProductNameFormat.ShortForm}/> has all the information needed to
+With the Authorization Model and relationship tuples shown above, OpenFGA has all the information needed to
 
 - Ensure that the customer can view a transaction tied to their account
 - Ensure that the account manager can view a transaction whose account is at the same branch
@@ -529,9 +528,9 @@ If we have the above two tuples in the system, when checking whether Anne can vi
 
 ### Use contextual tuples for context related checks
 
-Now that we know we can authorize based on present state, we have a different problem to solve. We are storing the tuples in the state in order for <ProductName format={ProductNameFormat.ShortForm}/> to evaluate them, which means that:
+Now that we know we can authorize based on present state, we have a different problem to solve. We are storing the tuples in the state in order for OpenFGA to evaluate them, which means that:
 
-- For the case of the IP Address, we are not able to truly authorize based on the context of the request. E.g. if Anne was trying to connect from the phone and from the PC at the same time, and only the PC was connected to the VPN, how would <ProductName format={ProductNameFormat.ShortForm}/> know to deny one and allow the other if the data is stored in the state?
+- For the case of the IP Address, we are not able to truly authorize based on the context of the request. E.g. if Anne was trying to connect from the phone and from the PC at the same time, and only the PC was connected to the VPN, how would OpenFGA know to deny one and allow the other if the data is stored in the state?
 - On every check call we have to first write the correct tuples, then call the Check api, then clean up those tuples. This causes a substantial increase in latency as well as incorrect answers for requests happening in parallel (they could write/delete each other's tuples).
 
 How do we solve this? How do we tie the above two tuples to the context of the request instead of the system state?
@@ -555,9 +554,9 @@ First, we will need to undo adding the stored relationship tuples where Anne is 
   ]}
 />
 
-For Check calls, <ProductName format={ProductNameFormat.ShortForm}/> has a concept called "<ProductConcept section="what-are-contextual-tuples" linkName="Contextual Tuples" />". Contextual Tuples are tuples that do **not** exist in the system state and are not written beforehand to <ProductName format={ProductNameFormat.ShortForm}/>. They are tuples that are sent alongside the Check request and will be treated as _if_ they already exist in the state for the context of that particular Check call.
+For Check calls, OpenFGA has a concept called "<ProductConcept section="what-are-contextual-tuples" linkName="Contextual Tuples" />". Contextual Tuples are tuples that do **not** exist in the system state and are not written beforehand to OpenFGA. They are tuples that are sent alongside the Check request and will be treated as _if_ they already exist in the state for the context of that particular Check call.
 
-When Anne is connecting from an allowed ip address range and timeslot, <ProductName format={ProductNameFormat.ShortForm}/> will return `{"allowed":true}`:
+When Anne is connecting from an allowed ip address range and timeslot, OpenFGA will return `{"allowed":true}`:
 
 <CheckRequestViewer
   user={'user:anne'}
@@ -580,7 +579,7 @@ When Anne is connecting from an allowed ip address range and timeslot, <ProductN
   ]}
 />
 
-When Anne is connecting from a denied ip address range or timeslot, <ProductName format={ProductNameFormat.ShortForm}/> will return `{"allowed":false}`:
+When Anne is connecting from a denied ip address range or timeslot, OpenFGA will return `{"allowed":false}`:
 
 <CheckRequestViewer
   user={'user:anne'}

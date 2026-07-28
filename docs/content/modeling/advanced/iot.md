@@ -5,7 +5,6 @@ sidebar_position: 3
 slug: /modeling/advanced/iot
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -18,16 +17,16 @@ import {
   WriteRequestViewer,
 } from '@components/Docs';
 
-# Modeling Authorization for an IoT Security System with <ProductName format={ProductNameFormat.ShortForm}/>
+# Modeling Authorization for an IoT Security System with OpenFGA
 
 <DocumentationNotice />
 
-This tutorial explains how to model permissions for an IoT system using <ProductName format={ProductNameFormat.ShortForm}/>.
+This tutorial explains how to model permissions for an IoT system using OpenFGA.
 
 <CardBox title="What you will learn">
 
-- How to model a permission system using <ProductName format={ProductNameFormat.ProductLink}/>
-- How to see <ProductName format={ProductNameFormat.ShortForm}/> Authorization in action by modeling an IoT Security Camera System
+- How to model a permission system using [OpenFGA](https://openfga.dev)
+- How to see OpenFGA Authorization in action by modeling an IoT Security Camera System
 
 </CardBox>
 
@@ -35,14 +34,14 @@ This tutorial explains how to model permissions for an IoT system using <Product
 
 ## Before you start
 
-In order to understand this guide correctly you must be familiar with some <ProductName format={ProductNameFormat.LongForm}/> concepts and know how to develop the things that we will list below.
+In order to understand this guide correctly you must be familiar with some OpenFGA concepts and know how to develop the things that we will list below.
 
 <details>
 <summary>
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
-It would be helpful to have an understanding of some concepts of <ProductName format={ProductNameFormat.ShortForm}/> before you start.
+It would be helpful to have an understanding of some concepts of OpenFGA before you start.
 
 </summary>
 
@@ -75,9 +74,9 @@ Used here to indicate that security guards on a certain group are security guard
 
 ## What You Will be modeling
 
-In this tutorial, you will build an authorization model for a sample IoT Security Camera System (detailed below) using <ProductName format={ProductNameFormat.LongForm}/>. You will use some scenarios to validate the model.
+In this tutorial, you will build an authorization model for a sample IoT Security Camera System (detailed below) using OpenFGA. You will use some scenarios to validate the model.
 
-The goal by the end of this post is to ask <ProductName format={ProductNameFormat.ShortForm}/>: Does person X have permission to perform action Y on device Z? In response, you want to either get a confirmation that person X can indeed do that, or a rejection that they cannot.
+The goal by the end of this post is to ask OpenFGA: Does person X have permission to perform action Y on device Z? In response, you want to either get a confirmation that person X can indeed do that, or a rejection that they cannot.
 
 ### Requirements
 
@@ -115,9 +114,9 @@ In production, it is highly recommended to use unique, immutable identifiers. Na
 
 ## Modeling device authorization
 
-The <ProductName format={ProductNameFormat.LongForm}/> service is based on [Zanzibar](https://zanzibar.academy), a Relationship Based Access Control system. This means it relies on <ProductConcept section="what-is-an-object" linkName="object" /> and <ProductConcept section="what-is-a-user" linkName="user" /> <ProductConcept section="what-is-a-relation" linkName="relations" /> to perform authorization <ProductConcept section="what-is-a-check-request" linkName="checks" />.
+The OpenFGA service is based on [Zanzibar](https://zanzibar.academy), a Relationship Based Access Control system. This means it relies on <ProductConcept section="what-is-an-object" linkName="object" /> and <ProductConcept section="what-is-a-user" linkName="user" /> <ProductConcept section="what-is-a-relation" linkName="relations" /> to perform authorization <ProductConcept section="what-is-a-check-request" linkName="checks" />.
 
-Starting with devices, you will learn how to express the requirements in terms of relations you can feed into <ProductName format={ProductNameFormat.LongForm}/>.
+Starting with devices, you will learn how to express the requirements in terms of relations you can feed into OpenFGA.
 
 ### 01. Writing the initial model for a device
 
@@ -126,11 +125,11 @@ The requirements stated:
 - **Security guards** have access to **view live and recorded video** from **Devices**.
 - **IT Admins** can **view live and recorded videos**, as well as **rename** **Devices**.
 
-The goal is to ask <ProductName format={ProductNameFormat.ShortForm}/> whether person X has permission to perform action Y on device Z. To start, you will set aside the Security Guard and IT Admin designations and focus on the actions a user can take.
+The goal is to ask OpenFGA whether person X has permission to perform action Y on device Z. To start, you will set aside the Security Guard and IT Admin designations and focus on the actions a user can take.
 
 The actions users can take on a device are: _view live videos_, _view recorded videos_, and _rename devices_. Mapping them to relations, they become: _live_video_viewer_, _recorded_video_viewer_, _device_renamer_.
 
-In <ProductName format={ProductNameFormat.ShortForm}/>, the <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" /> for the device would be:
+In OpenFGA, the <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" /> for the device would be:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -762,9 +761,9 @@ Query on the other relationships and you will see:
 
 ## Summary
 
-In this post, you were introduced to <IntroductionSection linkName="fine grain authentication" section="what-is-fine-grained-authorization"/> and <ProductName format={ProductNameFormat.LongForm}/>.
+In this post, you were introduced to <IntroductionSection linkName="fine grain authentication" section="what-is-fine-grained-authorization"/> and OpenFGA.
 
-Upcoming posts will dive deeper into <ProductName format={ProductNameFormat.LongForm}/>, introducing concepts that will improve on the model you built today, and tackling more complex permission systems, with more relations and requirements that need to be met.
+Upcoming posts will dive deeper into OpenFGA, introducing concepts that will improve on the model you built today, and tackling more complex permission systems, with more relations and requirements that need to be met.
 
 <Playground title="IoT" preset="iot" example="IoT" store="iot" />
 

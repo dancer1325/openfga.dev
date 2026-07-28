@@ -63,6 +63,6 @@ slug: /learn/fine-grained-authorization
   * [ABAC](/docs/learn/abac-vs-rebac) OR [policy engine](/docs/learn/policy-engine)
     * TODO use cases
       * **Decisions driven -- by -- request attributes** (region, department, time-of-day) — start with 
-- **Hierarchy, sharing, multi-tenancy, or reverse queries** — you want a relationship engine. <ProductName format={ProductNameFormat.ShortForm}/> handles attribute checks too via [conditions](/docs/modeling/conditions), so you usually don't need a second engine.
-- **Mixed infrastructure + application policy** — a policy engine at the admission layer plus <ProductName format={ProductNameFormat.ShortForm}/> for the application is the common pairing.
+- **Hierarchy, sharing, multi-tenancy, or reverse queries** — you want a relationship engine. OpenFGA handles attribute checks too via [conditions](/docs/modeling/conditions), so you usually don't need a second engine.
+- **Mixed infrastructure + application policy** — a policy engine at the admission layer plus OpenFGA for the application is the common pairing.
 

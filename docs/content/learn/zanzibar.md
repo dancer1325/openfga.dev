@@ -64,7 +64,7 @@ slug: /learn/zanzibar
     * 1 store
     * 1 decision surface
 
-## How <ProductName format={ProductNameFormat.ShortForm}/> maps to Zanzibar
+## How OpenFGA maps to Zanzibar
 
 * OpenFGA 
   * about Zanzibar core operations
@@ -72,7 +72,7 @@ slug: /learn/zanzibar
     * implements
     * extends them
       * **Schema**
-        * TODO: written in the [<ProductName format={ProductNameFormat.ShortForm}/> DSL](/docs/configuration-language)
+        * TODO: written in the [OpenFGA DSL](/docs/configuration-language)
       * **Tuples** 
         * stored | PostgreSQL, MySQL, or SQLite
       * **Check** & **Expand**
@@ -80,7 +80,7 @@ slug: /learn/zanzibar
       * **ListObjects** & **ListUsers**
         * reverse queries that aren't in the Zanzibar paper, for answering *"what can this user see?"* and *"who has access to this object?"*
       * **Conditions** (CEL)
-        * <ProductName format={ProductNameFormat.ShortForm}/>'s mechanism for attribute-based decisions, similar in spirit to caveats.
+        * OpenFGA's mechanism for attribute-based decisions, similar in spirit to caveats.
   * 's main benefit
     * design pattern
       * ❌NOT the Google's global infrastructure❌

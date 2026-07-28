@@ -5,7 +5,6 @@ sidebar_position: 8
 slug: /interacting/authzen
 ---
 
-import {
   DocumentationNotice,
   ProductName,
   ProductNameFormat,
@@ -24,7 +23,7 @@ import {
       * recommendations
         * | integrate -> use the native API when your application -- with -- OpenFGA and you use AuthZEN when you are integrating an AuthZEN-compatible product like an API/MCP Gateway, or an Identity Provider
 
- It's not possible to implement <ProductName format={ProductNameFormat.ShortForm}/> only with AuthZEN endpoints, as it does not specify endpoints to [Write](./../getting-started/update-tuples.mdx) and [Read](./relationship-queries.mdx).
+ It's not possible to implement OpenFGA only with AuthZEN endpoints, as it does not specify endpoints to [Write](./../getting-started/update-tuples.mdx) and [Read](./relationship-queries.mdx).
 
 You can validate the implementation using the [AuthZEN interop scenarios for OpenFGA](https://github.com/openfga/authzen-interop), which cover the standard [AuthZEN interop scenarios](https://authzen-interop.net/docs/category/scenarios).
 
@@ -405,11 +404,11 @@ The AuthZEN API uses its own terminology that maps directly to OpenFGA concepts:
 
 ## Implementation Notes
 
-The <ProductName format={ProductNameFormat.ShortForm}/> AuthZEN implementation follows the [AuthZEN Authorization API 1.0](https://openid.net/specs/authorization-api-1_0.html) specification with a few adaptations for multi-tenancy. This section documents the key differences.
+The OpenFGA AuthZEN implementation follows the [AuthZEN Authorization API 1.0](https://openid.net/specs/authorization-api-1_0.html) specification with a few adaptations for multi-tenancy. This section documents the key differences.
 
 ### Multi-tenant URL paths
 
-The AuthZEN spec defines endpoints at `/access/v1/evaluation`, `/access/v1/evaluations`, etc. Because <ProductName format={ProductNameFormat.ShortForm}/> is multi-tenant, all endpoints are scoped under `/stores/{store_id}/`:
+The AuthZEN spec defines endpoints at `/access/v1/evaluation`, `/access/v1/evaluations`, etc. Because OpenFGA is multi-tenant, all endpoints are scoped under `/stores/{store_id}/`:
 
 | AuthZEN Spec | OpenFGA |
 |---|---|
@@ -442,7 +441,7 @@ The current implementation:
 ```
 ### Identifier validation constraints
 
-The AuthZEN spec models `subject.type`, `subject.id`, `resource.type`, `resource.id`, and `action.name` as strings. <ProductName format={ProductNameFormat.ShortForm}/> applies additional OpenFGA identifier constraints (pattern and length checks). Constraints are field-specific.
+The AuthZEN spec models `subject.type`, `subject.id`, `resource.type`, `resource.id`, and `action.name` as strings. OpenFGA applies additional OpenFGA identifier constraints (pattern and length checks). Constraints are field-specific.
 
 ### Pagination
 
@@ -454,15 +453,15 @@ The AuthZEN metadata model defines optional fields such as `capabilities` and `s
 
 ### Authorization model selection extension
 
-The AuthZEN spec does not define a standard way to pin requests to a specific model version. <ProductName format={ProductNameFormat.ShortForm}/> adds `Openfga-Authorization-Model-Id` as an OpenFGA-specific request header extension.
+The AuthZEN spec does not define a standard way to pin requests to a specific model version. OpenFGA adds `Openfga-Authorization-Model-Id` as an OpenFGA-specific request header extension.
 
 ### X-Request-ID header
 
-The spec RECOMMENDS that PEPs include an `X-Request-ID` header in requests and that PDPs echo it back in responses. <ProductName format={ProductNameFormat.ShortForm}/> returns an `X-Request-ID` header in all responses but does not currently echo back client-provided request IDs.
+The spec RECOMMENDS that PEPs include an `X-Request-ID` header in requests and that PDPs echo it back in responses. OpenFGA returns an `X-Request-ID` header in all responses but does not currently echo back client-provided request IDs.
 
 ### Contextual Tuples
 
-The AuthZEN spec does not define a concept equivalent to [Contextual Tuples](./contextual-tuples.mdx). If your authorization model depends on contextual tuples for certain checks, you must use the native <ProductName format={ProductNameFormat.ShortForm}/> API for those checks.
+The AuthZEN spec does not define a concept equivalent to [Contextual Tuples](./contextual-tuples.mdx). If your authorization model depends on contextual tuples for certain checks, you must use the native OpenFGA API for those checks.
 
 
 ## Related Sections

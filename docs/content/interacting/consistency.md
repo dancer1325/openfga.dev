@@ -17,8 +17,8 @@ description: Query Consistency Modes
 
 | Name                        | Description                                                                                                   |  
 |-----------------------------|---------------------------------------------------------------------------------------------------------------|
-| MINIMIZE_LATENCY (default)  | <ProductName format={ProductNameFormat.ShortForm}/> will serve queries from the cache when possible           | 
-| HIGHER_CONSISTENCY          | <ProductName format={ProductNameFormat.ShortForm}/> will skip the cache and query the database directly   |
+| MINIMIZE_LATENCY (default)  | OpenFGA will serve queries from the cache when possible           | 
+| HIGHER_CONSISTENCY          | OpenFGA will skip the cache and query the database directly   |
 
 
 ## `HIGHER_CONSISTENCY`
@@ -45,9 +45,9 @@ if (date_modified + cache_time_to_live_period > Date.now()) {
 
 ## Cache expiration
 
-<ProductName format={ProductNameFormat.ShortForm}/> caching is disabled by default. When caching is disabled, all queries will have strong consistency regardless of the consistency mode specified. When caching is enabled, the cache will be used for queries with `MINIMIZE_LATENCY` consistency mode.
+OpenFGA caching is disabled by default. When caching is disabled, all queries will have strong consistency regardless of the consistency mode specified. When caching is enabled, the cache will be used for queries with `MINIMIZE_LATENCY` consistency mode.
 
-You can use the following command line parameters to configure <ProductName format={ProductNameFormat.ShortForm}/>'s cache. To see the default value of each parameter, please run `openfga run --help`.
+You can use the following command line parameters to configure OpenFGA's cache. To see the default value of each parameter, please run `openfga run --help`.
 
 | Name                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +60,7 @@ You can use the following command line parameters to configure <ProductName form
 | cache-controller-enabled         | When enabled, cache controller will verify whether check subproblem cache and check iterator cache needs to be invalidated when there is a check or list objects API request. The invalidation determination is based on whether there are recent write or deletes for the store. This feature allows a larger check-query-cache-ttl and check-iterator-cache-ttl at the expense of additional datastore queries for recent writes and deletes.|
 | cache-controller-ttl             | Specifies how frequently the cache controller checks for Writes occurring. While the cache controller result is cached, the server will not read the datastore to check whether subproblem cache and iterator cache needs to be invalidated.                                                                                                                                                                                                   |
 
-Learn how to [configure <ProductName format={ProductNameFormat.ShortForm}/>](../getting-started/setup-openfga/configure-openfga.mdx).
+Learn how to [configure OpenFGA](../getting-started/setup-openfga/configure-openfga.mdx).
 
 Currently, the cache is used by Check and partially in ListObjects. It will be implemented for other query endpoints in the future.
 

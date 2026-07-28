@@ -84,7 +84,7 @@ For example, when you log in to Google, Authentication is the process of verifyi
 
 In [Role-Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC), permissions are assigned to users based on roles like `editor` or `admin`. RBAC fits flat, single-tenant access models but breaks down with hierarchy, sharing, or multi-tenancy.
 
-See [RBAC vs. ReBAC](./learn/rbac-vs-rebac.mdx) for when roles run out and how <ProductName format={ProductNameFormat.ShortForm}/> models RBAC cleanly.
+See [RBAC vs. ReBAC](./learn/rbac-vs-rebac.mdx) for when roles run out and how OpenFGA models RBAC cleanly.
 
 ## What is Attribute-Based Access Control?
 
@@ -94,11 +94,11 @@ See [ABAC vs. ReBAC](./learn/abac-vs-rebac.mdx) for how the two combine.
 
 ## What is Policy-Based Access Control?
 
-Policy-Based Access Control (PBAC) manages authorization policies centrally, external to application code. Most ABAC implementations are also PBAC. <ProductName format={ProductNameFormat.ShortForm}/>'s [model DSL](./configuration-language.mdx) is itself a policy: committed to Git, reviewed via PR, deployed like any other code — see [Policy Engines vs. Relationship Engines](./learn/policy-engine.mdx).
+Policy-Based Access Control (PBAC) manages authorization policies centrally, external to application code. Most ABAC implementations are also PBAC. OpenFGA's [model DSL](./configuration-language.mdx) is itself a policy: committed to Git, reviewed via PR, deployed like any other code — see [Policy Engines vs. Relationship Engines](./learn/policy-engine.mdx).
 
 ## What is Relationship-Based Access Control?
 
-[Relationship-Based Access Control](https://en.wikipedia.org/wiki/Relationship-based_access_control) (ReBAC) makes access rules conditional on relationships between users and objects, and between objects themselves — *"a user can view a document if they have access to its parent folder"*. ReBAC is a superset of RBAC and natively covers ABAC scenarios when attributes are expressed as relationships. <ProductName format={ProductNameFormat.ShortForm}/> extends ReBAC with [Conditions](./modeling/conditions.mdx) and [Contextual Tuples](./modeling/token-claims-contextual-tuples.mdx) for the remaining attribute-driven cases.
+[Relationship-Based Access Control](https://en.wikipedia.org/wiki/Relationship-based_access_control) (ReBAC) makes access rules conditional on relationships between users and objects, and between objects themselves — *"a user can view a document if they have access to its parent folder"*. ReBAC is a superset of RBAC and natively covers ABAC scenarios when attributes are expressed as relationships. OpenFGA extends ReBAC with [Conditions](./modeling/conditions.mdx) and [Contextual Tuples](./modeling/token-claims-contextual-tuples.mdx) for the remaining attribute-driven cases.
 
 See [What is ReBAC?](./learn/rebac.mdx) for the full picture.
 

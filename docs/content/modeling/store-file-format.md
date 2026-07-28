@@ -4,7 +4,6 @@ slug: /modeling/store-file-format
 description: Store File Format (.fga.yaml)
 ---
 
-import {
   DocumentationNotice,
   ProductName,
   ProductNameFormat,
@@ -19,7 +18,7 @@ import {
 This documentation is mirrored from the [OpenFGA CLI repository](https://github.com/openfga/cli/blob/main/docs/STORE_FILE.md). For the most up-to-date version, please refer to the CLI documentation.
 :::
 
-The store file is a YAML configuration file (`.fga.yaml`) that defines a complete <ProductName format={ProductNameFormat.ShortForm}/> store setup, including the authorization model, relationship tuples, and test cases. This file format enables easy management, testing, and deployment of <ProductName format={ProductNameFormat.ShortForm}/> configurations.
+The store file is a YAML configuration file (`.fga.yaml`) that defines a complete OpenFGA store setup, including the authorization model, relationship tuples, and test cases. This file format enables easy management, testing, and deployment of OpenFGA configurations.
 
 ## File Structure
 

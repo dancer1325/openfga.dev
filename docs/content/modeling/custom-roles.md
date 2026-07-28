@@ -4,7 +4,6 @@ slug: /modeling/custom-roles
 description: Modeling custom and dynamically changing roles in your system
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -21,7 +20,7 @@ import {
 
 <DocumentationNotice />
 
-In this guide you'll learn how to model custom roles in your system using <ProductName format={ProductNameFormat.ProductLink}/>.
+In this guide you'll learn how to model custom roles in your system using [OpenFGA](https://openfga.dev).
 
 For example, a Business-to-Business (B2B) application could allow customers to create their own custom roles on the application to grant their users.
 

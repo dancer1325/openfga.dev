@@ -5,7 +5,6 @@ sidebar_position: 1
 slug: /modeling/agents/task-based-authorization
 ---
 
-import {
   CheckRequestViewer,
   DocumentationNotice,
   ProductName,
@@ -22,7 +21,7 @@ Agents need credentials to interact with APIs. These can be user or service cred
 
 Task-Based Authorization grants agents access to perform specific actions only when necessary, without permanent permissions. Agents start with no permissions and receive only what a given task requires. For example, rather than allowing an agent to create tickets across all projects, you authorize it to "create a ticket in project X" — scoping permissions to a specific context.
 
-This guide shows how to model task-based authorization in <ProductName format={ProductNameFormat.ShortForm}/>, progressing from a basic tool-calling model to patterns that support permission hierarchies, session scoping, expiration, and agent binding.
+This guide shows how to model task-based authorization in OpenFGA, progressing from a basic tool-calling model to patterns that support permission hierarchies, session scoping, expiration, and agent binding.
 
 ## Tool authorization
 
@@ -169,7 +168,7 @@ Each task is linked to its session and agent when created:
 
 ## Expiration and call count
 
-You can use <ProductName format={ProductNameFormat.ShortForm}/> [conditions](../../configuration-language.mdx#conditional-relationships) to make permissions expire after a duration, or limit how many times the tool can be called.
+You can use OpenFGA [conditions](../../configuration-language.mdx#conditional-relationships) to make permissions expire after a duration, or limit how many times the tool can be called.
 
 ```dsl.openfga
 model

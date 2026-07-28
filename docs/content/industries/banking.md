@@ -6,7 +6,7 @@ slug: /industries/banking
 ---
 
 
-# Banking Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# Banking Authorization with OpenFGA
 
 * Banking & fintech authorization 
   * requirements 
@@ -48,11 +48,11 @@ A typical "manager", "owner", "delegate" RBAC scheme answers *what action is all
 - Audit can't answer "who could have wired more than $50k from account A on date D" without joining application code with role tables.
 - Delegation expiry, per-transaction overrides, and dual-control approvals each become bespoke features.
 
-<ProductName format={ProductNameFormat.ShortForm}/> expresses the limit *as part of the relationship* using [conditions](/docs/modeling/conditions), so the check `can_initiate_transfer` takes the transaction amount as a contextual parameter and returns a single allow/deny.
+OpenFGA expresses the limit *as part of the relationship* using [conditions](/docs/modeling/conditions), so the check `can_initiate_transfer` takes the transaction amount as a contextual parameter and returns a single allow/deny.
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| Banking requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| Banking requirement | OpenFGA feature |
 | --- | --- |
 | Per-actor transaction limits | [conditions](/docs/modeling/conditions) on `can_initiate_transfer` |
 | Owner / co-owner / delegate roles | direct relations on `account` |

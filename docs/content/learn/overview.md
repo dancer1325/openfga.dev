@@ -15,4 +15,4 @@ slug: /learn
 * **[RBAC vs. ReBAC](/docs/learn/rbac-vs-rebac)**
 * **[ABAC vs. ReBAC](/docs/learn/abac-vs-rebac)**
 * **[Fine-Grained Authorization](/docs/learn/fine-grained-authorization)**
-- **[Policy Engines vs. Relationship Engines](/docs/learn/policy-engine)** — Rego, Cedar, OPL, and where <ProductName format={ProductNameFormat.ShortForm}/> fits.
+- **[Policy Engines vs. Relationship Engines](/docs/learn/policy-engine)** — Rego, Cedar, OPL, and where OpenFGA fits.

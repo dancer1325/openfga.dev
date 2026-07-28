@@ -5,7 +5,7 @@ description: Describe different ways FGA can be adopted in an organization
 sidebar_position: 1
 ---
 
-# <ProductName format={ProductNameFormat.ShortForm}/> Adoption Patterns
+# OpenFGA Adoption Patterns
 
 * goal 
   * key implementation patterns -- for -- adopting OpenFGA| your organization
@@ -104,25 +104,25 @@ The main advantage of this approach is that your APIs will be checking permissio
 
 ## Provide request-level data
 
-One of the advantages of the Zanzibar/<ProductName format={ProductNameFormat.ShortForm}/> approach is that all the data you need to make authorization decisions is stored in a centralized database. That greatly simplifies how application implement access control. Applications do not need to retrieve all the required data before invoking an authorization service.
+One of the advantages of the Zanzibar/OpenFGA approach is that all the data you need to make authorization decisions is stored in a centralized database. That greatly simplifies how application implement access control. Applications do not need to retrieve all the required data before invoking an authorization service.
 
 However, writing the data to the centralized store adds implementation complexity. You need to implement a data pipeline that makes sure the data is always up to date.
 
-<ProductName format={ProductNameFormat.ShortForm}/> provides a feature called [Contextual Tuples](../interacting/contextual-tuples.mdx) that allows sending the required data as part of each authorization request instead of storing it on the <ProductName format={ProductNameFormat.ShortForm}/> database. Overusing this feature has many drawbacks, as you are now adding additional complexity and latency around collecting the data, and you are not benefiting from using <ProductName format={ProductNameFormat.ShortForm}/> as intended. However, implementing a hybrid approach can make sense in many scenarios and can also be a helpful tool at the start when you are transitioning into a more OpenFGA tailored approach.
+OpenFGA provides a feature called [Contextual Tuples](../interacting/contextual-tuples.mdx) that allows sending the required data as part of each authorization request instead of storing it on the OpenFGA database. Overusing this feature has many drawbacks, as you are now adding additional complexity and latency around collecting the data, and you are not benefiting from using OpenFGA as intended. However, implementing a hybrid approach can make sense in many scenarios and can also be a helpful tool at the start when you are transitioning into a more OpenFGA tailored approach.
 
-When the data is already available to the calling API, sending it as a contextual tuple is very simple. A common use case is you have data in [your access tokens](../modeling/token-claims-contextual-tuples.mdx) (for example, roles/groups claims). Instead of synchronizing groups/roles relations to <ProductName format={ProductNameFormat.ShortForm}/>, you can send those as contextual tuples.
+When the data is already available to the calling API, sending it as a contextual tuple is very simple. A common use case is you have data in [your access tokens](../modeling/token-claims-contextual-tuples.mdx) (for example, roles/groups claims). Instead of synchronizing groups/roles relations to OpenFGA, you can send those as contextual tuples.
 
-When the data is not already, you will need to retrieve it. This is what you need to do if you are implementing pure Attribute Access Control. You'd retrieve the data and send it to the authorization policy engine. You can do the same with <ProductName format={ProductNameFormat.ShortForm}/> using Contextual Tuples.
+When the data is not already, you will need to retrieve it. This is what you need to do if you are implementing pure Attribute Access Control. You'd retrieve the data and send it to the authorization policy engine. You can do the same with OpenFGA using Contextual Tuples.
 
-You'll need to make the trade-off between writing the data to <ProductName format={ProductNameFormat.ShortForm}/> so it's always available for any authorization request, or requesting it before making an authorization check.
+You'll need to make the trade-off between writing the data to OpenFGA so it's always available for any authorization request, or requesting it before making an authorization check.
 
 We've seen companies successfully following a hybrid approach, starting by synchronizing the data that's easy first and providing the rest as contextual tuples. As their implementation matures, they implement more synchronization processes and stop sending the contextual tuples.
 
-## Use <ProductName format={ProductNameFormat.ShortForm}/> to enrich JWTs
+## Use OpenFGA to enrich JWTs
 
 Once you have your authorization model and data set up, you can start making authorization checks from your application. The preferred way is to perform a [Check()](../getting-started/perform-check.mdx) call.
 
-However, you might have a large set of APIs that are already making authorization checks using JWTs. Changing those applications can be a significant investment. Even if JWTs have several drawbacks compared to making FGA API calls, it can be reasonable to first start by using <ProductName format={ProductNameFormat.ShortForm}/> to generate the claims that are stored in JWTs, while the applications keep using those claims to make authorization decisions.
+However, you might have a large set of APIs that are already making authorization checks using JWTs. Changing those applications can be a significant investment. Even if JWTs have several drawbacks compared to making FGA API calls, it can be reasonable to first start by using OpenFGA to generate the claims that are stored in JWTs, while the applications keep using those claims to make authorization decisions.
 
 Over time, you'll migrate the applications and APIs to use authorization check instead.
 
@@ -141,7 +141,7 @@ You can call `ListObjects(type:"organization", relation:"member", user: "user:xx
 
 ## Promoting Organization-Wide Adoption
 
-To introduce <ProductName format={ProductNameFormat.ShortForm}/> in a large company, it's recommended that you identify a problem where the additional enables quickly delivering business value to customers. It can be a new project, a new module, a new feature. Using <ProductName format={ProductNameFormat.ShortForm}/> for such a project can be an easier decision. Once an implementation is successful, you can try influencing the rest of the organization to adopt it.
+To introduce OpenFGA in a large company, it's recommended that you identify a problem where the additional enables quickly delivering business value to customers. It can be a new project, a new module, a new feature. Using OpenFGA for such a project can be an easier decision. Once an implementation is successful, you can try influencing the rest of the organization to adopt it.
 
 However, influencing the decision makers of a large organization can be hard. Each team has their own internal roadmaps and not all of the teams will see value in implementing a new authorization system. Migration can be seen as a tech-debt project instead of a business-value-driven one. 
 
@@ -152,32 +152,32 @@ The can take advantage of the following capabilities to simplify adoption by mul
 
 ## Domain-Specific Authorization Server
 
-Some companies decide to wrap <ProductName format={ProductNameFormat.ShortForm}/> with their own authorization service. They decide to do this for multiple reasons:
+Some companies decide to wrap OpenFGA with their own authorization service. They decide to do this for multiple reasons:
 
 - Sometimes they already have a centralized service, and it's easy to replace it with another without changing the calling applications.
-- It can simplify internal adoption by providing domain-specific APIs. Instead of calling `write` or `check`, applications can call a `/share-document` endpoint or a `/can-view-document` one. Each team does not need to learn the <ProductName format={ProductNameFormat.ShortForm}/> API.
-- If they are using Contextual Tuples, they can keep the logic to retrieve additional data to send to <ProductName format={ProductNameFormat.ShortForm}/> in a single service.
-- They only need to provide <ProductName format={ProductNameFormat.ShortForm}/> configuration data like Store ID and Model ID in a single service.
+- It can simplify internal adoption by providing domain-specific APIs. Instead of calling `write` or `check`, applications can call a `/share-document` endpoint or a `/can-view-document` one. Each team does not need to learn the OpenFGA API.
+- If they are using Contextual Tuples, they can keep the logic to retrieve additional data to send to OpenFGA in a single service.
+- They only need to provide OpenFGA configuration data like Store ID and Model ID in a single service.
 
 On the other hand, adding another service increases latency, adds additional complexity and would make the teams less likely to find help from existing public OpenFGA documentation and resources.
 
-## Shadowing the <ProductName format={ProductNameFormat.ShortForm}/> API
+## Shadowing the OpenFGA API
 
-When migrating from an existing authorization system to <ProductName format={ProductNameFormat.ShortForm}/>, it's recommended to first run both systems in parallel, with <ProductName format={ProductNameFormat.ShortForm}/> in "shadow mode". This means that while the existing system continues to make the actual authorization decisions, you also make calls to <ProductName format={ProductNameFormat.ShortForm}/> asynchronously and compare the results.
+When migrating from an existing authorization system to OpenFGA, it's recommended to first run both systems in parallel, with OpenFGA in "shadow mode". This means that while the existing system continues to make the actual authorization decisions, you also make calls to OpenFGA asynchronously and compare the results.
 
 This approach has several benefits:
 
-- You can validate that your authorization model and relationship tuples are correctly configured before switching to <ProductName format={ProductNameFormat.ShortForm}/>.
-- You can measure the performance impact of adding <ProductName format={ProductNameFormat.ShortForm}/> calls to your application.
-- You can identify edge cases where the <ProductName format={ProductNameFormat.ShortForm}/> results differ from your existing system.
-- You can gradually build confidence in the <ProductName format={ProductNameFormat.ShortForm}/> implementation.
+- You can validate that your authorization model and relationship tuples are correctly configured before switching to OpenFGA.
+- You can measure the performance impact of adding OpenFGA calls to your application.
+- You can identify edge cases where the OpenFGA results differ from your existing system.
+- You can gradually build confidence in the OpenFGA implementation.
 
 To implement shadow mode:
 
 1. Configure your application to make authorization checks against both systems
 2. Log any discrepancies between the two systems
 3. Analyze the logs to identify and fix any issues
-4. Once confident in the results, switch to using <ProductName format={ProductNameFormat.ShortForm}/> as the source of truth. The same approach of shallow checks when [migrating between models](../getting-started/immutable-models.mdx#potential-use-cases).
+4. Once confident in the results, switch to using OpenFGA as the source of truth. The same approach of shallow checks when [migrating between models](../getting-started/immutable-models.mdx#potential-use-cases).
 
 This pattern is particularly useful for critical systems where authorization errors could have significant impact.
 

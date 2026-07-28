@@ -5,7 +5,6 @@ sidebar_position: 3
 slug: /learn/rebac
 ---
 
-import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs';
 
 # What is ReBAC?
 
@@ -29,9 +28,9 @@ Roles can model the simple cases but blow up combinatorially as soon as hierarch
 
 ReBAC is the descendant of **access control lists (ACLs)** — the original Unix-style model where each resource carries a list of who can access it. ACLs handle per-resource sharing well but have no notion of inheritance, types, or groups. RBAC fixed the grouping problem by introducing roles but lost per-resource granularity. ReBAC keeps both: tuples are per-resource like ACLs, and the typed schema lets relations compose like roles do — including across hierarchies.
 
-## ReBAC in <ProductName format={ProductNameFormat.ShortForm}/>
+## ReBAC in OpenFGA
 
-<ProductName format={ProductNameFormat.ShortForm}/> is a ReBAC engine in the [Zanzibar](/docs/learn/zanzibar) tradition. You define types and relations in a typed [DSL](/docs/configuration-language), write tuples like `(document:42, editor, user:alice)`, and call [check](/docs/interacting/relationship-queries) or `list-objects`.
+OpenFGA is a ReBAC engine in the [Zanzibar](/docs/learn/zanzibar) tradition. You define types and relations in a typed [DSL](/docs/configuration-language), write tuples like `(document:42, editor, user:alice)`, and call [check](/docs/interacting/relationship-queries) or `list-objects`.
 
 ## When ReBAC is the right tool
 
@@ -41,7 +40,7 @@ ReBAC is the descendant of **access control lists (ACLs)** — the original Unix
 
 ## When something else fits better
 
-- Pure attribute checks (department equals "engineering", region equals "EU") are better served by attributes — see [ABAC vs. ReBAC](/docs/learn/abac-vs-rebac). <ProductName format={ProductNameFormat.ShortForm}/> covers these with [conditions](/docs/modeling/conditions).
+- Pure attribute checks (department equals "engineering", region equals "EU") are better served by attributes — see [ABAC vs. ReBAC](/docs/learn/abac-vs-rebac). OpenFGA covers these with [conditions](/docs/modeling/conditions).
 - Infrastructure or admission policy across many domains — see [policy engines](/docs/learn/policy-engine).
 
 ## Related reading

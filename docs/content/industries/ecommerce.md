@@ -6,7 +6,7 @@ slug: /industries/ecommerce
 ---
 
 
-# E-commerce Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# E-commerce Authorization with OpenFGA
 
 E-commerce platforms — Shopify-style multi-store SaaS, BigCommerce, Etsy-like marketplaces 
 
@@ -20,7 +20,7 @@ E-commerce platforms — Shopify-style multi-store SaaS, BigCommerce, Etsy-like 
 
 category manager might be a `manager` in the apparel store and just a `staff` member in the home-goods store.
 
-<ProductName format={ProductNameFormat.ShortForm}/> models the org/store split natively
+OpenFGA models the org/store split natively
 
 The full sample lives in [openfga/sample-stores/stores/ecommerce](https://github.com/openfga/sample-stores/tree/main/stores/ecommerce)
 
@@ -50,9 +50,9 @@ Object types:
 
 **Refund vs. delete.** Refund is a manager-level permission; delete is admin only. Two separate relations means audits can answer "who could have refunded this order" independently of "who could have deleted it".
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| E-commerce requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| E-commerce requirement | OpenFGA feature |
 | --- | --- |
 | Multi-store organizations | [parent-child relationships](/docs/modeling/parent-child) |
 | Per-store roles | direct relations on `store` |
@@ -70,4 +70,4 @@ Object types:
 
 ## Working sample
 
-Schema, sample tuples, and assertions are in [openfga/sample-stores/stores/ecommerce](https://github.com/openfga/sample-stores/tree/main/stores/ecommerce). For the broader multi-tenant question (one <ProductName format={ProductNameFormat.ShortForm}/> store across many merchants), see [Multi-Tenant SaaS](/docs/use-cases/multi-tenant-saas).
+Schema, sample tuples, and assertions are in [openfga/sample-stores/stores/ecommerce](https://github.com/openfga/sample-stores/tree/main/stores/ecommerce). For the broader multi-tenant question (one OpenFGA store across many merchants), see [Multi-Tenant SaaS](/docs/use-cases/multi-tenant-saas).

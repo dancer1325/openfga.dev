@@ -5,7 +5,6 @@ sidebar_position: 4
 slug: /modeling/advanced/slack
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -18,11 +17,11 @@ import {
   WriteRequestViewer,
 } from '@components/Docs';
 
-# Modeling Authorization for Slack with <ProductName format={ProductNameFormat.ShortForm}/>
+# Modeling Authorization for Slack with OpenFGA
 
 <DocumentationNotice />
 
-This tutorial explains how to model permissions for a communication platform like Slack using <ProductName format={ProductNameFormat.ShortForm}/>.
+This tutorial explains how to model permissions for a communication platform like Slack using OpenFGA.
 
 <CardBox title="What you will learn">
 
@@ -40,14 +39,14 @@ This tutorial explains how to model permissions for a communication platform lik
 
 ## Before you start
 
-In order to understand this guide correctly you must be familiar with some <ProductName format={ProductNameFormat.LongForm}/> concepts and know how to develop the things that we will list below.
+In order to understand this guide correctly you must be familiar with some OpenFGA concepts and know how to develop the things that we will list below.
 
 <details>
 <summary>
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
-It would be helpful to have an understanding of some concepts of <ProductName format={ProductNameFormat.ShortForm}/> before you start.
+It would be helpful to have an understanding of some concepts of OpenFGA before you start.
 
 </summary>
 
@@ -70,7 +69,7 @@ You need to know how to update the authorization model to allow having nested re
 
 Slack is a messaging app for businesses that connects people to the information they need. By bringing people together to work as one unified team, Slack transforms the way organizations communicate. (Source: [What is Slack?](https://slack.com/intl/en-ca/help/articles/115004071768-What-is-Slack-))
 
-In this tutorial, you will build a subset of the Slack permission model (detailed below) in <ProductName format={ProductNameFormat.LongForm}/>, using some scenarios to validate the model.
+In this tutorial, you will build a subset of the Slack permission model (detailed below) in OpenFGA, using some scenarios to validate the model.
 
 > As reference, you can refer to Slack's publicly available docs:
 >
@@ -137,11 +136,11 @@ In production, it is highly recommended to use unique, immutable identifiers. Na
 
 ## Modeling workspaces & channels
 
-The goal by the end of this post is to ask <ProductName format={ProductNameFormat.LongForm}/>: Does person X have permission to perform action Y on channel Z? In response, you want to either get a confirmation that person X can indeed do that, or a rejection that they cannot. E.g. does David have access to view #general?
+The goal by the end of this post is to ask OpenFGA: Does person X have permission to perform action Y on channel Z? In response, you want to either get a confirmation that person X can indeed do that, or a rejection that they cannot. E.g. does David have access to view #general?
 
-The <ProductName format={ProductNameFormat.LongForm}/> is based on [Zanzibar](https://zanzibar.academy), a Relation Based Access Control system. This means it relies on <ProductConcept section="what-is-an-object" linkName="objects" /> and <ProductConcept section="what-is-a-user" linkName="user" /> <ProductConcept section="what-is-a-relation" linkName="relations" /> to perform authorization <ProductConcept section="what-is-a-check-request" linkName="checks" />.
+The OpenFGA is based on [Zanzibar](https://zanzibar.academy), a Relation Based Access Control system. This means it relies on <ProductConcept section="what-is-an-object" linkName="objects" /> and <ProductConcept section="what-is-a-user" linkName="user" /> <ProductConcept section="what-is-a-relation" linkName="relations" /> to perform authorization <ProductConcept section="what-is-a-check-request" linkName="checks" />.
 
-Setting aside the permissions, you will start with the roles and learn how to express the requirements in terms of relations you can feed into <ProductName format={ProductNameFormat.ShortForm}/>.
+Setting aside the permissions, you will start with the roles and learn how to express the requirements in terms of relations you can feed into OpenFGA.
 
 The requirements stated:
 
@@ -150,7 +149,7 @@ The requirements stated:
 - **Catherine** and **Emily** are a normal **members** of the **Sandcastle workspace**
 - **David** is a **guest** user
 
-Here is how you would express than in <ProductName format={ProductNameFormat.ShortForm}/>'s <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />: You have a <ProductConcept section="what-is-a-type" linkName="type" /> called "workspace", and users can be related to it as a legacy_admin, channels_admin, member and guest
+Here is how you would express than in OpenFGA's <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />: You have a <ProductConcept section="what-is-a-type" linkName="type" /> called "workspace", and users can be related to it as a legacy_admin, channels_admin, member and guest
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -207,7 +206,7 @@ Here is how you would express than in <ProductName format={ProductNameFormat.Sho
 
 ### 01. Individual permissions
 
-To keep things simple and focus on <ProductName /> rather than Slack complexity, we will model only four roles (legacy_admin, channels_admin, member, guest).
+To keep things simple and focus on OpenFGA rather than Slack complexity, we will model only four roles (legacy_admin, channels_admin, member, guest).
 
 At the end of this section we want to have the following permissions represented
 
@@ -219,7 +218,7 @@ At the end of this section we want to have the following permissions represented
 | david     | guest          | workspace:sandcastle |
 | emily     | member         | workspace:sandcastle |
 
-To represent permissions in <ProductName /> we use <ProductConcept section="what-is-a-relation" linkName="relations" />. For workspace permissions we need to create the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
+To represent permissions in OpenFGA we use <ProductConcept section="what-is-a-relation" linkName="relations" />. For workspace permissions we need to create the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -257,7 +256,7 @@ To represent permissions in <ProductName /> we use <ProductConcept section="what
   }}
 />
 
-The <ProductName format={ProductNameFormat.LongForm}/> service determines if a <ProductConcept section="what-is-a-user" linkName="user" /> has access to an <ProductConcept section="what-is-an-object" linkName="object" /> by <ProductConcept section="what-is-a-check-request" linkName="checking" /> if the user has a relation to that object. Let us examine one of those relations in detail:
+The OpenFGA service determines if a <ProductConcept section="what-is-a-user" linkName="user" /> has access to an <ProductConcept section="what-is-an-object" linkName="object" /> by <ProductConcept section="what-is-a-check-request" linkName="checking" /> if the user has a relation to that object. Let us examine one of those relations in detail:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -299,7 +298,7 @@ If we want to say `amy` is a `legacy_admin` of `workspace:sandcastle` we create 
   ]}
 />
 
-We can now ask <ProductName /> "is `amy` a legacy_admin of **workspace:sandcastle**?"
+We can now ask OpenFGA "is `amy` a legacy_admin of **workspace:sandcastle**?"
 
 <CheckRequestViewer user={'user:amy'} relation={'legacy_admin'} object={'workspace:sandcastle'} allowed={true} />
 
@@ -316,7 +315,7 @@ We can also say that `catherine` is a `member` of `workspace:sandcastle`:
   ]}
 />
 
-And verify by <ProductConcept section="what-is-a-check-request" linkName="asking" /> <ProductName />
+And verify by <ProductConcept section="what-is-a-check-request" linkName="asking" /> OpenFGA
 
 <CheckRequestViewer user={'user:catherine'} relation={'member'} object={'workspace:sandcastle'} allowed={true} />
 
@@ -395,11 +394,11 @@ Some of the queries that you ran earlier, while returning the correct response, 
 
 <CheckRequestViewer user={'user:amy'} relation={'member'} object={'workspace:sandcastle'} allowed={false} />
 
-As you saw before, running this query will return `amy is not a member of workspace:sandcastle`, which is correct based on the data you have given <ProductName format={ProductNameFormat.LongForm}/> so far. But in reality, Amy, who is a `legacy_admin` already has an <ProductConcept section="what-are-direct-and-implied-relationships" linkName="implied" /> `channels_admin` and `member` relations. In fact anyone (other than a guest) is a `member` of the workspace.
+As you saw before, running this query will return `amy is not a member of workspace:sandcastle`, which is correct based on the data you have given OpenFGA so far. But in reality, Amy, who is a `legacy_admin` already has an <ProductConcept section="what-are-direct-and-implied-relationships" linkName="implied" /> `channels_admin` and `member` relations. In fact anyone (other than a guest) is a `member` of the workspace.
 
 To change this behavior, we will update our system with a [**concentric relationship**](../building-blocks/concentric-relationships.mdx) model.
 
-With the following updated <ProductConcept section="what-is-a-type-definition" linkName="authorization model" />, you are informing <ProductName format={ProductNameFormat.LongForm}/> that any user who is related to a workspace as `legacy_admin`, is also related as a `channels_admin` and a `member` .
+With the following updated <ProductConcept section="what-is-a-type-definition" linkName="authorization model" />, you are informing OpenFGA that any user who is related to a workspace as `legacy_admin`, is also related as a `channels_admin` and a `member` .
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -773,7 +772,7 @@ The Sandcastle workspace is a parent workspace of the #general, #marketing-inter
 
 ##### `#general` channel
 
-The `#general` channel is a public channel visible to all the members of the workspace. In <ProductName format={ProductNameFormat.ShortForm}/>, you represent this relation in the form of the following relationship tuple:
+The `#general` channel is a public channel visible to all the members of the workspace. In OpenFGA, you represent this relation in the form of the following relationship tuple:
 
 <WriteRequestViewer
   relationshipTuples={[
@@ -889,14 +888,14 @@ Repeat this for the following relations
 ## Summary
 
 - Have a basic understanding of <IntroductionSection linkName="authorization" section="authentication-and-authorization"/> and <ProductConcept/>.
-- Understand how to model authorization for a communication platform like Slack using <ProductName format={ProductNameFormat.ProductLink}/>.
+- Understand how to model authorization for a communication platform like Slack using [OpenFGA](https://openfga.dev).
 
 In this tutorial, you:
 
-- were introduced to <IntroductionSection linkName="fine grain authentication" section="what-is-fine-grained-authorization"/> and <ProductName format={ProductNameFormat.ProductLink}/>.
-- learned how to build and test an <ProductName format={ProductNameFormat.LongForm}/> authorization model for a communication platforms like Slack.
+- were introduced to <IntroductionSection linkName="fine grain authentication" section="what-is-fine-grained-authorization"/> and [OpenFGA](https://openfga.dev).
+- learned how to build and test an OpenFGA authorization model for a communication platforms like Slack.
 
-Upcoming tutorials will dive deeper into <ProductName format={ProductNameFormat.LongForm}/>, introducing concepts that will improve on the model you built today, and tackling different permission systems, with other relations and requirements that need to be met.
+Upcoming tutorials will dive deeper into OpenFGA, introducing concepts that will improve on the model you built today, and tackling different permission systems, with other relations and requirements that need to be met.
 
 <Playground title="Slack" preset="slack" example="Slack" store="slack" />
 

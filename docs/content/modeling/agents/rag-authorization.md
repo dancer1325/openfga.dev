@@ -5,7 +5,6 @@ sidebar_position: 2
 slug: /modeling/agents/rag-authorization
 ---
 
-import {
   BatchCheckRequestViewer,
   DocumentationNotice,
   ListObjectsRequestViewer,
@@ -18,14 +17,14 @@ import {
 
 <DocumentationNotice />
 
-Retrieval-Augmented Generation (RAG) enhances LLM responses by retrieving relevant documents from a knowledge base. Without authorization checks, a user can ask a question and receive answers derived from documents they should not have access to. <ProductName format={ProductNameFormat.ShortForm}/> lets you enforce document-level permissions so that RAG pipelines only return content the user is authorized to see.
+Retrieval-Augmented Generation (RAG) enhances LLM responses by retrieving relevant documents from a knowledge base. Without authorization checks, a user can ask a question and receive answers derived from documents they should not have access to. OpenFGA lets you enforce document-level permissions so that RAG pipelines only return content the user is authorized to see.
 
-This guide shows how to model document permissions in <ProductName format={ProductNameFormat.ShortForm}/> and integrate authorization checks into a RAG pipeline, regardless of the framework or vector database you use.
+This guide shows how to model document permissions in OpenFGA and integrate authorization checks into a RAG pipeline, regardless of the framework or vector database you use.
 
 This pattern applies to both first-party and third-party scenarios:
 
-- **First-party** - Your application owns the documents and manages permissions directly. You write tuples to <ProductName format={ProductNameFormat.ShortForm}/> as part of your normal application flow (e.g., when a user creates a folder or shares a document).
-- **Third-party** - Documents and permissions live in an external system (Google Drive, Confluence, SharePoint, etc.). You synchronize content into your vector database and permissions into <ProductName format={ProductNameFormat.ShortForm}/>, keeping both in sync with the source system. The authorization model and filtering approaches are the same - the difference is that tuples come from a sync pipeline rather than your application.
+- **First-party** - Your application owns the documents and manages permissions directly. You write tuples to OpenFGA as part of your normal application flow (e.g., when a user creates a folder or shares a document).
+- **Third-party** - Documents and permissions live in an external system (Google Drive, Confluence, SharePoint, etc.). You synchronize content into your vector database and permissions into OpenFGA, keeping both in sync with the source system. The authorization model and filtering approaches are the same - the difference is that tuples come from a sync pipeline rather than your application.
 
 ## Authorization model
 
@@ -91,17 +90,17 @@ With this setup:
 
 ## Filtering approaches
 
-There are two main approaches to integrate <ProductName format={ProductNameFormat.ShortForm}/> into a RAG pipeline. Both ensure that the LLM only sees documents the user is authorized to access.
+There are two main approaches to integrate OpenFGA into a RAG pipeline. Both ensure that the LLM only sees documents the user is authorized to access.
 
 ### Post-filtering
 
-Query the vector database first, then filter results by checking permissions with <ProductName format={ProductNameFormat.ShortForm}/>. This is the most common approach and works well when the vector search returns a manageable number of candidates.
+Query the vector database first, then filter results by checking permissions with OpenFGA. This is the most common approach and works well when the vector search returns a manageable number of candidates.
 
 The flow is:
 
 1. The user sends a query to the RAG pipeline.
 2. The pipeline retrieves candidate documents from the vector database.
-3. For each candidate, call <ProductName format={ProductNameFormat.ShortForm}/> to check whether the user can view it.
+3. For each candidate, call OpenFGA to check whether the user can view it.
 4. Filter out unauthorized documents.
 5. Pass only the authorized documents to the LLM as context.
 
@@ -178,15 +177,15 @@ When using post-filtering, request more candidates than you need from the vector
 
 The filtering patterns above are framework-agnostic. Here is how to apply them in popular RAG frameworks:
 
-- **LangChain (Python/JS)**: Implement a custom retriever that wraps your vector store retriever. After retrieving candidates, call <ProductName format={ProductNameFormat.ShortForm}/> `BatchCheck` and filter the results before returning them to the chain.
-- **LlamaIndex**: Use a post-processing step or a custom node postprocessor that checks permissions against <ProductName format={ProductNameFormat.ShortForm}/> before passing nodes to the response synthesizer.
+- **LangChain (Python/JS)**: Implement a custom retriever that wraps your vector store retriever. After retrieving candidates, call OpenFGA `BatchCheck` and filter the results before returning them to the chain.
+- **LlamaIndex**: Use a post-processing step or a custom node postprocessor that checks permissions against OpenFGA before passing nodes to the response synthesizer.
 - **Custom pipelines**: Insert the authorization check between the retrieval and generation steps of your pipeline.
 
 In all cases, the authorization check should happen **after** retrieval and **before** the documents reach the LLM.
 
 ## Further reading
 
-These resources explore RAG authorization patterns with <ProductName format={ProductNameFormat.ShortForm}/> in more detail:
+These resources explore RAG authorization patterns with OpenFGA in more detail:
 
 - [RAG and Access Control: Where Do You Start?](https://auth0.com/blog/rag-and-access-control-where-do-you-start/)
 - [Building a Secure RAG with Python, LangChain, and OpenFGA](https://auth0.com/blog/building-a-secure-rag-with-python-langchain-and-openfga/)

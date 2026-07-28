@@ -4,7 +4,6 @@ slug: /modeling/building-blocks/usersets
 description: Modeling with userset
 ---
 
-import {
   AuthzModelSnippetViewer,
   CheckRequestViewer,
   DocumentationNotice,
@@ -25,7 +24,7 @@ A userset represents a set or collection of <ProductConcept section="what-is-a-u
 
 Usersets can be used to indicate that a group of users in the system have a certain <ProductConcept section="what-is-a-relation" linkName="relation" /> with an <ProductConcept section="what-is-an-object" linkName="object" />. This can be used to assign permissions to groups of users rather than specific ones, allowing us to represent the permissions in our system using less tuples and granting us flexibility in granting or denying access in bulk.
 
-In <ProductName format={ProductNameFormat.ShortForm}/>, usersets are represented via this notation: `object#relation`, where <ProductConcept section="what-is-an-object" linkName="object" /> is made up of a <ProductConcept section="what-is-a-type" linkName="type" /> and an object identifier. For example:
+In OpenFGA, usersets are represented via this notation: `object#relation`, where <ProductConcept section="what-is-an-object" linkName="object" /> is made up of a <ProductConcept section="what-is-a-type" linkName="type" /> and an object identifier. For example:
 
 - `company:xyz#employee` represents all users that are related to `company:xyz` as `employee`
 - `tweet:12345#viewer` represents all users that are related to `tweet:12345` as `viewer`
@@ -90,7 +89,7 @@ Now let us assume that the store has the following tuples:
   ]}
 />
 
-If we call the <ProductConcept section="what-is-a-check-request" linkName="check API" /> to see if user `anne` has a `reader` relationship with `document:budget`, <ProductName format={ProductNameFormat.ShortForm}/> will check whether `anne` is part of the userset that does have a `reader` relationship. Because she is part of that userset, the request will return true:
+If we call the <ProductConcept section="what-is-a-check-request" linkName="check API" /> to see if user `anne` has a `reader` relationship with `document:budget`, OpenFGA will check whether `anne` is part of the userset that does have a `reader` relationship. Because she is part of that userset, the request will return true:
 
 <CheckRequestViewer user={'user:anne'} relation={'reader'} object={'document:budget'} allowed={true} />
 
@@ -181,13 +180,13 @@ Using the type definitions in the authorization model, some of the situations we
 - that a user being in a set of users having a certain relation to an object can result in them having another relation to the object. See [Concentric Relationships](./concentric-relationships.mdx)
 - that the user being in a set of users having a certain relation to an object and that object is in a set of users having a certain relation to another object, can imply that the original user has a certain relationship to the final object. See [Object-to-Object Relationships](./object-to-object-relationships.mdx)
 
-When executing the Check API of the form `check(user, relation, object)`, <ProductName format={ProductNameFormat.ShortForm}/> will perform the following steps:
+When executing the Check API of the form `check(user, relation, object)`, OpenFGA will perform the following steps:
 
 1. In the authorization model, look up `type` and its `relation`. Start building a tree where the root node will be the definition of that `relation`, which can be a union, exclusion, or intersection of usersets, or it can be direct users.
 1. Expand all the usersets involved into new nodes in the tree. This means recursively finding all the users that are members of the usersets. If there are direct relationships with users, create leaf nodes.
 1. Check whether `user` is a leaf node in the tree. If the API finds one match, it will return immediately and will not expand the remaining nodes.
 
-![Image showing the path <ProductName format={ProductNameFormat.ShortForm}/> traverses to find if a user is in the userset related to an object](./assets/usersets-check-tree.png)
+![Image showing the path OpenFGA traverses to find if a user is in the userset related to an object](./assets/usersets-check-tree.png)
 
 ## Related Sections
 

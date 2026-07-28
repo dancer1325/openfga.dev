@@ -13,8 +13,8 @@ description: Learning about the FGA configuration language and using it to build
 
 The Configuration Language can be presented in **DSL** or **JSON** syntax
 * The JSON syntax is accepted by the API and closely tracks the language in the [Zanzibar paper](https://research.google/pubs/pub48190/)
-* The DSL adds syntactic sugar on top of JSON for ease of use, but compiles down to JSON before being sent to <ProductName format={ProductNameFormat.ShortForm}/>'s API
-* JSON syntax is used to call API directly or through the [SDKs](./getting-started), while DSL is used to interact with <ProductName format={ProductNameFormat.ShortForm}/> in the [Playground](https://play.fga.dev/), the [CLI](https://github.com/openfga/cli), and the IDE extensions for [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=openfga.openfga-vscode) and [IntelliJ](https://plugins.jetbrains.com/plugin/24394-openfga)
+* The DSL adds syntactic sugar on top of JSON for ease of use, but compiles down to JSON before being sent to OpenFGA's API
+* JSON syntax is used to call API directly or through the [SDKs](./getting-started), while DSL is used to interact with OpenFGA in the [Playground](https://play.fga.dev/), the [CLI](https://github.com/openfga/cli), and the IDE extensions for [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=openfga.openfga-vscode) and [IntelliJ](https://plugins.jetbrains.com/plugin/24394-openfga)
 * They can be switched between throughout this documentation. 
 
 Please familiarize yourself with basic <ProductConcept /> and [How to get started on modeling](./modeling/getting-started.mdx) before starting this guide.
@@ -22,7 +22,7 @@ Please familiarize yourself with basic <ProductConcept /> and [How to get starte
 ## What Does The Configuration Language Look Like?
 
 Below is a sample authorization model
-* The next sections discuss the basics of the <ProductName format={ProductNameFormat.ShortForm}/> configuration language.
+* The next sections discuss the basics of the OpenFGA configuration language.
 
 <AuthzModelSnippetViewer
   syntaxesToShow={[SyntaxFormat.Dsl, SyntaxFormat.Json]}
@@ -265,7 +265,7 @@ If no direct relationship type restrictions are specified, direct relationships 
 
 :::info
 
-`[<type1>, <type2>, ...]` in the <ProductName format={ProductNameFormat.ShortForm}/> DSL translates to `this` in the <ProductName format={ProductNameFormat.ShortForm}/> API syntax.
+`[<type1>, <type2>, ...]` in the OpenFGA DSL translates to `this` in the OpenFGA API syntax.
 
 :::
 
@@ -569,7 +569,7 @@ In the authorization model above, `user:anne` is a `viewer` of `document:new-roa
 Referencing relations on related objects defines transitive implied relationship. If User A is related to Object B as a viewer, and Object B is related to Object C as parent, then User A is related to Object C as viewer. This can indicate that viewers of a folders are viewers of all documents in that folder.
 
 :::caution
-<ProductName format={ProductNameFormat.LongForm}/> does not allow the referenced relation (the word after `from`, also called the tupleset) to reference another relation and does not allow non-concrete types (type bound public access (`<object_type>:*`) or usersets (`<object_type>#<relation>`)) in its type restrictions; adding them throws a validation error when calling `WriteAuthorizationModel`.
+OpenFGA does not allow the referenced relation (the word after `from`, also called the tupleset) to reference another relation and does not allow non-concrete types (type bound public access (`<object_type>:*`) or usersets (`<object_type>#<relation>`)) in its type restrictions; adding them throws a validation error when calling `WriteAuthorizationModel`.
 :::
 
 For more examples, see [Modeling: Parent-Child Objects](./modeling/parent-child.mdx), [Advanced Modeling: Google Drive](./modeling/advanced/gdrive.mdx), [Advanced Modeling: GitHub](./modeling/advanced/github.mdx), and [Advanced Modeling: Entitlements](./modeling/advanced/entitlements.mdx).
@@ -925,13 +925,13 @@ You can define complex conditions by using parentheses to group and nest operato
 
 ### Conditional relationships
 
-<ProductName format={ProductNameFormat.ShortForm}/> supports conditional relationships, which are only considered if a specific condition is met. You can learn more about Conditional Relationships in the [Modeling: Conditional Relationships](./modeling/conditions.mdx) guide.
+OpenFGA supports conditional relationships, which are only considered if a specific condition is met. You can learn more about Conditional Relationships in the [Modeling: Conditional Relationships](./modeling/conditions.mdx) guide.
 
 ## Equivalent Zanzibar Concepts
 
-The JSON syntax accepted by the <ProductName format={ProductNameFormat.ShortForm}/> API closely mirrors the syntax represented in the Zanzibar paper. The major modifications are a slight flattening and conversion of keys from `snake_case` to `camelCase`.
+The JSON syntax accepted by the OpenFGA API closely mirrors the syntax represented in the Zanzibar paper. The major modifications are a slight flattening and conversion of keys from `snake_case` to `camelCase`.
 
-| Zanzibar           | <ProductName format={ProductNameFormat.ShortForm}/> JSON | <ProductName format={ProductNameFormat.ShortForm}/> DSL |
+| Zanzibar           | OpenFGA JSON | OpenFGA DSL |
 | :----------------- | :------------------------------------------------------- | :------------------------------------------------------ |
 | `this`             | `this`                                                   | [`[<type1>,<type2>]`](#direct-relationship-type-restrictions)                                                  |
 | `union`            | `union`                                                  | `or`                                                    |
@@ -968,7 +968,7 @@ relation {
 }}}
 ```
 
-In the <ProductName format={ProductNameFormat.ShortForm}/> DSL, it becomes:
+In the OpenFGA DSL, it becomes:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -1031,7 +1031,7 @@ In the <ProductName format={ProductNameFormat.ShortForm}/> DSL, it becomes:
   }}
 />
 
-In the <ProductName format={ProductNameFormat.ShortForm}/> JSON, it becomes:
+In the OpenFGA JSON, it becomes:
 
 <AuthzModelSnippetViewer
   syntaxesToShow={[SyntaxFormat.Json]}

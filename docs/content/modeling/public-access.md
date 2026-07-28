@@ -4,7 +4,6 @@ slug: /modeling/public-access
 description: Granting public access to an object
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -79,19 +78,19 @@ In addition, you will need to know the following:
 
 You need to know how to create an authorization model and create a relationship tuple to grant a user access to an object. [Learn more →](./direct-access.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm}/>
-- A <ProductConcept section="what-is-type-bound-public-access" linkName="Type Bound Public Access" />: is a special <ProductName format={ProductNameFormat.ShortForm}/> concept (represented by `<type>:*`) can be used in relationship tuples to represent every object of that type
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
+- A <ProductConcept section="what-is-type-bound-public-access" linkName="Type Bound Public Access" />: is a special OpenFGA concept (represented by `<type>:*`) can be used in relationship tuples to represent every object of that type
 
 </details>
 
 :::caution
-Make sure to use unique ids for each object and user within your application domain when creating relationship tuples for <ProductName format={ProductNameFormat.LongForm}/>. We are using first names and simple ids to just illustrate an easy-to-follow example.
+Make sure to use unique ids for each object and user within your application domain when creating relationship tuples for OpenFGA. We are using first names and simple ids to just illustrate an easy-to-follow example.
 :::
 
 <Playground />
@@ -159,7 +158,7 @@ The following syntax is invalid:
 
 ### 02. Check That The Relationship Exists
 
-Once the above _relationship tuple_ is added, we can <ProductConcept section="what-is-a-check-request" linkName="check" /> if **bob** cab `view` `document`:**company-psa.doc**. <ProductName format={ProductNameFormat.ShortForm}/> will return `{ "allowed": true }` even though no relationship tuple linking **bob** to the document was added. That is because the relationship tuple with `user:*` as the user made it so every object of type user (such as `user:bob`) can `view` the document, making it public.
+Once the above _relationship tuple_ is added, we can <ProductConcept section="what-is-a-check-request" linkName="check" /> if **bob** cab `view` `document`:**company-psa.doc**. OpenFGA will return `{ "allowed": true }` even though no relationship tuple linking **bob** to the document was added. That is because the relationship tuple with `user:*` as the user made it so every object of type user (such as `user:bob`) can `view` the document, making it public.
 
 <CheckRequestViewer user={'user:bob'} relation={'view'} object={'document:company-psa.doc'} allowed={true} />
 

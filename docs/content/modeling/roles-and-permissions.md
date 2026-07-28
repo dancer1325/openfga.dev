@@ -4,7 +4,6 @@ slug: /modeling/roles-and-permissions
 description: Modeling basic roles and permissions
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -21,7 +20,7 @@ import {
 
 <DocumentationNotice />
 
-Roles and permissions can be modeled within <ProductName format={ProductNameFormat.ProductLink}/> using an <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" /> and <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" />.
+Roles and permissions can be modeled within [OpenFGA](https://openfga.dev) using an <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" /> and <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuples" />.
 
 - **Roles** are assigned to <ProductConcept section="what-is-a-user" linkName="users" /> or a group of users. Any user can have more than one role, like `editor` or `owner`.
 - **Permissions** allow users to access certain <ProductConcept section="what-is-an-object" linkName="objects" /> based on their specific roles, like `device_renamer` or `channel_archiver`.
@@ -30,7 +29,7 @@ For example, the role `viewer` of a `trip` can have permissions to view bookings
 
 <CardBox title="When to use a Roles and Permissions model" appearance="filled">
 
-Role and permissions models in <ProductName format={ProductNameFormat.ShortForm}/> can both directly assign roles to users and assign permissions through relations users receive downstream from other relations. For example, you can:
+Role and permissions models in OpenFGA can both directly assign roles to users and assign permissions through relations users receive downstream from other relations. For example, you can:
 
 - Grant someone an `admin` role that can `edit` and `read` a `document`
 - Grant someone a `security_guard` role that can `live_video_viewer` on a `device`
@@ -87,14 +86,14 @@ In addition, you need to know the following:
 
 Creating an authorization model and a relationship tuple can grant a user access to an object. To learn more, [read about Direct Access](./direct-access.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a group stored in <ProductName format={ProductNameFormat.ShortForm}/> that consists of a user, a relation, and an object 
-- A <ProductConcept section="what-is-a-relationship" linkName="Relationship" />: <ProductName format={ProductNameFormat.ShortForm}/> will be called to check if there is a relationship between a user and an object, indicating that the access is allowed
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a group stored in OpenFGA that consists of a user, a relation, and an object 
+- A <ProductConcept section="what-is-a-relationship" linkName="Relationship" />: OpenFGA will be called to check if there is a relationship between a user and an object, indicating that the access is allowed
 - [Union Operator](../configuration-language.mdx#the-union-operator): can be used to indicate that the user has multiple ways of being related to an object
 - [Direct Relationship Type Restrictions](../configuration-language.mdx#direct-relationship-type-restrictions): can be used to indicate direct relationships between users and objects
 - A <ProductConcept section="what-is-a-check-request" linkName="Check API Request" />: used to check for relationships between users and objects
@@ -107,7 +106,7 @@ Creating an authorization model and a relationship tuple can grant a user access
 
 The Roles and Permissions example below is a trip booking system that has `owners` and/or `viewers`, both of which can have more granular permissions like adding bookings to a trip or viewing a trip's bookings.
 
-To represent this in an <ProductName format={ProductNameFormat.ProductLink}/> environment, you need to:
+To represent this in an [OpenFGA](https://openfga.dev) environment, you need to:
 
 1. Understand how roles are related to direct relations for the trip booking system
 2. Add implied relations to the existing authorization model to define permissions for bookings
@@ -266,7 +265,7 @@ You also check: is alice allowed to view and add bookings on trip Europe?
 4. Therefore, all `owners` on a given `trip` are `booking_viewers` and `booking_adders` on that trip
 
 :::caution
-Use unique ids for each object and user within your application domain when creating relationship tuples for <ProductName format={ProductNameFormat.LongForm}/>. This example first names and simple ids as an easy-to-follow example.
+Use unique ids for each object and user within your application domain when creating relationship tuples for OpenFGA. This example first names and simple ids as an easy-to-follow example.
 :::
 
 ## Related sections

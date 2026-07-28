@@ -5,7 +5,6 @@ sidebar_position: 4
 slug: /learn/rbac-vs-rebac
 ---
 
-import { ProductName, ProductNameFormat, RelatedSection } from '@components/Docs';
 
 # RBAC vs. ReBAC
 
@@ -34,9 +33,9 @@ Sharing breaks RBAC for the same reason: "viewer of doc-42" is not a useful role
 - "User X is a member of team Y, which owns project Z, which contains document D" — four tuples, one check, no role explosion.
 - Cross-tenant sharing — a user in one org can be an `editor` of a single document in another org without granting them anything else.
 
-## Doing both in <ProductName format={ProductNameFormat.ShortForm}/>
+## Doing both in OpenFGA
 
-<ProductName format={ProductNameFormat.ShortForm}/> is a [ReBAC](/docs/learn/rebac) engine that **also models RBAC cleanly**: a role is a relation on a tenant, and the model lets the same user be a different role in different tenants without any duplication. The [Modeling Roles](/docs/best-practices/modeling-roles) guide walks through the pattern.
+OpenFGA is a [ReBAC](/docs/learn/rebac) engine that **also models RBAC cleanly**: a role is a relation on a tenant, and the model lets the same user be a different role in different tenants without any duplication. The [Modeling Roles](/docs/best-practices/modeling-roles) guide walks through the pattern.
 
 ## Related reading
 

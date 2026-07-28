@@ -5,7 +5,6 @@ sidebar_position: 2
 slug: /modeling/advanced/github
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -17,11 +16,11 @@ import {
   WriteRequestViewer,
 } from '@components/Docs';
 
-# Modeling GitHub permissions with <ProductName format={ProductNameFormat.ShortForm}/>
+# Modeling GitHub permissions with OpenFGA
 
 <DocumentationNotice />
 
-This tutorial explains how to model GitHub's Organization permission model using <ProductName format={ProductNameFormat.ProductLink}/>. [This article](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-repositories) from the GitHub docs has links to all other articles we are going to be exploring in this document.
+This tutorial explains how to model GitHub's Organization permission model using [OpenFGA](https://openfga.dev). [This article](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-repositories) from the GitHub docs has links to all other articles we are going to be exploring in this document.
 
 <CardBox title="What you will learn">
 
@@ -31,7 +30,7 @@ This tutorial explains how to model GitHub's Organization permission model using
   Used here to indicate that maintainers of a repository are also writers of that repository.
 - Using [**the union operator**](../../configuration-language.mdx#the-union-operator) condition to indicate that a user might have a certain relation with an object if they match any of the criteria indicated.<br />
   Used here to indicate that a user can be a reader on a repository, or can have the reader relationship implied through triager.
-- Model [**parent-child objects**](../parent-child.mdx) to indicate that a user having a relationship with a certain object implies having a relationship with another object in <ProductName format={ProductNameFormat.ShortForm}/>.<br />
+- Model [**parent-child objects**](../parent-child.mdx) to indicate that a user having a relationship with a certain object implies having a relationship with another object in OpenFGA.<br />
   Used here to indicate that a repository admin on a GitHub organization, is an admin on all repositories that organization owns.
 
 </CardBox>
@@ -40,14 +39,14 @@ This tutorial explains how to model GitHub's Organization permission model using
 
 ## Before you start
 
-In order to understand this guide correctly you must be familiar with some <ProductName format={ProductNameFormat.LongForm}/> concepts and know how to develop the things that we will list below.
+In order to understand this guide correctly you must be familiar with some OpenFGA concepts and know how to develop the things that we will list below.
 
 <details>
 <summary>
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
-It would be helpful to have an understanding of some concepts of <ProductName format={ProductNameFormat.ShortForm}/> before you start.
+It would be helpful to have an understanding of some concepts of OpenFGA before you start.
 
 </summary>
 
@@ -72,7 +71,7 @@ Used here to indicate that users who have repo admin access on an organization, 
 
 GitHub is a system to develop and collaborate on code.
 
-In this tutorial, you will build a subset of the GitHub permission model (detailed below) in <ProductName format={ProductNameFormat.LongForm}/>, using some scenarios to validate the model.
+In this tutorial, you will build a subset of the GitHub permission model (detailed below) in OpenFGA, using some scenarios to validate the model.
 
 > Note: For brevity, this tutorial will not model all of GitHub's permissions. Instead, it will focus on modeling for the scenarios outlined below
 
@@ -122,7 +121,7 @@ At the end of this section we want to end up with the following permissions repr
 
 ![Image showing permissions](./assets/github-01.svg)
 
-To represent permissions in <ProductName format={ProductNameFormat.LongForm}/> we use <ProductConcept section="what-is-a-relation" linkName="relations" />. For repository permissions we need to create the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
+To represent permissions in OpenFGA we use <ProductConcept section="what-is-a-relation" linkName="relations" />. For repository permissions we need to create the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -164,7 +163,7 @@ To represent permissions in <ProductName format={ProductNameFormat.LongForm}/> w
   }}
 />
 
-The <ProductName format={ProductNameFormat.ShortForm}/> service determines if a <ProductConcept section="what-is-a-user" linkName="user" /> has access to an <ProductConcept section="what-is-an-object" linkName="object" /> by <ProductConcept section="what-is-a-check-request" linkName="checking" /> if the user has a relation to that object. Let us examine one of those relations in detail:
+The OpenFGA service determines if a <ProductConcept section="what-is-a-user" linkName="user" /> has access to an <ProductConcept section="what-is-an-object" linkName="object" /> by <ProductConcept section="what-is-a-check-request" linkName="checking" /> if the user has a relation to that object. Let us examine one of those relations in detail:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -210,7 +209,7 @@ If we want to say `anne` is a reader of repository **repo:contoso/tooling** we c
   ]}
 />
 
-We can now <ProductConcept section="what-is-a-check-request" linkName="ask" /> <ProductName format={ProductNameFormat.ShortForm}/> "is `anne` a reader of repository **repo:contoso/tooling**?"
+We can now <ProductConcept section="what-is-a-check-request" linkName="ask" /> OpenFGA "is `anne` a reader of repository **repo:contoso/tooling**?"
 
 <CheckRequestViewer user={'user:anne'} relation={'reader'} object={'repo:contoso/tooling'} allowed={true} />
 
@@ -226,7 +225,7 @@ We could also say that `beth` is a writer of the same repository:
   ]}
 />
 
-And ask some questions to <ProductName format={ProductNameFormat.ShortForm}/>:
+And ask some questions to OpenFGA:
 
 <CheckRequestViewer user={'user:beth'} relation={'writer'} object={'repo:contoso/tooling'} allowed={true} />
 <CheckRequestViewer user={'user:beth'} relation={'reader'} object={'repo:contoso/tooling'} allowed={false} />
@@ -234,7 +233,7 @@ And ask some questions to <ProductName format={ProductNameFormat.ShortForm}/>:
 The first reply makes sense but the second one does not. Intuitively, if `beth` was writer, she was also be a reader. In fact, GitHub explains this in [their documentation](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#repository-access-for-each-permission-level)
 ![Showing various GitHub repo access level](./assets/github-repo-access-level.svg)
 
-To make <ProductName format={ProductNameFormat.ShortForm}/> aware of this "concentric" permission model we need to update our definitions:
+To make OpenFGA aware of this "concentric" permission model we need to update our definitions:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -377,7 +376,7 @@ At the end of this section we want to end up with the following permissions repr
 
 ![Image showing permissions](./assets/github-02.svg)
 
-To add support for teams and memberships all we need to do is add this object to the <ProductName format={ProductNameFormat.ShortForm}/> <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
+To add support for teams and memberships all we need to do is add this object to the OpenFGA <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -507,7 +506,7 @@ Let us now create a team, add a member to it and make it an admin of **repo:cont
   ]}
 />
 
-The last relationship tuple introduces a new **<ProductName format={ProductNameFormat.ShortForm}/>** concept. A **<ProductConcept section="what-is-a-user" linkName="userset" />**. When the value of a user is formatted like this **type:objectId#relation**, <ProductName format={ProductNameFormat.ShortForm}/> will automatically expand the userset into all its individual user identifiers:
+The last relationship tuple introduces a new **OpenFGA** concept. A **<ProductConcept section="what-is-a-user" linkName="userset" />**. When the value of a user is formatted like this **type:objectId#relation**, OpenFGA will automatically expand the userset into all its individual user identifiers:
 
 <CheckRequestViewer user={'user:charles'} relation={'admin'} object={'repo:contoso/tooling'} allowed={true} />
 
@@ -565,7 +564,7 @@ At the end of this section we want to end up with the following permissions repr
 
 ![](./assets/github-04.svg)
 
-We need to introduce the notion of organization as a type, user organization membership and repository ownership as a relation. - It is worth calling that before this addition we were able to represent almost the entire GitHub repo permissions without adding the notion of organization to <ProductName format={ProductNameFormat.ShortForm}/>. Identifiers for users, repositories and teams were all that was necessary.
+We need to introduce the notion of organization as a type, user organization membership and repository ownership as a relation. - It is worth calling that before this addition we were able to represent almost the entire GitHub repo permissions without adding the notion of organization to OpenFGA. Identifiers for users, repositories and teams were all that was necessary.
 Let us add support for organizations and membership. Hopefully this feels familiar by now:
 
 <AuthzModelSnippetViewer
@@ -997,6 +996,6 @@ The updated authorization model looks like this:
 
 ## Summary
 
-GitHub has a number of other permissions. You have [organization billing managers, users that can manage specific apps, etc](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization). We might explore those in the future, but hopefully this blog post has shown you how you could represent those cases using <ProductName format={ProductNameFormat.LongForm}/>.
+GitHub has a number of other permissions. You have [organization billing managers, users that can manage specific apps, etc](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization). We might explore those in the future, but hopefully this blog post has shown you how you could represent those cases using OpenFGA.
 
 <Playground title="GitHub" preset="github" example="GitHub" store="github" />

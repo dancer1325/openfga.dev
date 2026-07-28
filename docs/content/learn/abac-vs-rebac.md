@@ -33,13 +33,13 @@ slug: /learn/abac-vs-rebac
 - You need **reverse queries** for UI rendering or filtered listings.
 - Permissions need to traverse multi-hop graphs (team → project → folder → document).
 
-## <ProductName format={ProductNameFormat.ShortForm}/> does both
+## OpenFGA does both
 
-<ProductName format={ProductNameFormat.ShortForm}/> is a ReBAC engine, but it covers ABAC needs through [conditions](/docs/modeling/conditions) (CEL expressions evaluated at check time) and [contextual tuples](/docs/interacting/contextual-tuples) (request-time data passed into the check). For most applications that's enough — you don't need a second engine.
+OpenFGA is a ReBAC engine, but it covers ABAC needs through [conditions](/docs/modeling/conditions) (CEL expressions evaluated at check time) and [contextual tuples](/docs/interacting/contextual-tuples) (request-time data passed into the check). For most applications that's enough — you don't need a second engine.
 
 ## When you might want both
 
-If you also need policy outside the application — Kubernetes admission, Terraform validation, service-mesh request rules — pair <ProductName format={ProductNameFormat.ShortForm}/> with a [policy engine](/docs/learn/policy-engine) like OPA. <ProductName format={ProductNameFormat.ShortForm}/> inside the app, OPA at the infrastructure layer.
+If you also need policy outside the application — Kubernetes admission, Terraform validation, service-mesh request rules — pair OpenFGA with a [policy engine](/docs/learn/policy-engine) like OPA. OpenFGA inside the app, OPA at the infrastructure layer.
 
 ## Related reading
 

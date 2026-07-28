@@ -6,11 +6,10 @@ sidebar_position: 0
 description: Advanced use cases and patterns for authorization modeling
 ---
 
-import { CardGrid, DocumentationNotice, IntroCard, ProductName, ProductNameFormat } from '@components/Docs';
 
 <DocumentationNotice />
 
-This section will present advanced use cases and patterns for authorization modeling with <ProductName format={ProductNameFormat.LongForm}/>.
+This section will present advanced use cases and patterns for authorization modeling with OpenFGA.
 
 <IntroCard
   title="When to use"

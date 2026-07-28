@@ -5,7 +5,6 @@ sidebar_position: 1
 slug: /modeling/advanced/gdrive
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -18,11 +17,11 @@ import {
   WriteRequestViewer,
 } from '@components/Docs';
 
-# Modeling Google Drive permissions with <ProductName format={ProductNameFormat.ShortForm}/>
+# Modeling Google Drive permissions with OpenFGA
 
 <DocumentationNotice />
 
-This tutorial explains how to represent [Google Drive](https://www.google.com/intl/en-GB/drive/) permissions model with <ProductName format={ProductNameFormat.ProductLink}/>.
+This tutorial explains how to represent [Google Drive](https://www.google.com/intl/en-GB/drive/) permissions model with [OpenFGA](https://openfga.dev).
 
 <CardBox title="What you will learn">
 
@@ -34,7 +33,7 @@ This tutorial explains how to represent [Google Drive](https://www.google.com/in
   Used here to indicate that a user can be a viewer on a document, or can have the viewer relationship implied through commenter.
 - Using the **<ProductConcept section="what-is-type-bound-public-access" linkName="type bound public access" />** in a <ProductConcept section="what-is-a-relationship-tuple" linkName="relationship tuple's" /> user field to indicate that everyone has a certain relation with an object. See [Modeling Public Access](../public-access.mdx) for more.<br />
   Used here to [share documents publicly](#04-sharing-files-and-folders-publicly).
-- Model [**parent-child objects**](../parent-child.mdx) to indicate that a user having a relationship with a certain object implies having a relationship with another object in <ProductName format={ProductNameFormat.ShortForm}/>.<br />
+- Model [**parent-child objects**](../parent-child.mdx) to indicate that a user having a relationship with a certain object implies having a relationship with another object in OpenFGA.<br />
   Used here is to indicate that a writer on a folder is a writer on all documents inside that folder.
 
 </CardBox>
@@ -43,14 +42,14 @@ This tutorial explains how to represent [Google Drive](https://www.google.com/in
 
 ## Before you start
 
-In order to understand this guide correctly you must be familiar with some <ProductName format={ProductNameFormat.LongForm}/> concepts and know how to develop the things that we will list below.
+In order to understand this guide correctly you must be familiar with some OpenFGA concepts and know how to develop the things that we will list below.
 
 <details>
 <summary>
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
-It would be helpful to have an understanding of some concepts of <ProductName format={ProductNameFormat.ShortForm}/> before you start.
+It would be helpful to have an understanding of some concepts of OpenFGA before you start.
 
 </summary>
 
@@ -79,7 +78,7 @@ You need to know how to add a relationship tuple to indicate that a resource is 
 
 Google Drive is a system to store, share, and collaborate on files and folders. [Source](https://www.google.com/drive/)
 
-In this tutorial, you will build a subset of the Google Drive permission model (detailed below) in <ProductName format={ProductNameFormat.LongForm}/>, using some scenarios to validate the model.
+In this tutorial, you will build a subset of the Google Drive permission model (detailed below) in OpenFGA, using some scenarios to validate the model.
 
 > Note: For brevity, this tutorial will not model all of Google Drive's permissions. Instead, it will focus on modeling for the scenarios outlined below
 
@@ -116,13 +115,13 @@ There will be:
 
 ### 01. Individual permissions
 
-To keep thing simple and focus on <ProductName format={ProductNameFormat.LongForm}/> features rather than Google Drive complexity we will model only four [roles](https://developers.google.com/drive/api/v3/ref-roles) (Viewer, Commenter, Writer, Owner).
+To keep thing simple and focus on OpenFGA features rather than Google Drive complexity we will model only four [roles](https://developers.google.com/drive/api/v3/ref-roles) (Viewer, Commenter, Writer, Owner).
 
 At the end of this section we want to have the following permissions represented:
 
 ![Image showing permissions](./assets/gdrive-gdrive1.svg)
 
-To represent permissions in <ProductName format={ProductNameFormat.ShortForm}/> we use <ProductConcept section="what-is-a-relation" linkName="relations" />. For document permissions we need to create the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
+To represent permissions in OpenFGA we use <ProductConcept section="what-is-a-relation" linkName="relations" />. For document permissions we need to create the following <ProductConcept section="what-is-an-authorization-model" linkName="authorization model" />:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -160,7 +159,7 @@ To represent permissions in <ProductName format={ProductNameFormat.ShortForm}/> 
   }}
 />
 
-The <ProductName format={ProductNameFormat.LongForm}/> service determines if a <ProductConcept section="what-is-a-user" linkName="user" /> has access to an <ProductConcept section="what-is-an-object" linkName="object" /> by <ProductConcept section="what-is-a-check-request" linkName="checking" /> if the user has a relation to that object. Let us examine one of those relations in detail:
+The OpenFGA service determines if a <ProductConcept section="what-is-a-user" linkName="user" /> has access to an <ProductConcept section="what-is-an-object" linkName="object" /> by <ProductConcept section="what-is-a-check-request" linkName="checking" /> if the user has a relation to that object. Let us examine one of those relations in detail:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -202,7 +201,7 @@ If we want to say `beth` is a commenter of **document:2021-budget** we create th
   ]}
 />
 
-We can now ask <ProductName format={ProductNameFormat.ShortForm}/> "is `beth` a commenter of repository **document:2021-budget**?"
+We can now ask OpenFGA "is `beth` a commenter of repository **document:2021-budget**?"
 
 <CheckRequestViewer user={'user:beth'} relation={'commenter'} object={'document:2021-budget'} allowed={true} />
 
@@ -218,7 +217,7 @@ We could also say that `anne` is an owner of the same document:
   ]}
 />
 
-And <ProductConcept section="what-is-a-check-request" linkName="ask" /> some questions to <ProductName format={ProductNameFormat.ShortForm}/>:
+And <ProductConcept section="what-is-a-check-request" linkName="ask" /> some questions to OpenFGA:
 
 <CheckRequestViewer user={'user:anne'} relation={'owner'} object={'document:2021-budget'} allowed={true} />
 <CheckRequestViewer user={'user:anne'} relation={'writer'} object={'document:2021-budget'} allowed={false} />
@@ -227,7 +226,7 @@ The first reply makes sense but the second one does not. Intuitively, if `anne` 
 
 ![Image showing roles](./assets/gdrive-roles.svg)
 
-To make <ProductName format={ProductNameFormat.ShortForm}/> aware of this "concentric" permission model we need to update our definitions:
+To make OpenFGA aware of this "concentric" permission model we need to update our definitions:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -328,7 +327,7 @@ At the end of this section we want to end up with the following permissions repr
 
 ![Image showing permissions](./assets/gdrive-gdrive2.svg)
 
-To add support for domains and members all we need to do is add this object to the <ProductName format={ProductNameFormat.ProductLink}/> <ProductConcept section="what-is-a-type-definition" linkName="authorization model" />. In addition, update the model to allow domain member to be assigned to document:
+To add support for domains and members all we need to do is add this object to the [OpenFGA](https://openfga.dev) <ProductConcept section="what-is-a-type-definition" linkName="authorization model" />. In addition, update the model to allow domain member to be assigned to document:
 
 <AuthzModelSnippetViewer
   configuration={{
@@ -453,7 +452,7 @@ Let's now create a domain, add members to it and make all members **viewers** of
   ]}
 />
 
-The last relationship tuple introduces a new **<ProductName format={ProductNameFormat.ShortForm}/>** concept. A **<ProductConcept section="what-is-a-user" linkName="userset" />**. When the value of a user is formatted like this **objectType:objectId#relation**, <ProductName format={ProductNameFormat.LongForm}/> will automatically expand the userset into all its individual user identifiers:
+The last relationship tuple introduces a new **OpenFGA** concept. A **<ProductConcept section="what-is-a-user" linkName="userset" />**. When the value of a user is formatted like this **objectType:objectId#relation**, OpenFGA will automatically expand the userset into all its individual user identifiers:
 
 <CheckRequestViewer user={'user:charles'} relation={'viewer'} object={'document:2021-budget'} allowed={true} />
 
@@ -787,7 +786,7 @@ Assume that `Anne` has created a new document: `2021-public-roadmap`, has shared
 
 ![Image showing requirements](./assets/gdrive-gdrive4.svg)
 
-Here's where another <ProductName format={ProductNameFormat.LongForm}/> feature, <ProductConcept section="what-is-type-bound-public-access" linkName="type bound public access" /> (as in everyone), would come in handy.
+Here's where another OpenFGA feature, <ProductConcept section="what-is-type-bound-public-access" linkName="type bound public access" /> (as in everyone), would come in handy.
 
 First, we will need to update our model to allow for public access with type `user` for viewer relation.
 

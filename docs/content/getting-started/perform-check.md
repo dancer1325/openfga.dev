@@ -81,7 +81,7 @@ description: Checking if a user is authorized to perform an action on a resource
 
 Assume that you want to check whether user `anne` has relationship `reader` with object `document:Z`
 
-### 01. Configure the <ProductName format={ProductNameFormat.ShortForm}/> API client
+### 01. Configure the OpenFGA API client
 
 Before calling the check API, you will need to configure the API client.
 

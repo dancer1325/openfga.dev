@@ -5,9 +5,8 @@ sidebar_position: 2
 slug: /industries/healthcare
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# Healthcare Authorization with <ProductName format={ProductNameFormat.ShortForm}/>
+# Healthcare Authorization with OpenFGA
 
 Healthcare applications — EHR/EMR systems like Epic, Cerner, or Athenahealth, plus patient portals, telehealth, and clinical research tools — share a few hard authorization problems:
 
@@ -37,11 +36,11 @@ The healthcare sample defines these object types:
 
 **Record inheritance.** Diagnoses and treatments use object-to-object relationships ([parent-child](/docs/modeling/parent-child)) so the care team inherits access through the encounter and patient. No separate ACL maintenance on every clinical note.
 
-**Facility hierarchy.** Facility directors are scoped to facility-level data (staff lists, equipment, schedules) — they do *not* inherit `can_view_sensitive` on patients seen at their facility. That separation is hard in role-only systems and easy in <ProductName format={ProductNameFormat.ShortForm}/>.
+**Facility hierarchy.** Facility directors are scoped to facility-level data (staff lists, equipment, schedules) — they do *not* inherit `can_view_sensitive` on patients seen at their facility. That separation is hard in role-only systems and easy in OpenFGA.
 
-## Where this maps to <ProductName format={ProductNameFormat.ShortForm}/> features
+## Where this maps to OpenFGA features
 
-| Healthcare requirement | <ProductName format={ProductNameFormat.ShortForm}/> feature |
+| Healthcare requirement | OpenFGA feature |
 | --- | --- |
 | Care-team membership per patient | direct tuples on `patient` |
 | PHI vs. non-PHI fields | two relations: `can_view_record`, `can_view_sensitive` |
@@ -52,13 +51,13 @@ The healthcare sample defines these object types:
 
 ## Compliance posture
 
-<ProductName format={ProductNameFormat.ShortForm}/> itself isn't a HIPAA product — compliance is a property of how you run it. What <ProductName format={ProductNameFormat.ShortForm}/> does give you:
+OpenFGA itself isn't a HIPAA product — compliance is a property of how you run it. What OpenFGA does give you:
 
 - A single, queryable source of truth for *who can see which patient record* at any moment, which audit programs typically require.
 - Append-only tuple change history via the Read Changes API.
 - Separation between checks (read-only) and writes (admin-only) at the API level.
 
-For the operational side — encryption at rest, logging, deployment in a HIPAA boundary — see [Running <ProductName format={ProductNameFormat.ShortForm}/> in Production](/docs/best-practices/running-in-production).
+For the operational side — encryption at rest, logging, deployment in a HIPAA boundary — see [Running OpenFGA in Production](/docs/best-practices/running-in-production).
 
 ## Working sample
 

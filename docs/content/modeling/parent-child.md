@@ -4,7 +4,6 @@ slug: /modeling/parent-child
 description: Indicate relationships between objects, and how users' relationships to one object can affect their relationship with another
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -21,7 +20,7 @@ import {
 
 <DocumentationNotice />
 
-In <ProductName format={ProductNameFormat.ShortForm}/>, a user's <ProductConcept section="what-is-a-relationship" linkName="relationship" /> with an <ProductConcept section="what-is-an-object" linkName="object" /> can affect their relationship with another object. For example, an `editor` of a `folder` can also be an `editor` of all `documents` that `folder` is a `parent` of.
+In OpenFGA, a user's <ProductConcept section="what-is-a-relationship" linkName="relationship" /> with an <ProductConcept section="what-is-an-object" linkName="object" /> can affect their relationship with another object. For example, an `editor` of a `folder` can also be an `editor` of all `documents` that `folder` is a `parent` of.
 
 <CardBox title="When to use" appearance="filled">
 
@@ -95,13 +94,13 @@ In addition:
 
 Creating an authorization model and a relationship tuple can grant a user access to an object. To learn more, [read about Direct Access](./direct-access.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm}/> concepts
+### OpenFGA concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a group stored in <ProductName format={ProductNameFormat.ShortForm}/> that consists of a user, a relation, and an object 
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a group stored in OpenFGA that consists of a user, a relation, and an object 
 - [Union Operator](../configuration-language.mdx#the-union-operator): can be used to indicate that the user has multiple ways of being related to an object
 
 </details>
@@ -262,7 +261,7 @@ To leverage the new cascading relation, create a relationship tuple stating that
 />
 
 :::caution
-**Note:** Use unique ids for each object and user within your application domain when creating relationship tuples for <ProductName format={ProductNameFormat.LongForm}/>. We use first names and simple ids below as an easy-to-follow example.
+**Note:** Use unique ids for each object and user within your application domain when creating relationship tuples for OpenFGA. We use first names and simple ids below as an easy-to-follow example.
 :::
 
 ### 04. Create a new relationship tuple to indicate that `folder:notes` is a `parent` of `document:meeting_notes.doc`
@@ -296,7 +295,7 @@ The chain of resolution is:
 - therefore `bob` is an `editor` of `document:meeting_notes.doc`
 
 :::caution
-When searching tuples that are related to the object (the word after `from`, also called the tupleset), <ProductName format={ProductNameFormat.LongForm}/> will not do any evaluation and only considers concrete objects (of the form `<object_type>:<object_id>`) that were directly assigned. <ProductName format={ProductNameFormat.LongForm}/> will throw an error if it encounters any rewrites, a `*`, a type bound public access (`<object_type>:*`), or a userset (`<object_type>:<object_id>#<relation>`).
+When searching tuples that are related to the object (the word after `from`, also called the tupleset), OpenFGA will not do any evaluation and only considers concrete objects (of the form `<object_type>:<object_id>`) that were directly assigned. OpenFGA will throw an error if it encounters any rewrites, a `*`, a type bound public access (`<object_type>:*`), or a userset (`<object_type>:<object_id>#<relation>`).
 
 For more information on this topic, see [Referencing Relations on Related Objects](../configuration-language.mdx#referencing-relations-on-related-objects).
 :::

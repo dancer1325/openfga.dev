@@ -47,13 +47,13 @@ TODO: You **already run one** for infrastructure or admission policy — extendi
 - You need **reverse queries** — *"list every resource this user can read"* — which inherently require a stored graph.
 - Permissions are **per-resource and per-user**, not just per-attribute.
 
-## Policy as code in <ProductName format={ProductNameFormat.ShortForm}/>
+## Policy as code in OpenFGA
 
-The "policy in Git, reviewed via PR" workflow isn't unique to policy engines. The <ProductName format={ProductNameFormat.ShortForm}/> [model DSL](/docs/configuration-language) is the policy: types, relations, and [conditions](/docs/modeling/conditions) live in a text file you commit, review, and deploy like any other code. The same model backs authorization decisions across services, languages, and domains — one source of truth instead of policy logic re-implemented per service.
+The "policy in Git, reviewed via PR" workflow isn't unique to policy engines. The OpenFGA [model DSL](/docs/configuration-language) is the policy: types, relations, and [conditions](/docs/modeling/conditions) live in a text file you commit, review, and deploy like any other code. The same model backs authorization decisions across services, languages, and domains — one source of truth instead of policy logic re-implemented per service.
 
 ## You can use both
 
-Pairing them is common: a relationship engine for application authorization, a policy engine at the infrastructure or admission layer. Inside the application, <ProductName format={ProductNameFormat.ShortForm}/> covers most attribute-driven rules with [conditions](/docs/modeling/conditions) and [contextual tuples](/docs/interacting/contextual-tuples), so a second engine isn't always needed.
+Pairing them is common: a relationship engine for application authorization, a policy engine at the infrastructure or admission layer. Inside the application, OpenFGA covers most attribute-driven rules with [conditions](/docs/modeling/conditions) and [contextual tuples](/docs/interacting/contextual-tuples), so a second engine isn't always needed.
 
 ## Related reading
 

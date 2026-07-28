@@ -5,11 +5,10 @@ sidebar_position: 1
 slug: /industries
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
-# <ProductName format={ProductNameFormat.ShortForm}/> by Industry
+# OpenFGA by Industry
 
-<ProductName format={ProductNameFormat.ShortForm}/>'s [modeling language](/docs/configuration-language) is general-purpose, but the *shape* of an authorization model differs by industry. Healthcare worries about who can see PHI on a given encounter; banking worries about per-transaction limits and delegation; e-commerce worries about which staff member can refund an order in which store. The pages below walk through how each domain is typically modeled, with links to working samples in [openfga/sample-stores](https://github.com/openfga/sample-stores#industry-examples).
+OpenFGA's [modeling language](/docs/configuration-language) is general-purpose, but the *shape* of an authorization model differs by industry. Healthcare worries about who can see PHI on a given encounter; banking worries about per-transaction limits and delegation; e-commerce worries about which staff member can refund an order in which store. The pages below walk through how each domain is typically modeled, with links to working samples in [openfga/sample-stores](https://github.com/openfga/sample-stores#industry-examples).
 
 ## Industries
 
@@ -23,6 +22,6 @@ import { ProductName, ProductNameFormat } from '@components/Docs';
 
 ## Why industry-specific models matter
 
-The <ProductName format={ProductNameFormat.ShortForm}/> team has published [23+ sample stores](https://github.com/openfga/sample-stores#industry-examples) covering accounting, ads, applicant tracking, calendars, call centers, chat, CRM, developer portals, expenses, file storage, hospitality, HR, issue tracking, knowledge bases, KMS, LMS, manufacturing, payments, and real estate. The pages above are the industries where <ProductName format={ProductNameFormat.ShortForm}/> adopters most often ask "is this how others do it?" — and the answer is meaningful enough to be worth writing down.
+The OpenFGA team has published [23+ sample stores](https://github.com/openfga/sample-stores#industry-examples) covering accounting, ads, applicant tracking, calendars, call centers, chat, CRM, developer portals, expenses, file storage, hospitality, HR, issue tracking, knowledge bases, KMS, LMS, manufacturing, payments, and real estate. The pages above are the industries where OpenFGA adopters most often ask "is this how others do it?" — and the answer is meaningful enough to be worth writing down.
 
 If your industry isn't here, the pattern pages under [Use Cases](/docs/use-cases) (multi-tenant SaaS, microservices, AI agents, RAG, MCP) are domain-neutral and apply across verticals.

@@ -5,7 +5,6 @@ sidebar_position: 5
 slug: /use-cases/multi-tenant-saas
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # Multi-Tenant SaaS Authorization
 

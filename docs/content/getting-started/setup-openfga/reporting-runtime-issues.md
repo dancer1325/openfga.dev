@@ -5,7 +5,6 @@ slug: /getting-started/setup-openfga/reporting-runtime-issues
 sidebar_position: 6
 ---
 
-import {
   DocumentationNotice,
   RelatedSection,
 } from "@components/Docs";

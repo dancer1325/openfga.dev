@@ -4,7 +4,6 @@ slug: /modeling/modular-models
 description: Modular Models
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -48,7 +47,7 @@ The `fga.mod` file is the project file for modular models. It specifies the sche
 ### Modules
 
 
-<ProductName format={ProductNameFormat.ShortForm}/> modules define the types and relations for a specific application module or service. 
+OpenFGA modules define the types and relations for a specific application module or service. 
 
 Modules are declared using the `module` keyword in the DSL, and a module can be written across multiple files. A single file cannot have more than one module. 
 
@@ -153,7 +152,7 @@ contents:
 
 ### Putting it all together
 
-With individual parts of the modular model in place, write the model to <ProductName format={ProductNameFormat.ShortForm}/> and run tests against it. Below is an example of what to run in the CLI:
+With individual parts of the modular model in place, write the model to OpenFGA and run tests against it. Below is an example of what to run in the CLI:
 
 ```shell
 fga model write --store-id=$FGA_STORE_ID --file fga.mod

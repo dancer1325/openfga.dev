@@ -6,13 +6,12 @@ sidebar_position: 0
 description: 'Authorization patterns for AI agents and automated processes: model agents as principals, secure RAG pipelines, and control MCP server tool access.'
 ---
 
-import { CardGrid, DocumentationNotice, IntroCard, ProductName, ProductNameFormat } from '@components/Docs';
 
 <DocumentationNotice />
 
-This section presents authorization patterns for AI agents and automated processes using <ProductName format={ProductNameFormat.LongForm}/>.
+This section presents authorization patterns for AI agents and automated processes using OpenFGA.
 
-AI agents interact with internal APIs on behalf of users, or with their own identity, and with third-party services on behalf of users or with service credentials. Without fine-grained authorization, agents often operate with broad credentials — accessing more than they should. The patterns in this section show how to use <ProductName format={ProductNameFormat.ShortForm}/> to scope agent permissions precisely.
+AI agents interact with internal APIs on behalf of users, or with their own identity, and with third-party services on behalf of users or with service credentials. Without fine-grained authorization, agents often operate with broad credentials — accessing more than they should. The patterns in this section show how to use OpenFGA to scope agent permissions precisely.
 
 Agent authorization typically involves two domains:
 

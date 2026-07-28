@@ -5,7 +5,6 @@ slug: /modeling/migrating
 sidebar_position: 0
 ---
 
-import { DocumentationNotice, IntroCard, CardGrid } from '@components/Docs';
 
 <DocumentationNotice />
 

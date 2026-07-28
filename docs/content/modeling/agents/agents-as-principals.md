@@ -5,7 +5,6 @@ sidebar_position: 4
 slug: /modeling/agents/agents-as-principals
 ---
 
-import {
   CheckRequestViewer,
   DocumentationNotice,
   ProductName,
@@ -21,7 +20,7 @@ Most applications already have authorization models centered on human users. If 
 
 This is orthogonal to patterns like [Task-Based Authorization](./task-based-authorization.mdx). Even if you use task-scoped permissions, you still want to constrain what an agent can do in general - beyond the permissions required for a specific task.
 
-This guide shows how to model agents as principals in a <ProductName format={ProductNameFormat.ShortForm}/> authorization model using an issue-tracking application as an example. The agent receives permissions on domain resources (projects, issues) and inherits access through the same hierarchy that users do.
+This guide shows how to model agents as principals in a OpenFGA authorization model using an issue-tracking application as an example. The agent receives permissions on domain resources (projects, issues) and inherits access through the same hierarchy that users do.
 
 ## Authorization model
 

@@ -4,7 +4,6 @@ slug: /best-practices/modeling-design-principles
 description: Best practices for creating clear, performant, and maintainable authorization models.
 sidebar_position: 1
 ---
-import {
   ProductName,
   ProductNameFormat,
   RelatedSection,
@@ -12,11 +11,11 @@ import {
 
 # Authorization Model Design Principles
 
-A well-designed authorization model is easier to understand, debug, and maintain. It also performs better and scales more gracefully as your application grows. This guide covers key principles for modeling authorization in <ProductName format={ProductNameFormat.ShortForm}/>.
+A well-designed authorization model is easier to understand, debug, and maintain. It also performs better and scales more gracefully as your application grows. This guide covers key principles for modeling authorization in OpenFGA.
 
 ## Core Principle: Model Your Domain, Not a Meta-Model
 
-The most common mistake when starting with <ProductName format={ProductNameFormat.ShortForm}/> is creating an overly generic model that can represent "anything." While this seems flexible, it trades clarity for abstraction and often hurts performance.
+The most common mistake when starting with OpenFGA is creating an overly generic model that can represent "anything." While this seems flexible, it trades clarity for abstraction and often hurts performance.
 
 :::tip Rule of Thumb
 **If end-users can define it, store it in tuples. If it's built into your application, define it in the model.**
@@ -59,9 +58,9 @@ This approach has several advantages:
 
 - **Enhanced clarity and maintainability**: Authorization logic is easier to understand, debug, and maintain. Developers and security auditors can readily grasp the meaning of each type and relationship just by reading the model.
 
-- **Better performance**: Models with specific types and flatter hierarchies perform better. <ProductName format={ProductNameFormat.ShortForm}/> processes queries more efficiently with well-defined types compared to navigating complex recursive relationships within generic types.
+- **Better performance**: Models with specific types and flatter hierarchies perform better. OpenFGA processes queries more efficiently with well-defined types compared to navigating complex recursive relationships within generic types.
 
-- **Easier evolution**: <ProductName format={ProductNameFormat.ShortForm}/>'s modeling language is designed to be adaptable. You can define numerous distinct types and relationships without significant overhead. Model changes rarely require data migrations, allowing you to evolve your model as your application grows.
+- **Easier evolution**: OpenFGA's modeling language is designed to be adaptable. You can define numerous distinct types and relationships without significant overhead. Model changes rarely require data migrations, allowing you to evolve your model as your application grows.
 
 - **Team autonomy with modules**: Resource types owned by each application team can be maintained in independent [modules](./../modeling/modular-models.mdx). You can control which application can write to specific resource types through API credentials, providing better security boundaries.
 

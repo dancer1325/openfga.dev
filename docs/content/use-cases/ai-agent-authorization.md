@@ -5,13 +5,12 @@ sidebar_position: 2
 slug: /use-cases/ai-agent-authorization
 ---
 
-import { ProductName, ProductNameFormat } from '@components/Docs';
 
 # AI Agent Authorization
 
 Autonomous and copilot agents act on behalf of users — but "on behalf of" is not the same as "as." A well-modeled agent has its **own identity**, inherits **only the permissions it actually needs**, and can be revoked independently of the user it serves.
 
-<ProductName format={ProductNameFormat.ShortForm}/> models this directly:
+OpenFGA models this directly:
 
 - **Agents are first-class principals.** They appear on the left side of tuples like users do, so checks, list-objects, and list-users all work on agent identities.
 - **Permissions are delegated, not copied.** Relations like `can_act_on_behalf_of` make the delegation explicit and revocable.
@@ -29,7 +28,7 @@ The modeling guides below cover the building blocks:
 
 ## Why ReBAC fits agent workflows
 
-Agent workflows are graph-shaped: a user grants an agent access to a workspace; the workspace contains documents; some documents are shared from other workspaces. Roles can't model that without exploding into per-resource role definitions. Relationships do it natively — and <ProductName format={ProductNameFormat.ShortForm}/>'s [reverse queries](/docs/interacting/relationship-queries) (`list-objects`, `list-users`) let the agent ask *"what can I see?"* without scanning everything.
+Agent workflows are graph-shaped: a user grants an agent access to a workspace; the workspace contains documents; some documents are shared from other workspaces. Roles can't model that without exploding into per-resource role definitions. Relationships do it natively — and OpenFGA's [reverse queries](/docs/interacting/relationship-queries) (`list-objects`, `list-users`) let the agent ask *"what can I see?"* without scanning everything.
 
 ## Related reading
 

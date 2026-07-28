@@ -4,7 +4,6 @@ slug: /modeling/multiple-restrictions
 description: Modeling system that requires multiple authorizations before allowing users to perform actions on particular objects
 ---
 
-import {
   AuthzModelSnippetViewer,
   CardBox,
   CheckRequestViewer,
@@ -20,7 +19,7 @@ import {
 
 <DocumentationNotice />
 
-In this guide we are going to model system that requires multiple authorizations before allowing users to perform actions on particular objects using <ProductName format={ProductNameFormat.ProductLink}/>.
+In this guide we are going to model system that requires multiple authorizations before allowing users to perform actions on particular objects using [OpenFGA](https://openfga.dev).
 For example, _<ProductConcept section="what-is-a-user" linkName="users" />_ are allowed to delete a `document` if both of these conditions are met:
 
 - they are a member of the organization that owns the document
@@ -158,20 +157,20 @@ You need to know how to model access based on parent-child relationships, e.g.: 
 
 You need to know how to model roles for users at the object level and model permissions for those roles. [Learn more →](./roles-and-permissions.mdx)
 
-### <ProductName format={ProductNameFormat.ShortForm} /> Concepts
+### OpenFGA Concepts
 
 - A <ProductConcept section="what-is-a-type" linkName="Type" />: a class of objects that have similar characteristics
 - A <ProductConcept section="what-is-a-user" linkName="User" />: an entity in the system that can be related to an object
 - A <ProductConcept section="what-is-a-relation" linkName="Relation" />: is a string defined in the type definition of an authorization model that defines the possibility of a relationship between an object of the same type as the type definition and a user in the system
 - An <ProductConcept section="what-is-an-object" linkName="Object" />: represents an entity in the system. Users' relationships to it can be define through relationship tuples and the authorization model
-- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in <ProductName format={ProductNameFormat.ShortForm} />
+- A <ProductConcept section="what-is-a-relationship-tuple" linkName="Relationship Tuple" />: a grouping consisting of a user, a relation and an object stored in OpenFGA
 - [Intersection Operator](../configuration-language.mdx#the-intersection-operator): the intersection operator can be used to indicate a relationship exists if the user is in all the sets of users
 
 </details>
 
 ## Step By Step
 
-With the above authorization model and relationship tuples, <ProductName format={ProductNameFormat.LongForm} /> will correctly respond with `{"allowed":true}` when *<ProductConcept section="what-is-a-check-request" linkName="check" />*is called to see if Carl and Becky can write this `document`.
+With the above authorization model and relationship tuples, OpenFGA will correctly respond with `{"allowed":true}` when *<ProductConcept section="what-is-a-check-request" linkName="check" />*is called to see if Carl and Becky can write this `document`.
 
 We can verify that by issuing two check requests:
 

@@ -5,7 +5,6 @@ sidebar_position: 1
 slug: /interacting/search-with-permissions
 ---
 
-import { DocumentationNotice, ProductName, ProductNameFormat, UpdateProductNameInLinks } from '@components/Docs';
 
 # Search With Permissions
 
@@ -17,13 +16,13 @@ The search problem can then be summarized as:
 
 > "Given a particular search filter and a sort order, what objects can the user access"?
 
-The <ProductName format={ProductNameFormat.ShortForm}/> service does not store object metadata (names of files, creation dates, time of last update, etc), which means completing any search request by filtering and sorting according to certain criteria will require data from your database.
+The OpenFGA service does not store object metadata (names of files, creation dates, time of last update, etc), which means completing any search request by filtering and sorting according to certain criteria will require data from your database.
 
 The services responsible for performing these actions are:
 
 - Filter: Your database
 - Sort: Your database
-- Authorize: <ProductName format={ProductNameFormat.ShortForm}/>
+- Authorize: OpenFGA
 
 To return the set of results that match the user's search query, you will need to get the intersection of the results from the services above.
 
@@ -33,7 +32,7 @@ There are three possible ways to do this:
 
 ### Option 1: Search, then check
 
-Pre-filter, then call <ProductName format={ProductNameFormat.ShortForm}/> Batch Check endpoint.
+Pre-filter, then call OpenFGA Batch Check endpoint.
 
 1. Filter and sort on your database.
 1. Call [`/batch-check`](./relationship-queries.mdx#batch-check) to check access for multiple objects in a single request.
@@ -93,7 +92,7 @@ So while **[List of IDs then Search](#option-3-build-a-list-of-ids-then-search)*
 
 The recommended option for this case is to use **[Local Index from Changes Endpoint, Search then Check](#option-2-build-a-local-index-from-changes-endpoint-search-then-check)**.
 
-- _List of IDs then Search_ would not work because you would have to get and paginate across thousands or tens of thousands (or in some cases more) of results from <ProductName format={ProductNameFormat.ShortForm}/>, only after you have retrieved the entire set can you start searching within your database for matching results. This would mean that your user could be waiting for a long time before they can start seeing results.
+- _List of IDs then Search_ would not work because you would have to get and paginate across thousands or tens of thousands (or in some cases more) of results from OpenFGA, only after you have retrieved the entire set can you start searching within your database for matching results. This would mean that your user could be waiting for a long time before they can start seeing results.
 
 - _Search then Check_ would also not be ideal, as you will be retrieving and checking against a lot of items and discarding most of them.
 

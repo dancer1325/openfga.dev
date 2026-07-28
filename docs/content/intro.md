@@ -5,16 +5,15 @@ sidebar_position: 1
 slug: /fga
 ---
 
-import { ProductName,  ProductNameFormat, RelatedSection } from '@components/Docs';
 
-# Introduction to <ProductName format={ProductNameFormat.LongForm}/>
+# Introduction to OpenFGA
 
-<ProductName format={ProductNameFormat.ShortForm}/> is a scalable open source authorization system for developers that allows implementing authorization for any kind of application and smoothly evolve as complexity increases over time. It is owned by the [Cloud Native Computing Foundation](https://cncf.io).
+OpenFGA is a scalable open source authorization system for developers that allows implementing authorization for any kind of application and smoothly evolve as complexity increases over time. It is owned by the [Cloud Native Computing Foundation](https://cncf.io).
 
-Inspired by [Google’s Zanzibar](https://zanzibar.academy), Google’s internal authorization system, <ProductName format={ProductNameFormat.ShortForm}/> relies on Relationship-Based Access Control, which allows developers to easily implement Role-Based Access Control and provides additional capabilities to implement Attribute-Based Access Control. You can learn more about different authorization concepts [here](./authorization-concepts.mdx).
+Inspired by [Google’s Zanzibar](https://zanzibar.academy), Google’s internal authorization system, OpenFGA relies on Relationship-Based Access Control, which allows developers to easily implement Role-Based Access Control and provides additional capabilities to implement Attribute-Based Access Control. You can learn more about different authorization concepts [here](./authorization-concepts.mdx).
 
 ## Benefits
-<ProductName format={ProductNameFormat.ShortForm}/> provides developers the following benefits:
+OpenFGA provides developers the following benefits:
 
 
 - Move authorization logic outside of application code, making it easier to write, change and audit.
@@ -25,7 +24,7 @@ Inspired by [Google’s Zanzibar](https://zanzibar.academy), Google’s internal
 
 ## Features
 
-<ProductName format={ProductNameFormat.ShortForm}/> helps developers achieve those benefits with features as:
+OpenFGA helps developers achieve those benefits with features as:
 
 
 - Support for multiple [stores](./concepts.mdx#what-is-a-store) that allow authorization management in different environments (prod/testing/dev) and use cases (internal apps, external apps, infrastructure).
@@ -34,7 +33,7 @@ Inspired by [Google’s Zanzibar](https://zanzibar.academy), Google’s internal
 - [HTTP](https://docs.fga.dev/api/service) and [gRPC](https://buf.build/openfga/api) APIs.
 - Support for being run as a library, from with a Go based service.
 - Support for using Postgres, MySQL or SQLite as the production datastore, as well as an in-memory datastore for non-production usage.
-- [A Command Line Interface tool](./getting-started/cli.mdx) for managing <ProductName format={ProductNameFormat.ShortForm}/> stores, test models, import/export models, and data.
+- [A Command Line Interface tool](./getting-started/cli.mdx) for managing OpenFGA stores, test models, import/export models, and data.
 - Github Actions for [testing](https://github.com/marketplace/actions/openfga-model-testing-action) and [deploying](https://github.com/marketplace/actions/openfga-model-deploy-action) models.
 - A [Visual Studio Code Extension](https://marketplace.visualstudio.com/items?itemName=openfga.openfga-vscode) with syntax highlighting and validation of FGA models and tests.
 - [Helm Charts](https://github.com/openfga/helm-charts) to easily deploy to Kubernetes.
