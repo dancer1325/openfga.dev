@@ -15,7 +15,13 @@ import {
 
 <DocumentationNotice />
 
-Authorization Models in <ProductName format={ProductNameFormat.ShortForm}/> are immutable, they are created once and then can no longer be deleted or modified. Each time you write an authorization model, a new version is created.
+* OpenFGA Authorization Models
+  * are immutable
+    * == they 
+      * are created 1! 
+        * == NEW version
+      * can NOT be deleted OR modified
+
 
 ## Viewing all the authorization models
 
