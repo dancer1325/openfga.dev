@@ -146,9 +146,8 @@ To configure authorization model, we can invoke the [write authorization models 
 
 The API will then return the authorization model ID.
 
-:::info Note
-The OpenFGA API only accepts an authorization model in the API&#39;s JSON syntax.
+* OpenFGA API 
+  * requirements 
+    * authorization model / API&#39;s JSON syntax
 
-To convert between the API Syntax and the friendly DSL, you can use the [FGA CLI](https://github.com/openfga/cli/).
-:::
-
+* if you want to convert API Syntax -- to -- friendly DSL -> use the [FGA CLI](https://github.com/openfga/cli/)
